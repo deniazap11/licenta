@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
+
 import { environment } from "../environments/environment";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
@@ -21,12 +22,16 @@ import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./auth/login/login.component";
 import { SignupComponent } from "./auth/signup/signup.component";
 import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinner.component";
+import { BrandDashboardComponent } from "./brand-dashboard/brand-dashboard.component";
+import { CreatorDashboardComponent } from "./creator-dashboard/creator-dashboard.component";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
   { path: "home", component: HomeComponent },
   { path: "login", component: LoginComponent },
-  { path: "signup", component: SignupComponent }
+  { path: "signup", component: SignupComponent },
+  { path: "brand-dashboard", component: BrandDashboardComponent },
+  { path: "creator-dashboard", component: CreatorDashboardComponent }
 ];
 
 @NgModule({
@@ -42,7 +47,9 @@ const appRoutes: Routes = [
     HomeComponent,
     LoginComponent,
     SignupComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    BrandDashboardComponent,
+    CreatorDashboardComponent
   ],
   imports: [
     BrowserModule,

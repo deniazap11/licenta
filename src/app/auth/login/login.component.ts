@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
       resData => {
         console.log(resData);
         this.isLoading = false;
+        this.authService.getUserType();
       },
       errorMessage => {
         console.log(errorMessage);

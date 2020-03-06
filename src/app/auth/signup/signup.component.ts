@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { AuthService } from "../auth.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-signup",
@@ -11,7 +12,7 @@ export class SignupComponent implements OnInit {
   isLoading = false;
   error: string = null;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit(form: NgForm) {
     if (!form.valid) {
@@ -19,6 +20,10 @@ export class SignupComponent implements OnInit {
     }
     const email = form.value.email;
     const password = form.value.password;
+    const name = form.controls["name"].value;
+    const userType = form.controls["role"].value;
+
+    console.log(userType, name);
 
     this.isLoading = true;
 
@@ -26,6 +31,8 @@ export class SignupComponent implements OnInit {
       resData => {
         console.log(resData);
         this.isLoading = false;
+        if (userType == "brand") this.router.navigate(["/brand-dashboard"]);
+        else this.router.navigate(["/creator-dashboard"]);
       },
       errorMessage => {
         console.log(errorMessage);
@@ -33,6 +40,8 @@ export class SignupComponent implements OnInit {
         this.isLoading = false;
       }
     );
+
+    this.authService.addToDatabase(userType, name, email);
     form.reset();
   }
 

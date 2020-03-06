@@ -1,7 +1,11 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { catchError } from "rxjs/operators";
-import { throwError } from "rxjs";
+import { catchError, tap } from "rxjs/operators";
+import { throwError, Subject } from "rxjs";
+import { User } from "./user.model";
+
+import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
+import * as firebase from "firebase/app";
 
 interface AuthResponseData {
   kind: string;
@@ -15,7 +19,39 @@ interface AuthResponseData {
 
 @Injectable({ providedIn: "root" })
 export class AuthService {
-  constructor(private http: HttpClient) {}
+  user = new Subject<User>();
+
+  private userList: AngularFireList<any>;
+
+  constructor(private http: HttpClient, private firebase: AngularFireDatabase) {
+    this.userList = this.firebase.list("users");
+  }
+
+  getUserType() {
+    return this.userList;
+  }
+
+  addToDatabase(userType: string, name: string, email: string) {
+    if (userType == "brand") {
+      firebase
+        .database()
+        .ref("users/brands/")
+        .push({
+          userType: userType,
+          name: name,
+          email: email
+        });
+    } else {
+      firebase
+        .database()
+        .ref("users/creators/")
+        .push({
+          userType: userType,
+          name: name,
+          email: email
+        });
+    }
+  }
 
   signup(email: string, password: string) {
     return this.http
@@ -23,7 +59,17 @@ export class AuthService {
         "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyA0dpfNc2c6zyb_or06OD3Zc1RTgNnDuUM",
         { email: email, password: password, returnSecureToken: true }
       )
-      .pipe(catchError(this.handleError));
+      .pipe(
+        catchError(this.handleError),
+        tap(resData => {
+          this.handleAuthentication(
+            resData.email,
+            resData.localId,
+            resData.idToken,
+            +resData.expiresIn
+          );
+        })
+      );
   }
 
   login(email: string, password: string) {
@@ -32,7 +78,28 @@ export class AuthService {
         "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyA0dpfNc2c6zyb_or06OD3Zc1RTgNnDuUM",
         { email: email, password: password, returnSecureToken: true }
       )
-      .pipe(catchError(this.handleError));
+      .pipe(
+        catchError(this.handleError),
+        tap(resData => {
+          this.handleAuthentication(
+            resData.email,
+            resData.localId,
+            resData.idToken,
+            +resData.expiresIn
+          );
+        })
+      );
+  }
+
+  private handleAuthentication(
+    email: string,
+    userId: string,
+    token: string,
+    expiresIn: number
+  ) {
+    const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
+    const user = new User(email, userId, token, expirationDate);
+    this.user.next(user);
   }
 
   private handleError(errorRes: HttpErrorResponse) {
