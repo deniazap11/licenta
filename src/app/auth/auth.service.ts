@@ -21,15 +21,7 @@ interface AuthResponseData {
 export class AuthService {
   user = new Subject<User>();
 
-  private userList: AngularFireList<any>;
-
-  constructor(private http: HttpClient, private firebase: AngularFireDatabase) {
-    this.userList = this.firebase.list("users");
-  }
-
-  getUserType() {
-    return this.userList;
-  }
+  constructor(private http: HttpClient) {}
 
   addToDatabase(userType: string, name: string, email: string) {
     if (userType == "brand") {

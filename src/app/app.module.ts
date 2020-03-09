@@ -7,6 +7,7 @@ import { AngularFireDatabaseModule } from "@angular/fire/database";
 import { environment } from "../environments/environment";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import * as firebase from "firebase/app";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -34,6 +35,8 @@ const appRoutes: Routes = [
   { path: "creator-dashboard", component: CreatorDashboardComponent }
 ];
 
+firebase.initializeApp(environment.firebase);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +58,7 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule,
     AngularFireDatabaseModule,
     FormsModule,
     HttpClientModule

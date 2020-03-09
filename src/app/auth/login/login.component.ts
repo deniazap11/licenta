@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { AuthService } from "../auth.service";
+import { AngularFireDatabase } from "angularfire2/database";
+import * as firebase from "firebase/app";
+import "firebase/auth";
 
 @Component({
   selector: "app-login",
@@ -12,6 +15,17 @@ export class LoginComponent implements OnInit {
   error: string = null;
 
   constructor(private authService: AuthService) {}
+
+  ngOnInit() {}
+
+  getUserData(uid) {
+    firebase
+      .database()
+      .ref("users/" + uid)
+      .once("value", snap => {
+        console.log(snap.val());
+      });
+  }
 
   onSubmit(form: NgForm) {
     if (!form.valid) {
@@ -27,7 +41,6 @@ export class LoginComponent implements OnInit {
       resData => {
         console.log(resData);
         this.isLoading = false;
-        this.authService.getUserType();
       },
       errorMessage => {
         console.log(errorMessage);
@@ -36,7 +49,12 @@ export class LoginComponent implements OnInit {
       }
     );
     form.reset();
-  }
 
-  ngOnInit() {}
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        console.log(user.uid);
+        this.getUserData(user.uid);
+      } else console.log("not working");
+    });
+  }
 }
