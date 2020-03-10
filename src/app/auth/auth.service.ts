@@ -1,12 +1,14 @@
-import { Injectable } from "@angular/core";
+import { Injectable, OnInit } from "@angular/core";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { catchError, tap } from "rxjs/operators";
+import { catchError, tap, subscribeOn } from "rxjs/operators";
 import { throwError, Subject, BehaviorSubject } from "rxjs";
 import { User } from "./user.model";
+import { map } from "rxjs/operators";
 
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 import * as firebase from "firebase/app";
 import { Router } from "@angular/router";
+import { DatabaseUser } from "./DatabaseUser.model";
 
 interface AuthResponseData {
   kind: string;
@@ -24,26 +26,15 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  addToDatabase(userType: string, name: string, email: string) {
-    if (userType == "brand") {
-      firebase
-        .database()
-        .ref("users/brands/")
-        .push({
-          userType: userType,
-          name: name,
-          email: email
-        });
-    } else {
-      firebase
-        .database()
-        .ref("users/creators/")
-        .push({
-          userType: userType,
-          name: name,
-          email: email
-        });
-    }
+  addUserToDatabase(postData: DatabaseUser) {
+    this.http
+      .post<{ name: string }>(
+        "https://project-b7a57.firebaseio.com/users.json",
+        postData
+      )
+      .subscribe(responseData => {
+        console.log(responseData);
+      });
   }
 
   signup(email: string, password: string) {

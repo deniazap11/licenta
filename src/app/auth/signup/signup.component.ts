@@ -23,8 +23,6 @@ export class SignupComponent implements OnInit {
     const name = form.controls["name"].value;
     const userType = form.controls["role"].value;
 
-    console.log(userType, name);
-
     this.isLoading = true;
 
     this.authService.signup(email, password).subscribe(
@@ -41,7 +39,7 @@ export class SignupComponent implements OnInit {
       }
     );
 
-    this.authService.addToDatabase(userType, name, email);
+    this.authService.addUserToDatabase({ userType, name, email });
     form.reset();
   }
 
