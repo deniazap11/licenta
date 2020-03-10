@@ -4,6 +4,7 @@ import { AuthService } from "../auth.service";
 import { AngularFireDatabase } from "angularfire2/database";
 import * as firebase from "firebase/app";
 import "firebase/auth";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-login",
@@ -14,18 +15,9 @@ export class LoginComponent implements OnInit {
   isLoading = false;
   error: string = null;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {}
-
-  getUserData(uid) {
-    firebase
-      .database()
-      .ref("users/" + uid)
-      .once("value", snap => {
-        console.log(snap.val());
-      });
-  }
 
   onSubmit(form: NgForm) {
     if (!form.valid) {
@@ -41,6 +33,7 @@ export class LoginComponent implements OnInit {
       resData => {
         console.log(resData);
         this.isLoading = false;
+        this.router.navigate(["/brand-dashboard"]);
       },
       errorMessage => {
         console.log(errorMessage);
@@ -49,12 +42,5 @@ export class LoginComponent implements OnInit {
       }
     );
     form.reset();
-
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        console.log(user.uid);
-        this.getUserData(user.uid);
-      } else console.log("not working");
-    });
   }
 }

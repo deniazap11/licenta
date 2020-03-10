@@ -1,11 +1,12 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { catchError, tap } from "rxjs/operators";
-import { throwError, Subject } from "rxjs";
+import { throwError, Subject, BehaviorSubject } from "rxjs";
 import { User } from "./user.model";
 
 import { AngularFireDatabase, AngularFireList } from "angularfire2/database";
 import * as firebase from "firebase/app";
+import { Router } from "@angular/router";
 
 interface AuthResponseData {
   kind: string;
@@ -19,9 +20,9 @@ interface AuthResponseData {
 
 @Injectable({ providedIn: "root" })
 export class AuthService {
-  user = new Subject<User>();
+  user = new BehaviorSubject<User>(null);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   addToDatabase(userType: string, name: string, email: string) {
     if (userType == "brand") {
@@ -83,6 +84,34 @@ export class AuthService {
       );
   }
 
+  autoLogin() {
+    const userData: {
+      email: string;
+      id: string;
+      _token: string;
+      _tokenExpirationDate: string;
+    } = JSON.parse(localStorage.getItem("userData"));
+    if (!userData) {
+      return;
+    }
+
+    const loadedUser = new User(
+      userData.email,
+      userData.id,
+      userData._token,
+      new Date(userData._tokenExpirationDate)
+    );
+
+    if (loadedUser.token) {
+      this.user.next(loadedUser);
+    }
+  }
+
+  logout() {
+    this.user.next(null);
+    this.router.navigate(["/login"]);
+  }
+
   private handleAuthentication(
     email: string,
     userId: string,
@@ -91,7 +120,9 @@ export class AuthService {
   ) {
     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
     const user = new User(email, userId, token, expirationDate);
+    console.log(userId);
     this.user.next(user);
+    localStorage.setItem("userData", JSON.stringify(user));
   }
 
   private handleError(errorRes: HttpErrorResponse) {
