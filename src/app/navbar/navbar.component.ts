@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { AuthService } from "../auth/auth.service";
 import { Subscription } from "rxjs";
 import * as firebase from "firebase/app";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-navbar",
@@ -17,7 +18,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.navbarOpen = !this.navbarOpen;
   }
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onLogout() {
     this.authService.logout();
@@ -27,6 +28,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.userSub = this.authService.user.subscribe(user => {
       this.isAuthenticated = !user ? false : true;
     });
+
+    if (!this.isAuthenticated) {
+      this.router.navigate(["/login"]);
+    }
   }
 
   ngOnDestroy() {

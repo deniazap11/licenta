@@ -25,6 +25,8 @@ import { SignupComponent } from "./auth/signup/signup.component";
 import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinner.component";
 import { BrandDashboardComponent } from "./brand-dashboard/brand-dashboard.component";
 import { CreatorDashboardComponent } from "./creator-dashboard/creator-dashboard.component";
+import { BrandSidenavComponent } from './brand-dashboard/brand-sidenav/brand-sidenav.component';
+import { BrandMainAreaComponent } from './brand-dashboard/brand-main-area/brand-main-area.component';
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
@@ -52,7 +54,9 @@ firebase.initializeApp(environment.firebase);
     SignupComponent,
     LoadingSpinnerComponent,
     BrandDashboardComponent,
-    CreatorDashboardComponent
+    CreatorDashboardComponent,
+    BrandSidenavComponent,
+    BrandMainAreaComponent
   ],
   imports: [
     BrowserModule,
