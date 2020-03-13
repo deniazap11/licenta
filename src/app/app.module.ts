@@ -25,18 +25,27 @@ import { SignupComponent } from "./auth/signup/signup.component";
 import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinner.component";
 import { BrandDashboardComponent } from "./brand-dashboard/brand-dashboard.component";
 import { CreatorDashboardComponent } from "./creator-dashboard/creator-dashboard.component";
-import { BrandSidenavComponent } from './brand-dashboard/brand-sidenav/brand-sidenav.component';
-import { BrandMainAreaComponent } from './brand-dashboard/brand-main-area/brand-main-area.component';
-import { CreatorSidenavComponent } from './creator-dashboard/creator-sidenav/creator-sidenav.component';
-import { CreatorMainAreaComponent } from './creator-dashboard/creator-main-area/creator-main-area.component';
+import { BrandSidenavComponent } from "./brand-dashboard/brand-sidenav/brand-sidenav.component";
+import { BrandMainAreaComponent } from "./brand-dashboard/brand-main-area/brand-main-area.component";
+import { CreatorSidenavComponent } from "./creator-dashboard/creator-sidenav/creator-sidenav.component";
+import { CreatorMainAreaComponent } from "./creator-dashboard/creator-main-area/creator-main-area.component";
+import { AuthGuard } from "./auth/login/auth.guard";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
   { path: "home", component: HomeComponent },
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignupComponent },
-  { path: "brand-dashboard", component: BrandDashboardComponent },
-  { path: "creator-dashboard", component: CreatorDashboardComponent }
+  {
+    path: "brand-dashboard",
+    component: BrandDashboardComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "creator-dashboard",
+    component: CreatorDashboardComponent,
+    canActivate: [AuthGuard]
+  }
 ];
 
 firebase.initializeApp(environment.firebase);
