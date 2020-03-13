@@ -27,6 +27,8 @@ import { BrandDashboardComponent } from "./brand-dashboard/brand-dashboard.compo
 import { CreatorDashboardComponent } from "./creator-dashboard/creator-dashboard.component";
 import { BrandSidenavComponent } from './brand-dashboard/brand-sidenav/brand-sidenav.component';
 import { BrandMainAreaComponent } from './brand-dashboard/brand-main-area/brand-main-area.component';
+import { CreatorSidenavComponent } from './creator-dashboard/creator-sidenav/creator-sidenav.component';
+import { CreatorMainAreaComponent } from './creator-dashboard/creator-main-area/creator-main-area.component';
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
@@ -56,7 +58,9 @@ firebase.initializeApp(environment.firebase);
     BrandDashboardComponent,
     CreatorDashboardComponent,
     BrandSidenavComponent,
-    BrandMainAreaComponent
+    BrandMainAreaComponent,
+    CreatorSidenavComponent,
+    CreatorMainAreaComponent
   ],
   imports: [
     BrowserModule,

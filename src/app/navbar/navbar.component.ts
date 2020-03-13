@@ -29,9 +29,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
       this.isAuthenticated = !user ? false : true;
     });
 
-    if (!this.isAuthenticated) {
-      this.router.navigate(["/login"]);
-    }
+    // if (!this.isAuthenticated) {
+    //   this.router.navigate(["/login"]);
+    // }
   }
 
   ngOnDestroy() {
