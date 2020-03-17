@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-brand-dashboard',
-  templateUrl: './brand-dashboard.component.html',
-  styleUrls: ['./brand-dashboard.component.css']
+  selector: "app-brand-dashboard",
+  templateUrl: "./brand-dashboard.component.html",
+  styleUrls: ["./brand-dashboard.component.css"]
 })
 export class BrandDashboardComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

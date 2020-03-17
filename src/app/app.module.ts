@@ -30,6 +30,7 @@ import { BrandMainAreaComponent } from "./brand-dashboard/brand-main-area/brand-
 import { CreatorSidenavComponent } from "./creator-dashboard/creator-sidenav/creator-sidenav.component";
 import { CreatorMainAreaComponent } from "./creator-dashboard/creator-main-area/creator-main-area.component";
 import { AuthGuard } from "./auth/login/auth.guard";
+import { NewCampaignComponent } from "./brand-dashboard/brand-main-area/new-campaign/new-campaign.component";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
@@ -39,7 +40,14 @@ const appRoutes: Routes = [
   {
     path: "brand-dashboard",
     component: BrandDashboardComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: "new-campaign",
+        component: NewCampaignComponent,
+        outlet: "content"
+      }
+    ]
   },
   {
     path: "creator-dashboard",
@@ -69,7 +77,8 @@ firebase.initializeApp(environment.firebase);
     BrandSidenavComponent,
     BrandMainAreaComponent,
     CreatorSidenavComponent,
-    CreatorMainAreaComponent
+    CreatorMainAreaComponent,
+    NewCampaignComponent
   ],
   imports: [
     BrowserModule,
