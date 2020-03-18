@@ -2,8 +2,13 @@
   <div class="wrapper wrapper--w680">
     <div class="card card-4">
       <div class="card-body">
-        <h2 class="title">New campaign</h2>
-        <form>
+        <h2 class="title">
+          Fill in the fields bellow about the desired campaign
+        </h2>
+        <form
+          #newCampaignForm="ngForm"
+          (ngSubmit)="onSubmitNewCampaign(newCampaignForm)"
+        >
           <div class="row row-space">
             <div class="col-12">
               <div class="input-group">
@@ -12,6 +17,7 @@
                   class="input--style-4"
                   type="text"
                   name="name"
+                  ngModel
                   required
                 />
               </div>
@@ -25,6 +31,7 @@
                   class="input--style-4"
                   type="text"
                   name="description"
+                  ngModel
                   required
                 />
               </div>
@@ -32,13 +39,14 @@
           </div>
           <div class="row row-space">
             <div class="col-12">
-              <div class="input-group category-field">
+              <div class="input-group select-field">
                 <label class="label">Category</label>
-                <select class="input--style-4">
-                  <option>Beauty</option>
-                  <option>Fitness</option>
-                  <option>Crafts</option>
-                  <option>Restaurants</option>
+                <select class="input--style-4" name="category" ngModel>
+                  <option disabled selected>Choose one option</option>
+                  <option value="beauty">Beauty</option>
+                  <option value="fitness">Fitness</option>
+                  <option value="crafts">Crafts</option>
+                  <option value="restaurants">Restaurants</option>
                 </select>
               </div>
             </div>
@@ -51,6 +59,7 @@
                   class="input--style-4"
                   type="text"
                   name="brief"
+                  ngModel
                   required
                 />
               </div>
@@ -60,7 +69,13 @@
             <div class="col-12">
               <div class="input-group">
                 <label class="label">Do</label>
-                <input class="input--style-4" type="text" name="do" required />
+                <input
+                  class="input--style-4"
+                  type="text"
+                  name="todo"
+                  ngModel
+                  required
+                />
               </div>
             </div>
           </div>
@@ -72,11 +87,71 @@
                   class="input--style-4"
                   type="text"
                   name="dont"
+                  ngModel
                   required
                 />
               </div>
             </div>
           </div>
+          <div class="row row-space">
+            <div class="col-12">
+              <div class="input-group">
+                <label class="label">Tags to include</label>
+                <input
+                  class="input--style-4"
+                  type="text"
+                  name="tags"
+                  ngModel
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row row-space">
+            <div class="col-12">
+              <h4
+                class="title"
+                style="font-size: 20px;
+              margin-bottom: 10px;
+              margin-top: 20px;"
+              >
+                Who you are looking for?
+              </h4>
+            </div>
+          </div>
+
+          <div class="row row-space">
+            <div class="col-12">
+              <div class="input-group select-field">
+                <label class="label">Gender</label>
+
+                <select class="input--style-4" ngModel name="gender">
+                  <option disabled selected>Choose one option</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="any">Any</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row row-space">
+            <div class="col-12">
+              <label class="label">Age</label>
+              <div class="slidecontainer">
+                <!-- <span class="text-small">16</span>
+                <span class="text-small" style="float: right ;">80</span> -->
+                <mat-slider
+                  thumbLabel
+                  [displayWith]="formatLabel"
+                  min="16"
+                  max="80"
+                  class="age-slider"
+                  (input)="onInputChange($event)"
+                ></mat-slider>
+              </div>
+            </div>
+          </div>
+
           <div class="row row-space">
             <div class="p-t-15">
               <button class="btn btn--radius-2 btn--blue" type="submit">

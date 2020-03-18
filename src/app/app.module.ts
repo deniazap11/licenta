@@ -1,5 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { MatSliderModule } from "@angular/material/slider";
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
@@ -31,6 +32,7 @@ import { CreatorSidenavComponent } from "./creator-dashboard/creator-sidenav/cre
 import { CreatorMainAreaComponent } from "./creator-dashboard/creator-main-area/creator-main-area.component";
 import { AuthGuard } from "./auth/login/auth.guard";
 import { NewCampaignComponent } from "./brand-dashboard/brand-main-area/new-campaign/new-campaign.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
@@ -87,7 +89,9 @@ firebase.initializeApp(environment.firebase);
     AngularFireModule,
     AngularFireDatabaseModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -689,7 +689,28 @@ input {
 }
 
 /* custom */
-.category-field {
+.select-field {
   display: flex;
   flex-direction: column;
+}
+
+.slidecontainer {
+  width: 100%;
+}
+
+.age-slider {
+  width: 100%;
+}
+
+::ng-deep .mat-slider-track-fill {
+  background-color: #50a7c2 !important;
+}
+::ng-deep .mat-slider-thumb-label-text {
+  background-color: #50a7c2 !important;
+}
+::ng-deep .mat-slider-thumb-label {
+  background-color: #50a7c2 !important;
+}
+::ng-deep .mat-slider-thumb {
+  background-color: #50a7c2 !important;
 }
