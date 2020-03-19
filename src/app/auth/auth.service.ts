@@ -24,8 +24,36 @@ interface AuthResponseData {
 export class AuthService {
   user = new BehaviorSubject<User>(null);
   private tokenExpirationTimer: any;
+  private userName: string;
 
   constructor(private http: HttpClient, private router: Router) {}
+
+  searchUserName() {
+    const userData: {
+      email: string;
+      id: string;
+      _token: string;
+      _tokenExpirationDate: string;
+    } = JSON.parse(localStorage.getItem("userData"));
+    if (!userData) {
+      return;
+    }
+    return userData.email;
+
+    // this.http
+    //   .get<{ [key: string]: DatabaseUser }>(
+    //     "https://project-b7a57.firebaseio.com/users.json"
+    //   )
+    //   .subscribe(users => {
+    //     for (const i in users) {
+    //       if (users[i].email == userData.email) {
+    //         const aux = users[i].name;
+    //         console.log("aux " + aux);
+    //         return aux;
+    //       }
+    //     }
+    //   });
+  }
 
   addUserToDatabase(postData: DatabaseUser) {
     this.http

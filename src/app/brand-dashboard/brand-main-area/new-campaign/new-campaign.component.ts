@@ -5,6 +5,9 @@ import { HttpClient } from "@angular/common/http";
 import { stringify } from "querystring";
 import { Campaign } from "./campaign.model";
 import { Router } from "@angular/router";
+import { AuthService } from "../../../auth/auth.service";
+import { DatabaseUser } from "src/app/auth/DatabaseUser.model";
+import { map } from "rxjs/operators";
 
 @Component({
   selector: "app-new-campaign",
@@ -13,9 +16,12 @@ import { Router } from "@angular/router";
 })
 export class NewCampaignComponent implements OnInit {
   age: number;
-  constructor(private http: HttpClient, private router: Router) {}
-
-  ngOnInit() {}
+  auxBrandName: string;
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
   formatLabel(value: number) {
     return value;
@@ -23,6 +29,37 @@ export class NewCampaignComponent implements OnInit {
 
   onInputChange(event: MatSliderChange) {
     this.age = event.value;
+  }
+
+  getBrandName(email: string) {
+    this.http
+      .get<{ [key: string]: DatabaseUser }>(
+        "https://project-b7a57.firebaseio.com/users.json"
+      )
+      .pipe(
+        map(responseData => {
+          const usersArray: DatabaseUser[] = [];
+          for (const key in responseData) {
+            if (responseData.hasOwnProperty(key)) {
+              usersArray.push({ ...responseData[key], id: key });
+            }
+          }
+          return usersArray;
+        })
+      )
+      .subscribe(users => {
+        for (const i in users) {
+          if (users[i].email == email) {
+            this.auxBrandName = users[i].name;
+          }
+        }
+      });
+  }
+
+  ngOnInit() {
+    const brandEmail = this.authService.searchUserName();
+    console.log("auxbrandemail " + brandEmail);
+    this.getBrandName(brandEmail);
   }
 
   addNewCampaign(postData: Campaign) {
@@ -51,7 +88,10 @@ export class NewCampaignComponent implements OnInit {
     const gender = form.controls["gender"].value;
     const age = "16 - " + this.age;
 
+    const brandName = this.auxBrandName;
+
     this.addNewCampaign({
+      brandName,
       name,
       description,
       category,
