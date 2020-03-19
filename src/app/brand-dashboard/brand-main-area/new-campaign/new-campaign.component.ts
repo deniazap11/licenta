@@ -57,8 +57,7 @@ export class NewCampaignComponent implements OnInit {
   }
 
   ngOnInit() {
-    const brandEmail = this.authService.searchUserName();
-    console.log("auxbrandemail " + brandEmail);
+    const brandEmail = this.authService.getUserEmail();
     this.getBrandName(brandEmail);
   }
 

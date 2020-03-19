@@ -1,6 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { MatSliderModule } from "@angular/material/slider";
+import { MatExpansionModule } from "@angular/material/expansion";
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
@@ -33,6 +34,7 @@ import { CreatorMainAreaComponent } from "./creator-dashboard/creator-main-area/
 import { AuthGuard } from "./auth/login/auth.guard";
 import { NewCampaignComponent } from "./brand-dashboard/brand-main-area/new-campaign/new-campaign.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MyCampaignsComponent } from "./brand-dashboard/brand-main-area/my-campaigns/my-campaigns.component";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
@@ -47,6 +49,11 @@ const appRoutes: Routes = [
       {
         path: "new-campaign",
         component: NewCampaignComponent,
+        outlet: "content"
+      },
+      {
+        path: "my-campaigns",
+        component: MyCampaignsComponent,
         outlet: "content"
       }
     ]
@@ -80,7 +87,8 @@ firebase.initializeApp(environment.firebase);
     BrandMainAreaComponent,
     CreatorSidenavComponent,
     CreatorMainAreaComponent,
-    NewCampaignComponent
+    NewCampaignComponent,
+    MyCampaignsComponent
   ],
   imports: [
     BrowserModule,
@@ -91,8 +99,10 @@ firebase.initializeApp(environment.firebase);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatSliderModule
+    MatSliderModule,
+    MatExpansionModule
   ],
+  exports: [MatExpansionModule],
   providers: [],
   bootstrap: [AppComponent]
 })

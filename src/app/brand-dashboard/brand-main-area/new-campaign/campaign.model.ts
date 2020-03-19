@@ -9,4 +9,5 @@ export interface Campaign {
   tags: string;
   gender: string;
   age: string;
+  id?: string;
 }

@@ -28,7 +28,7 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  searchUserName() {
+  getUserEmail() {
     const userData: {
       email: string;
       id: string;
@@ -39,20 +39,6 @@ export class AuthService {
       return;
     }
     return userData.email;
-
-    // this.http
-    //   .get<{ [key: string]: DatabaseUser }>(
-    //     "https://project-b7a57.firebaseio.com/users.json"
-    //   )
-    //   .subscribe(users => {
-    //     for (const i in users) {
-    //       if (users[i].email == userData.email) {
-    //         const aux = users[i].name;
-    //         console.log("aux " + aux);
-    //         return aux;
-    //       }
-    //     }
-    //   });
   }
 
   addUserToDatabase(postData: DatabaseUser) {

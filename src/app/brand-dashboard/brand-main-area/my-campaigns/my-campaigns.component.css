@@ -1,0 +1,9 @@
+.my-campaigns-container {
+  padding: 50px;
+}
+
+.campaign-container {
+  border: 2px solid;
+  border-color: aquamarine;
+  padding: 50px;
+}
