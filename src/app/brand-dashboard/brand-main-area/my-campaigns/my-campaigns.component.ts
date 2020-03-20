@@ -7,6 +7,8 @@ import { AuthService } from "src/app/auth/auth.service";
 import { NewCampaignComponent } from "../new-campaign/new-campaign.component";
 import { DatabaseUser } from "src/app/auth/DatabaseUser.model";
 import { Router } from "@angular/router";
+import { CampaignService } from "../campaign.service";
+import { BrandDashboardComponent } from "../../brand-dashboard.component";
 
 @Component({
   selector: "app-my-campaigns",
@@ -14,8 +16,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./my-campaigns.component.css"]
 })
 export class MyCampaignsComponent implements OnInit {
-  private campaigns: Campaign[];
-  private brandEmail: string;
+  private campaigns: Campaign[] = [];
   private brandName: string;
   private name: string;
   private description: string;
@@ -30,44 +31,28 @@ export class MyCampaignsComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private brandDashboard: BrandDashboardComponent,
+    private campService: CampaignService
   ) {}
 
   ngOnInit() {
-    this.brandEmail = this.authService.getUserEmail();
-
-    this.setBrandName(this.brandEmail);
-
-    console.log("Ssa" + this.brandName);
-    // const auxBrandName = this.brandName;
-    // console.log(auxBrandName);
-    // this.getCampaigns(this.brandName);
+    this.brandName = this.brandDashboard.brandName;
+    console.log("in my campaign: " + this.brandName);
+    this.getCampaigns(this.brandName);
+    this.printCampaigns();
   }
 
-  setBrandName(email: string) {
-    this.http
-      .get<{ [key: string]: DatabaseUser }>(
-        "https://project-b7a57.firebaseio.com/users.json"
-      )
-      .pipe(
-        map(responseData => {
-          const usersArray: DatabaseUser[] = [];
-          for (const key in responseData) {
-            if (responseData.hasOwnProperty(key)) {
-              usersArray.push({ ...responseData[key], id: key });
-            }
-          }
-          return usersArray;
-        })
-      )
-      .subscribe(users => {
-        for (const i in users) {
-          if (users[i].email == email) {
-            this.brandName = users[i].name;
-            console.log(this.brandName);
-          }
-        }
-      });
+  printCampaigns() {
+    for (let i = 0; i < this.campaigns.length; i++) {
+      console.log(
+        this.campaigns[i].name +
+          " " +
+          this.campaigns[i].description +
+          " " +
+          this.campaigns[i].age
+      );
+    }
   }
 
   getCampaigns(brandName: string) {
@@ -86,19 +71,32 @@ export class MyCampaignsComponent implements OnInit {
           return campaignsArray;
         })
       )
-      .subscribe(campaigns => {
-        for (const i in campaigns) {
-          if (campaigns[i].brandName == brandName) {
-            this.name = campaigns[i].name;
-            console.log(campaigns[i].name);
-            this.description = campaigns[i].description;
-            this.category = campaigns[i].category;
-            this.brief = campaigns[i].brief;
-            this.todo = campaigns[i].todo;
-            this.dont = campaigns[i].dont;
-            this.tags = campaigns[i].tags;
-            this.gender = campaigns[i].gender;
-            this.age = campaigns[i].age;
+      .subscribe(campaignsArray => {
+        var j = 0;
+        for (const i in campaignsArray) {
+          if (campaignsArray[i].brandName == brandName) {
+            this.campaigns[j] = campaignsArray[i];
+            j++;
+
+            // campaigns[j].name = campaignsArray[i].name;
+
+            // campaigns[j].description = campaignsArray[i].description;
+
+            // campaigns[j].category = campaignsArray[i].category;
+
+            // campaigns[j].brief = campaignsArray[i].brief;
+
+            // campaigns[j].todo = campaignsArray[i].todo;
+
+            // campaigns[j].dont = campaignsArray[i].dont;
+
+            // campaigns[j].tags = campaignsArray[i].tags;
+
+            // campaigns[j].gender = campaignsArray[i].gender;
+
+            // campaigns[j].age = campaignsArray[i].age;
+
+            // j++;
           }
         }
       });

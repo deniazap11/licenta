@@ -1,4 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { AuthService } from "../auth/auth.service";
+import { CampaignService } from "./brand-main-area/campaign.service";
 
 @Component({
   selector: "app-brand-dashboard",
@@ -6,7 +9,16 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./brand-dashboard.component.css"]
 })
 export class BrandDashboardComponent implements OnInit {
-  constructor() {}
+  brandEmail: string;
+  brandName: string;
+  constructor(
+    private authService: AuthService,
+    private campaignService: CampaignService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.brandEmail = this.authService.getUserEmail();
+    this.campaignService.storeBrandName(this.brandEmail);
+    this.brandName = this.campaignService.getBrandName();
+  }
 }
