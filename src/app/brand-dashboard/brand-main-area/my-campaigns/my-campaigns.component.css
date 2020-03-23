@@ -3,7 +3,6 @@
 }
 
 .campaign-container {
-  border: 2px solid;
-  border-color: aquamarine;
-  padding: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }

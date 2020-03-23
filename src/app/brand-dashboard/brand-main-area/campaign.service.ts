@@ -40,4 +40,8 @@ export class CampaignService {
     }
     return brandName;
   }
+
+  deleteCampaign(id: string) {
+    this.http.delete(id).subscribe();
+  }
 }

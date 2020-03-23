@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { Campaign } from "../new-campaign/campaign.model";
 import { HttpClient } from "@angular/common/http";
@@ -16,43 +16,21 @@ import { BrandDashboardComponent } from "../../brand-dashboard.component";
   styleUrls: ["./my-campaigns.component.css"]
 })
 export class MyCampaignsComponent implements OnInit {
-  private campaigns: Campaign[] = [];
+  campaigns: Campaign[] = [];
   private brandName: string;
-  private name: string;
-  private description: string;
-  private category: string;
-  private brief: string;
-  private todo: string;
-  private dont: string;
-  private tags: string;
-  private gender: string;
-  private age: string;
 
   constructor(
     private http: HttpClient,
     private authService: AuthService,
     private router: Router,
     private brandDashboard: BrandDashboardComponent,
-    private campService: CampaignService
+    private campService: CampaignService,
+    private ref: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
     this.brandName = this.brandDashboard.brandName;
-    console.log("in my campaign: " + this.brandName);
     this.getCampaigns(this.brandName);
-    this.printCampaigns();
-  }
-
-  printCampaigns() {
-    for (let i = 0; i < this.campaigns.length; i++) {
-      console.log(
-        this.campaigns[i].name +
-          " " +
-          this.campaigns[i].description +
-          " " +
-          this.campaigns[i].age
-      );
-    }
   }
 
   getCampaigns(brandName: string) {
@@ -77,28 +55,18 @@ export class MyCampaignsComponent implements OnInit {
           if (campaignsArray[i].brandName == brandName) {
             this.campaigns[j] = campaignsArray[i];
             j++;
-
-            // campaigns[j].name = campaignsArray[i].name;
-
-            // campaigns[j].description = campaignsArray[i].description;
-
-            // campaigns[j].category = campaignsArray[i].category;
-
-            // campaigns[j].brief = campaignsArray[i].brief;
-
-            // campaigns[j].todo = campaignsArray[i].todo;
-
-            // campaigns[j].dont = campaignsArray[i].dont;
-
-            // campaigns[j].tags = campaignsArray[i].tags;
-
-            // campaigns[j].gender = campaignsArray[i].gender;
-
-            // campaigns[j].age = campaignsArray[i].age;
-
-            // j++;
           }
         }
       });
+  }
+
+  onDelete(id: string, i: number) {
+    let linkArray =
+      "https://project-b7a57.firebaseio.com/campaigns/" + id + "/.json";
+    this.campService.deleteCampaign(linkArray);
+
+    this.campaigns.splice(i, 1);
+
+    this.ref.detectChanges();
   }
 }

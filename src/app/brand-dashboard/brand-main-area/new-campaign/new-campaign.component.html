@@ -27,13 +27,14 @@
             <div class="col-12">
               <div class="input-group">
                 <label class="label">Product or service description</label>
-                <input
+                <textarea
                   class="input--style-4"
                   type="text"
                   name="description"
+                  matInput
                   ngModel
                   required
-                />
+                ></textarea>
               </div>
             </div>
           </div>
@@ -41,13 +42,13 @@
             <div class="col-12">
               <div class="input-group select-field">
                 <label class="label">Category</label>
-                <select class="input--style-4" name="category" ngModel>
-                  <option disabled selected>Choose one option</option>
-                  <option value="beauty">Beauty</option>
-                  <option value="fitness">Fitness</option>
-                  <option value="crafts">Crafts</option>
-                  <option value="restaurants">Restaurants</option>
-                </select>
+                <mat-select class="input--style-4" name="category" ngModel>
+                  <mat-option
+                    *ngFor="let category of categories"
+                    [value]="category.name"
+                    >{{ category.name }}</mat-option
+                  >
+                </mat-select>
               </div>
             </div>
           </div>
@@ -55,13 +56,14 @@
             <div class="col-12">
               <div class="input-group">
                 <label class="label">Brief the creators</label>
-                <input
+                <textarea
                   class="input--style-4"
                   type="text"
                   name="brief"
+                  matInput
                   ngModel
                   required
-                />
+                ></textarea>
               </div>
             </div>
           </div>
@@ -69,13 +71,14 @@
             <div class="col-12">
               <div class="input-group">
                 <label class="label">Do</label>
-                <input
+                <textarea
                   class="input--style-4"
                   type="text"
                   name="todo"
+                  matInput
                   ngModel
                   required
-                />
+                ></textarea>
               </div>
             </div>
           </div>
@@ -83,13 +86,15 @@
             <div class="col-12">
               <div class="input-group">
                 <label class="label">Don't</label>
-                <input
+                <textarea
                   class="input--style-4"
                   type="text"
                   name="dont"
+                  matInput
                   ngModel
                   required
-                />
+                >
+                </textarea>
               </div>
             </div>
           </div>
@@ -97,13 +102,27 @@
             <div class="col-12">
               <div class="input-group">
                 <label class="label">Tags to include</label>
-                <input
-                  class="input--style-4"
-                  type="text"
-                  name="tags"
-                  ngModel
-                  required
-                />
+                <mat-form-field style="width: 100%">
+                  <mat-chip-list #chipList aria-label="Tag selection">
+                    <mat-chip
+                      *ngFor="let tag of tags"
+                      [selectable]="selectable"
+                      [removable]="removable"
+                      (removed)="remove(tag)"
+                    >
+                      {{ tag.name }}
+                      <mat-icon matChipRemove *ngIf="removable"
+                        >cancel</mat-icon
+                      >
+                    </mat-chip>
+                    <input
+                      [matChipInputFor]="chipList"
+                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                      [matChipInputAddOnBlur]="addOnBlur"
+                      (matChipInputTokenEnd)="add($event)"
+                    />
+                  </mat-chip-list>
+                </mat-form-field>
               </div>
             </div>
           </div>
@@ -125,12 +144,11 @@
               <div class="input-group select-field">
                 <label class="label">Gender</label>
 
-                <select class="input--style-4" ngModel name="gender">
-                  <option disabled selected>Choose one option</option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="any">Any</option>
-                </select>
+                <mat-select class="input--style-4" ngModel name="gender">
+                  <mat-option *ngFor="let g of gender" [value]="g.name">{{
+                    g.name
+                  }}</mat-option>
+                </mat-select>
               </div>
             </div>
           </div>

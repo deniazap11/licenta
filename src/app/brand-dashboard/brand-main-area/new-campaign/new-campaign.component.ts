@@ -8,6 +8,20 @@ import { Router } from "@angular/router";
 import { AuthService } from "../../../auth/auth.service";
 import { DatabaseUser } from "src/app/auth/DatabaseUser.model";
 import { map } from "rxjs/operators";
+import { COMMA, ENTER } from "@angular/cdk/keycodes";
+import { MatChipInputEvent } from "@angular/material/chips";
+
+export interface Tag {
+  name: string;
+}
+
+export interface Category {
+  name: string;
+}
+
+export interface Gender {
+  name: string;
+}
 
 @Component({
   selector: "app-new-campaign",
@@ -17,6 +31,23 @@ import { map } from "rxjs/operators";
 export class NewCampaignComponent implements OnInit {
   age: number;
   auxBrandName: string;
+  tags: Tag[] = [];
+
+  categories: Category[] = [
+    { name: "Art" },
+    { name: "Beauty" },
+    { name: "Health " },
+    { name: "Food & Beverages" },
+    { name: "Lifestyle" },
+    { name: "Entertainment" },
+    { name: "Pets" },
+    { name: "Fitness" },
+    { name: "Travel" },
+    { name: "Hobbies" }
+  ];
+
+  gender: Gender[] = [{ name: "Any " }, { name: "Female" }, { name: "Male" }];
+
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -83,7 +114,13 @@ export class NewCampaignComponent implements OnInit {
     const brief = form.value.brief;
     const todo = form.value.todo;
     const dont = form.value.dont;
-    const tags = form.value.tags;
+    let tags: string[] = [];
+    let i = 0;
+    for (var tag of this.tags) {
+      tags[i] = tag.name;
+      console.log("tags local array " + tags[i]);
+      i++;
+    }
     const gender = form.controls["gender"].value;
     const age = "16 - " + this.age;
 
@@ -102,6 +139,37 @@ export class NewCampaignComponent implements OnInit {
       age
     });
 
+    this.router.navigate([{ outlets: { content: ["my-campaigns"] } }]);
+
     form.reset();
+  }
+
+  /* chip input stuff */
+  visible = true;
+  selectable = true;
+  removable = true;
+  addOnBlur = true;
+  readonly separatorKeysCodes: number[] = [ENTER, COMMA];
+
+  add(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+
+    if ((value || "").trim()) {
+      this.tags.push({ name: value.trim() });
+    }
+
+    // Reset the input value
+    if (input) {
+      input.value = "";
+    }
+  }
+
+  remove(tag: Tag): void {
+    const index = this.tags.indexOf(tag);
+
+    if (index >= 0) {
+      this.tags.splice(index, 1);
+    }
   }
 }

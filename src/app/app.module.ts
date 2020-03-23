@@ -2,6 +2,10 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { MatSliderModule } from "@angular/material/slider";
 import { MatExpansionModule } from "@angular/material/expansion";
+import { MatSelectModule } from "@angular/material/select";
+import { MatChipsModule } from "@angular/material/chips";
+import { MatIconModule } from "@angular/material/icon";
+import { MatInputModule } from "@angular/material/input";
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
@@ -43,6 +47,7 @@ const appRoutes: Routes = [
   { path: "signup", component: SignupComponent },
   {
     path: "brand-dashboard",
+
     component: BrandDashboardComponent,
     canActivate: [AuthGuard],
     children: [
@@ -100,7 +105,11 @@ firebase.initializeApp(environment.firebase);
     HttpClientModule,
     BrowserAnimationsModule,
     MatSliderModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSelectModule,
+    MatChipsModule,
+    MatIconModule,
+    MatInputModule
   ],
   exports: [MatExpansionModule],
   providers: [],

@@ -6,7 +6,7 @@ export interface Campaign {
   brief: string;
   todo: string;
   dont: string;
-  tags: string;
+  tags: string[];
   gender: string;
   age: string;
   id?: string;
