@@ -11,11 +11,15 @@
       [routerLink]="[{ outlets: { content: ['new-campaign'] } }]"
       >New campaign</a
     >
-    <a href="#" class="list-group-item list-group-item-action bg-light"
+    <a
+      class="list-group-item list-group-item-action bg-light"
+      [routerLink]="[{ outlets: { content: ['creators'] } }]"
       >Creators</a
     >
-    <a href="#" class="list-group-item list-group-item-action bg-light"
-      >Settings</a
+    <a
+      class="list-group-item list-group-item-action bg-light"
+      [routerLink]="[{ outlets: { content: ['submissions'] } }]"
+      >Submissions</a
     >
   </div>
 </div>
