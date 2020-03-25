@@ -1,10 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, TemplateRef, ViewChild } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { MatSliderChange } from "@angular/material/slider";
 import { HttpClient } from "@angular/common/http";
 import { stringify } from "querystring";
 import { Campaign } from "./campaign.model";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { AuthService } from "../../../auth/auth.service";
 import { DatabaseUser } from "src/app/auth/DatabaseUser.model";
 import { map } from "rxjs/operators";
@@ -51,7 +51,8 @@ export class NewCampaignComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private route: ActivatedRoute
   ) {}
 
   formatLabel(value: number) {
@@ -139,8 +140,7 @@ export class NewCampaignComponent implements OnInit {
       age
     });
 
-    this.router.navigate([{ outlets: { content: ["my-campaigns"] } }]);
-
+    this.router.navigate(["../my-campaigns"], { relativeTo: this.route });
     form.reset();
   }
 

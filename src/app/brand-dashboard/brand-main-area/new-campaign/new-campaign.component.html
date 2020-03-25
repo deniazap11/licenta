@@ -1,8 +1,8 @@
 <div class="page-wrapper bg-gra-01 p-t-130 p-b-100 font-poppins">
-  <div class="wrapper wrapper--w680">
+  <div class="wrapper form-wrapper">
     <div class="card card-4">
       <div class="card-body">
-        <h2 class="title">
+        <h2 class="title form-columns">
           Fill in the fields bellow about the desired campaign
         </h2>
         <form
@@ -10,9 +10,9 @@
           (ngSubmit)="onSubmitNewCampaign(newCampaignForm)"
         >
           <div class="row row-space">
-            <div class="col-12">
+            <div class="col-6 form-columns">
               <div class="input-group">
-                <label class="label">Product or service name</label>
+                <label class="label">Product or service name:</label>
                 <input
                   class="input--style-4"
                   type="text"
@@ -22,26 +22,9 @@
                 />
               </div>
             </div>
-          </div>
-          <div class="row row-space">
-            <div class="col-12">
-              <div class="input-group">
-                <label class="label">Product or service description</label>
-                <textarea
-                  class="input--style-4"
-                  type="text"
-                  name="description"
-                  matInput
-                  ngModel
-                  required
-                ></textarea>
-              </div>
-            </div>
-          </div>
-          <div class="row row-space">
-            <div class="col-12">
+            <div class="col-6 form-columns">
               <div class="input-group select-field">
-                <label class="label">Category</label>
+                <label class="label">Category:</label>
                 <mat-select class="input--style-4" name="category" ngModel>
                   <mat-option
                     *ngFor="let category of categories"
@@ -53,9 +36,22 @@
             </div>
           </div>
           <div class="row row-space">
-            <div class="col-12">
+            <div class="col-6 form-columns">
               <div class="input-group">
-                <label class="label">Brief the creators</label>
+                <label class="label">Product or service description:</label>
+                <textarea
+                  class="input--style-4"
+                  type="text"
+                  name="description"
+                  matInput
+                  ngModel
+                  required
+                ></textarea>
+              </div>
+            </div>
+            <div class="col-6 form-columns">
+              <div class="input-group">
+                <label class="label">Brief for creators:</label>
                 <textarea
                   class="input--style-4"
                   type="text"
@@ -68,9 +64,9 @@
             </div>
           </div>
           <div class="row row-space">
-            <div class="col-12">
+            <div class="col-6 form-columns">
               <div class="input-group">
-                <label class="label">Do</label>
+                <label class="label">Do:</label>
                 <textarea
                   class="input--style-4"
                   type="text"
@@ -81,11 +77,9 @@
                 ></textarea>
               </div>
             </div>
-          </div>
-          <div class="row row-space">
-            <div class="col-12">
+            <div class="col-6 form-columns">
               <div class="input-group">
-                <label class="label">Don't</label>
+                <label class="label">Don't:</label>
                 <textarea
                   class="input--style-4"
                   type="text"
@@ -98,10 +92,11 @@
               </div>
             </div>
           </div>
+
           <div class="row row-space">
-            <div class="col-12">
+            <div class="col-12 form-columns">
               <div class="input-group">
-                <label class="label">Tags to include</label>
+                <label class="label">Tags to include:</label>
                 <mat-form-field style="width: 100%">
                   <mat-chip-list #chipList aria-label="Tag selection">
                     <mat-chip
@@ -127,37 +122,38 @@
             </div>
           </div>
           <div class="row row-space">
-            <div class="col-12">
+            <div class="col-12 form-columns">
               <h4
                 class="title"
                 style="font-size: 20px;
               margin-bottom: 10px;
-              margin-top: 20px;"
+              margin-top: 10px;"
               >
-                Who you are looking for?
+                Who are you looking for?
               </h4>
             </div>
           </div>
 
           <div class="row row-space">
-            <div class="col-12">
+            <div class="col-6 form-columns">
               <div class="input-group select-field">
-                <label class="label">Gender</label>
+                <label class="label">Gender:</label>
 
-                <mat-select class="input--style-4" ngModel name="gender">
+                <mat-select
+                  class="input--style-4"
+                  ngModel
+                  name="gender"
+                  required
+                >
                   <mat-option *ngFor="let g of gender" [value]="g.name">{{
                     g.name
                   }}</mat-option>
                 </mat-select>
               </div>
             </div>
-          </div>
-          <div class="row row-space">
-            <div class="col-12">
-              <label class="label">Age</label>
+            <div class="col-6 form-columns">
+              <label class="label">Age:</label>
               <div class="slidecontainer">
-                <!-- <span class="text-small">16</span>
-                <span class="text-small" style="float: right ;">80</span> -->
                 <mat-slider
                   thumbLabel
                   [displayWith]="formatLabel"
@@ -171,8 +167,17 @@
           </div>
 
           <div class="row row-space">
-            <div class="p-t-15">
-              <button class="btn btn--radius-2 btn--blue" type="submit">
+            <div class="p-t-15 form-columns">
+              <p style="font-size: 10px; margin-bottom: 10px;">
+                Please note that the campaign can only be deleted after
+                submission. You will not be able to modify the details and
+                requirements.
+              </p>
+              <button
+                class="btn btn--radius-2 btn--blue"
+                type="submit"
+                [disabled]="!newCampaignForm.valid"
+              >
                 Submit
               </button>
             </div>

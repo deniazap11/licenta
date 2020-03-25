@@ -9,7 +9,7 @@ import { MatInputModule } from "@angular/material/input";
 import { MatTableModule } from "@angular/material/table";
 import { MatPaginator, MatPaginatorModule } from "@angular/material/paginator";
 import { MatSort, MatSortModule } from "@angular/material/sort";
-import { MatTableDataSource } from "@angular/material/table";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
@@ -45,7 +45,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MyCampaignsComponent } from "./brand-dashboard/brand-main-area/my-campaigns/my-campaigns.component";
 import { ViewCreatorsComponent } from "./brand-dashboard/brand-main-area/view-creators/view-creators.component";
 import { ViewSubmissionsComponent } from "./brand-dashboard/brand-main-area/view-submissions/view-submissions.component";
-import { CreatorTableComponent } from './brand-dashboard/brand-main-area/view-creators/creator-table/creator-table.component';
+import { CreatorTableComponent } from "./brand-dashboard/brand-main-area/view-creators/creator-table/creator-table.component";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },

@@ -714,3 +714,12 @@ input {
 ::ng-deep .mat-slider-thumb {
   background-color: #50a7c2 !important;
 }
+
+.form-wrapper {
+  width: 80%;
+}
+
+.form-columns {
+  padding-left: 10px;
+  padding-right: 10px;
+}
