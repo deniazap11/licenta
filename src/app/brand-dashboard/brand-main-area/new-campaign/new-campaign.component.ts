@@ -1,4 +1,10 @@
-import { Component, OnInit, TemplateRef, ViewChild } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  TemplateRef,
+  ViewChild,
+  ChangeDetectorRef
+} from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { MatSliderChange } from "@angular/material/slider";
 import { HttpClient } from "@angular/common/http";

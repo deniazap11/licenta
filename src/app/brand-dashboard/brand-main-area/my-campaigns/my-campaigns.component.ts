@@ -1,12 +1,18 @@
-import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ChangeDetectorRef,
+  OnChanges,
+  SimpleChange
+} from "@angular/core";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { Campaign } from "../new-campaign/campaign.model";
 import { HttpClient } from "@angular/common/http";
-import { map } from "rxjs/operators";
+import { map, filter } from "rxjs/operators";
 import { AuthService } from "src/app/auth/auth.service";
 import { NewCampaignComponent } from "../new-campaign/new-campaign.component";
 import { DatabaseUser } from "src/app/auth/DatabaseUser.model";
-import { Router } from "@angular/router";
+import { Router, RouterEvent, NavigationEnd } from "@angular/router";
 import { CampaignService } from "../campaign.service";
 import { BrandDashboardComponent } from "../../brand-dashboard.component";
 
@@ -18,6 +24,7 @@ import { BrandDashboardComponent } from "../../brand-dashboard.component";
 export class MyCampaignsComponent implements OnInit {
   campaigns: Campaign[] = [];
   private brandName: string;
+  noCampaigns: boolean;
 
   constructor(
     private http: HttpClient,
@@ -31,6 +38,12 @@ export class MyCampaignsComponent implements OnInit {
   ngOnInit() {
     this.brandName = this.brandDashboard.brandName;
     this.getCampaigns(this.brandName);
+
+    if (this.campaigns.length == 0) {
+      this.noCampaigns = true;
+    } else {
+      this.noCampaigns = false;
+    }
   }
 
   getCampaigns(brandName: string) {
@@ -66,7 +79,5 @@ export class MyCampaignsComponent implements OnInit {
     this.campService.deleteCampaign(linkArray);
 
     this.campaigns.splice(i, 1);
-
-    this.ref.detectChanges();
   }
 }

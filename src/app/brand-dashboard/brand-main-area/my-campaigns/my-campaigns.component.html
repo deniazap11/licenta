@@ -2,7 +2,23 @@
   <div class="row">
     <div class="col-sm-12">
       <h1>Manage campaigns</h1>
-
+      <!-- <div
+        class="container campaign-container"
+        [ngClass]="{ hideContainer: noCampaigns == false }"
+      > -->
+      <div class="container campaign-container">
+        <div class="row">
+          <div class="col-12">
+            <!-- <p>
+              You currently have no campaigns. Click the button bellow to create
+              one!
+            </p> -->
+            <button class="btn btn-primary" [routerLink]="['../new-campaign']">
+              Add campaign
+            </button>
+          </div>
+        </div>
+      </div>
       <div class="container campaign-container">
         <mat-accordion *ngFor="let c of campaigns; let i = index">
           <mat-expansion-panel>

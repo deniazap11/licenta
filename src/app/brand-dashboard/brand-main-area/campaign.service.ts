@@ -2,6 +2,8 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { DatabaseUser } from "src/app/auth/DatabaseUser.model";
 import { map } from "rxjs/operators";
+import { MyCampaignsComponent } from "./my-campaigns/my-campaigns.component";
+import { Campaign } from "./new-campaign/campaign.model";
 
 @Injectable({ providedIn: "root" })
 export class CampaignService {
