@@ -1,20 +1,28 @@
 <div class="bg-light border-right" id="sidebar-wrapper">
   <div class="sidebar-heading"><h2>Logo</h2></div>
   <div class="list-group list-group-flush">
-    <a href="#" class="list-group-item list-group-item-action bg-light"
+    <a
+      class="list-group-item list-group-item-action bg-light"
+      [routerLink]="[{ outlets: { 'content-c': ['social-account'] } }]"
+      >Social Media Account</a
+    >
+    <a
+      class="list-group-item list-group-item-action bg-light"
+      [routerLink]="[{ outlets: { 'content-c': ['campaign-feed'] } }]"
       >Campaign feed</a
     >
-    <a href="#" class="list-group-item list-group-item-action bg-light"
+    <a
+      class="list-group-item list-group-item-action bg-light"
+      [routerLink]="[{ outlets: { 'content-c': ['my-submissions'] } }]"
       >My submissions</a
     >
-    <a href="#" class="list-group-item list-group-item-action bg-light"
-      >Creators</a
+    <a
+      class="list-group-item list-group-item-action bg-light"
+      [routerLink]="[{ outlets: { 'content-c': ['brands'] } }]"
+      >Brands</a
     >
-    <a href="#" class="list-group-item list-group-item-action bg-light"
+    <a class="list-group-item list-group-item-action bg-light"
       >Fee calculator</a
-    >
-    <a href="#" class="list-group-item list-group-item-action bg-light"
-      >Settings</a
     >
   </div>
 </div>

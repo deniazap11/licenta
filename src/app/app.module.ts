@@ -46,6 +46,11 @@ import { MyCampaignsComponent } from "./brand-dashboard/brand-main-area/my-campa
 import { ViewCreatorsComponent } from "./brand-dashboard/brand-main-area/view-creators/view-creators.component";
 import { ViewSubmissionsComponent } from "./brand-dashboard/brand-main-area/view-submissions/view-submissions.component";
 import { CreatorTableComponent } from "./brand-dashboard/brand-main-area/view-creators/creator-table/creator-table.component";
+import { CampaignFeedComponent } from "./creator-dashboard/creator-main-area/campaign-feed/campaign-feed.component";
+import { SocialAccountComponent } from "./creator-dashboard/creator-main-area/social-account/social-account.component";
+import { MySubmissionsComponent } from "./creator-dashboard/creator-main-area/my-submissions/my-submissions.component";
+import { BrandsComponent } from "./creator-dashboard/creator-main-area/brands/brands.component";
+import { BrandTableComponent } from './creator-dashboard/creator-main-area/brands/brand-table/brand-table.component';
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
@@ -83,7 +88,29 @@ const appRoutes: Routes = [
   {
     path: "creator-dashboard",
     component: CreatorDashboardComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: "campaign-feed",
+        component: CampaignFeedComponent,
+        outlet: "content-c"
+      },
+      {
+        path: "social-account",
+        component: SocialAccountComponent,
+        outlet: "content-c"
+      },
+      {
+        path: "my-submissions",
+        component: MySubmissionsComponent,
+        outlet: "content-c"
+      },
+      {
+        path: "brands",
+        component: BrandsComponent,
+        outlet: "content-c"
+      }
+    ]
   }
 ];
 
@@ -113,7 +140,12 @@ firebase.initializeApp(environment.firebase);
     MyCampaignsComponent,
     ViewCreatorsComponent,
     ViewSubmissionsComponent,
-    CreatorTableComponent
+    CreatorTableComponent,
+    SocialAccountComponent,
+    CampaignFeedComponent,
+    MySubmissionsComponent,
+    BrandsComponent,
+    BrandTableComponent
   ],
   imports: [
     BrowserModule,
