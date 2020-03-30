@@ -18,6 +18,7 @@ import { environment } from "../environments/environment";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import * as firebase from "firebase/app";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -50,7 +51,8 @@ import { CampaignFeedComponent } from "./creator-dashboard/creator-main-area/cam
 import { SocialAccountComponent } from "./creator-dashboard/creator-main-area/social-account/social-account.component";
 import { MySubmissionsComponent } from "./creator-dashboard/creator-main-area/my-submissions/my-submissions.component";
 import { BrandsComponent } from "./creator-dashboard/creator-main-area/brands/brands.component";
-import { BrandTableComponent } from './creator-dashboard/creator-main-area/brands/brand-table/brand-table.component';
+import { BrandTableComponent } from "./creator-dashboard/creator-main-area/brands/brand-table/brand-table.component";
+import { CampaignFeedContainerComponent } from "./creator-dashboard/creator-main-area/campaign-feed/campaign-feed-container/campaign-feed-container.component";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
@@ -145,7 +147,8 @@ firebase.initializeApp(environment.firebase);
     CampaignFeedComponent,
     MySubmissionsComponent,
     BrandsComponent,
-    BrandTableComponent
+    BrandTableComponent,
+    CampaignFeedContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -164,7 +167,8 @@ firebase.initializeApp(environment.firebase);
     MatInputModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    FontAwesomeModule
   ],
   exports: [MatExpansionModule],
   providers: [],

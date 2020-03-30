@@ -20,8 +20,8 @@
         </div>
       </div>
       <div class="container campaign-container">
-        <mat-accordion *ngFor="let c of campaigns; let i = index">
-          <mat-expansion-panel>
+        <mat-accordion>
+          <mat-expansion-panel *ngFor="let c of campaigns; let i = index">
             <mat-expansion-panel-header>
               <mat-panel-title>
                 {{ c.name }}
