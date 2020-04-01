@@ -19,6 +19,16 @@
               <p>{{ c.dont }}</p>
               <p class="font-weight-bold">Tags to include:</p>
               <p>{{ c.tags }}</p>
+              <p class="font-weight-bold">
+                Looking for creators who fit these criteria:
+              </p>
+              <p class="font-weight-bold">Gender:</p>
+              <p>{{ c.gender }}</p>
+              <p class="font-weight-bold">Age range:</p>
+              <p>{{ c.age }}</p>
+              <button class="btn apply-button" (click)="applyForCampaign(c)">
+                Apply for campaign
+              </button>
             </span>
             <button class="btn btn-info toggle-text-button">Read More</button>
           </div>
@@ -27,63 +37,3 @@
     </div>
   </div>
 </div>
-
-<!-- <mat-accordion>
-  <mat-expansion-panel *ngFor="let c of campaigns">
-    <mat-expansion-panel-header>
-      <div style="display: flex; flex-direction: column;">
-        <div
-          style="display: flex; flex-direction: row; width: 100vw; padding-bottom: 20px;"
-        >
-          <mat-panel-title>
-            {{ c.name }}
-          </mat-panel-title>
-          <mat-panel-description> by {{ c.brandName }} </mat-panel-description>
-        </div>
-        <p class="font-weight-bold">Description:</p>
-        <p style="max-width: 60%;">
-          {{ c.description }}
-        </p>
-      </div>
-    </mat-expansion-panel-header>
-
-    <div class="row">
-      <div class="col-sm-6">
-        <h5>About the campaign:</h5>
-
-        <p class="font-weight-bold">Category:</p>
-        <p>{{ c.category }}</p>
-        <p class="font-weight-bold">Briefing</p>
-        <p>
-          {{ c.brief }}
-        </p>
-        <p class="font-weight-bold">Do:</p>
-        <p>
-          {{ c.todo }}
-        </p>
-        <p class="font-weight-bold">Don't:</p>
-        <p>
-          {{ c.dont }}
-        </p>
-        <p class="font-weight-bold">Tags to include:</p>
-        <p>
-          {{ c.tags }}
-        </p>
-      </div>
-      <div class="col-sm-5">
-        <h5>Must fit these criterias:</h5>
-        <p class="font-weight-bold">Gender:</p>
-        <p>{{ c.gender }}</p>
-        <p class="font-weight-bold">Age range:</p>
-        <p>{{ c.age }}</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-1">
-        <button class="btn btn-info" type="button">
-          Apply
-        </button>
-      </div>
-    </div>
-  </mat-expansion-panel>
-</mat-accordion> -->

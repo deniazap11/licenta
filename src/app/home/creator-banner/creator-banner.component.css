@@ -1,3 +1,51 @@
 .creator {
-  background-color: #9a9da0;
+  background-color: #6b7a8f;
+}
+
+.text-col {
+  color: #dcc7aa;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
+  text-align: right;
+}
+
+.text-col h3 {
+  font-weight: 700;
+  font-size: 6vh;
+}
+
+.join-button {
+  background-color: #f8ead5;
+  color: #f7882f;
+  border: 0;
+  padding: 10px 20px;
+  margin: 15px 0px;
+  font-weight: 700;
+}
+
+.join-button:hover {
+  background-color: #f7882f;
+  color: #f8ead5;
+  transition: 0.3s;
+}
+
+.image-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-col img {
+  max-height: 300px;
+  width: 82%;
+}
+
+.shadow-effect {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

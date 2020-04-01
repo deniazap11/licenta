@@ -22,3 +22,9 @@
 .toggle-text-button {
   display: block;
 }
+
+.apply-button {
+  margin: 15px 0px;
+  background-color: #ffbd76;
+  color: #ffffff;
+}

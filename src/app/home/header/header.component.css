@@ -1,18 +1,39 @@
-.banner-background {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("https://images.pexels.com/photos/326311/pexels-photo-326311.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+ngb-carousel .picsum-img-wrapper {
   position: relative;
+  height: 0;
+  padding-top: 45%; /*Keep ratio for 900x500 images*/
 }
 
-.banner-text {
-  padding-top: 150px;
-  padding-bottom: 150px;
-  text-align: center;
-  color: whitesmoke;
-  top: 50%;
-  left: 50%;
+ngb-carousel .picsum-img-wrapper > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+}
+
+.carousel-caption {
+  color: #f7882f;
+}
+
+ngb-carousel {
+  outline: none;
+}
+
+ngb-carousel .carousel-caption {
+  bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ngb-carousel .carousel-caption h1 {
+  font-size: 4vw;
+  font-weight: 700;
+}
+
+ngb-carousel .carousel-caption p {
+  font-size: 2vw;
+  max-width: 60%;
 }

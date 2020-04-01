@@ -53,6 +53,7 @@ import { MySubmissionsComponent } from "./creator-dashboard/creator-main-area/my
 import { BrandsComponent } from "./creator-dashboard/creator-main-area/brands/brands.component";
 import { BrandTableComponent } from "./creator-dashboard/creator-main-area/brands/brand-table/brand-table.component";
 import { CampaignFeedContainerComponent } from "./creator-dashboard/creator-main-area/campaign-feed/campaign-feed-container/campaign-feed-container.component";
+import { DigitalMarketingBannerComponent } from './home/digital-marketing-banner/digital-marketing-banner.component';
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
@@ -148,7 +149,8 @@ firebase.initializeApp(environment.firebase);
     MySubmissionsComponent,
     BrandsComponent,
     BrandTableComponent,
-    CampaignFeedContainerComponent
+    CampaignFeedContainerComponent,
+    DigitalMarketingBannerComponent
   ],
   imports: [
     BrowserModule,
@@ -168,7 +170,8 @@ firebase.initializeApp(environment.firebase);
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgbModule
   ],
   exports: [MatExpansionModule],
   providers: [],

@@ -1,1 +1,46 @@
+.text-col {
+  color: #f7882f;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
 
+.text-col h3 {
+  font-weight: 700;
+  font-size: 6vh;
+}
+
+.join-button {
+  background-color: #f7882f;
+  color: #f8ead5;
+  border: 0;
+  padding: 10px 20px;
+  margin: 15px 0px;
+  font-weight: 700;
+}
+
+.join-button:hover {
+  background-color: #f8ead5;
+  color: #f7882f;
+  transition: 0.3s;
+}
+
+.image-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-col img {
+  max-height: 300px;
+  width: 82%;
+}
+
+.shadow-effect {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

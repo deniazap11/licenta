@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Montserrat;
+  src: url(/assets/fonts/Montserrat-Regular) format("ttf");
+}
+
 body {
   padding-top: 60px;
 }
@@ -28,4 +33,63 @@ nav.navbar.shrink a {
 nav.navbar.shrink .navbar-toggle {
   margin: 8px 15px 8px 0;
   padding: 4px 5px;
+}
+
+.navbar-style {
+  background-color: #6b7a8f;
+}
+.navbar-style a {
+  color: #dcc7aa;
+  font-family: "Montserrat", sans-serif;
+}
+
+.navbar-style a:hover {
+  color: #f7882f;
+  font-weight: bold;
+  cursor: pointer;
+}
+nav ul {
+  margin: 0;
+
+  padding: 0;
+}
+
+nav li {
+  list-style: none;
+
+  font-size: 12px;
+
+  float: left;
+
+  text-align: center;
+}
+
+nav li a {
+  display: block;
+
+  text-decoration: none;
+
+  margin-right: 0; /* space between links */
+
+  width: auto; /* adjust width as needed or use auto */
+
+  padding: 15px;
+
+  border-right: 1px solid #dcc7aa;
+}
+
+/**remove from last item**/
+
+nav li:last-child a {
+  border: none;
+}
+
+/**float clearing**/
+
+nav:after {
+  content: "";
+
+  clear: left;
+
+  display: block;
 }

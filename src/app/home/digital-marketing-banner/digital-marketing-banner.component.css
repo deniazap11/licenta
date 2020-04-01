@@ -1,0 +1,40 @@
+.digital-marketing {
+  background-color: #6b7a8f;
+}
+
+.digital-marketing h1,
+p {
+  text-align: center;
+  color: #dcc7aa;
+}
+
+.digital-marketing h1 {
+  font-weight: 800;
+}
+
+.dm-text p {
+  padding: 20px 50px;
+}
+
+.text-row p {
+  padding: 20px 0px;
+}
+.card-row {
+  margin: 0 auto;
+  display: flex;
+}
+.card {
+  border-radius: 0px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 15px;
+  color: #f7882f;
+  flex: 1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-icon {
+  font-size: 50px;
+}

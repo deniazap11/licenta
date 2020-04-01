@@ -1,7 +1,23 @@
-<section class="header">
+<!-- <section class="header">
   <div class="banner-background">
     <div class="banner-text content-row">
       <h1>Welcome</h1>
     </div>
   </div>
-</section>
+
+  
+</section> -->
+
+<ngb-carousel *ngIf="images">
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper img-wrapper">
+      <img [src]="images[0]" alt="Random first slide" />
+    </div>
+    <div class="carousel-caption">
+      <h1>Welcome to Marketings!</h1>
+      <p>
+        We strive to create the perfect middle ground for brands and creators.
+      </p>
+    </div>
+  </ng-template>
+</ngb-carousel>
