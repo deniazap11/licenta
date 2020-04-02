@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ɵConsole } from "@angular/core";
 import { Campaign } from "src/app/brand-dashboard/brand-main-area/new-campaign/campaign.model";
 import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
@@ -120,8 +120,14 @@ export class CampaignFeedContainerComponent implements OnInit {
     return campaign;
   }
 
-  checkUserApplied(campaignId: string, userEmail: string) {
-    let userApplied: boolean;
+  async checkUserApplied(
+    campaignId: string,
+    userEmail: string,
+    loggedUser: DatabaseUser,
+    userId: string,
+    campaign: Campaign
+  ) {
+    let userApplied: number = 0;
     this.http
       .get<{ [key: string]: DatabaseUser }>(
         "https://project-b7a57.firebaseio.com/campaigns/" +
@@ -142,15 +148,19 @@ export class CampaignFeedContainerComponent implements OnInit {
       .subscribe(usersArray => {
         for (const i in usersArray) {
           if (usersArray[i].email == userEmail) {
-            userApplied = true;
-            console.log(userApplied);
-            break;
+            userApplied++;
           }
-          userApplied = false;
         }
+        if (userApplied == 0) {
+          this.addSubmissionToDatabase(
+            true,
+            campaignId,
+            loggedUser,
+            userId,
+            campaign
+          );
+        } else alert("You already applied to this campaign. ");
       });
-
-    return userApplied;
   }
 
   addSubmissionToDatabase(
@@ -160,36 +170,30 @@ export class CampaignFeedContainerComponent implements OnInit {
     userId: string,
     campaign: Campaign
   ) {
-    console.log("x" + userApplied);
+    //add user to campaign table
+    console.log("if userapplied " + userApplied);
+    this.http
+      .post<{ name: string }>(
+        "https://project-b7a57.firebaseio.com/campaigns/" +
+          campaignId +
+          "/submissions.json",
+        loggedUser
+      )
+      .subscribe(responseData => {
+        console.log(responseData);
+      });
 
-    if (userApplied == false) {
-      //add user to campaign table
-      console.log("if userapplied " + userApplied);
-      this.http
-        .post<{ name: string }>(
-          "https://project-b7a57.firebaseio.com/campaigns/" +
-            campaignId +
-            "/submissions.json",
-          loggedUser
-        )
-        .subscribe(responseData => {
-          console.log(responseData);
-        });
-
-      //add campaign to user table
-      this.http
-        .post<{ name: string }>(
-          "https://project-b7a57.firebaseio.com/users/" +
-            userId +
-            "/submissions.json",
-          campaign
-        )
-        .subscribe(responseData => {
-          console.log(responseData);
-        });
-    } else {
-      console.log("else " + userApplied);
-    }
+    //add campaign to user table
+    this.http
+      .post<{ name: string }>(
+        "https://project-b7a57.firebaseio.com/users/" +
+          userId +
+          "/submissions.json",
+        campaign
+      )
+      .subscribe(responseData => {
+        console.log(responseData);
+      });
   }
 
   applyForCampaign(campaign) {
@@ -199,15 +203,27 @@ export class CampaignFeedContainerComponent implements OnInit {
     const campaignId = campaign.id;
 
     //check if user already applied
-    let userApplied = this.checkUserApplied(campaignId, userEmail);
+    this.checkUserApplied(campaignId, userEmail, loggedUser, userId, campaign);
+
+    // this.checkUserApplied(campaignId, userEmail).then(userApplied =>
+    //   console.log(userApplied)
+    // );
+
+    // this.checkUserApplied(campaignId, userEmail).then(result =>
+    //   console.log(result)
+    // );
 
     //add submissions to database
-    this.addSubmissionToDatabase(
-      userApplied,
-      campaignId,
-      loggedUser,
-      userId,
-      campaign
-    );
+    // this.addSubmissionToDatabase(
+    //   userApplied,
+    // campaignId,
+    // loggedUser,
+    // userId,
+    // campaign
+    // );
+  }
+
+  async funct() {
+    return "func return";
   }
 }
