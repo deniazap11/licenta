@@ -21,7 +21,6 @@ export class CreatorDashboardComponent implements OnInit {
 
   ngOnInit() {
     this.creatorEmail = this.authService.getUserEmail();
-    console.log(this.creatorEmail);
     this.creatorService.getLoggedUserData(this.creatorEmail);
     this.loggedUser = this.creatorService.loggedUser;
   }
