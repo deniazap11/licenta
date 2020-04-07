@@ -15,6 +15,7 @@ import { DatabaseUser } from "src/app/auth/DatabaseUser.model";
 import { Router, RouterEvent, NavigationEnd } from "@angular/router";
 import { CampaignService } from "../campaign.service";
 import { BrandDashboardComponent } from "../../brand-dashboard.component";
+import { BrandService } from "../../brand.service";
 
 @Component({
   selector: "app-my-campaigns",
@@ -24,6 +25,7 @@ import { BrandDashboardComponent } from "../../brand-dashboard.component";
 export class MyCampaignsComponent implements OnInit {
   campaigns: Campaign[] = [];
   private brandName: string;
+  brandEmail: string;
   noCampaigns: boolean;
 
   constructor(
@@ -32,45 +34,22 @@ export class MyCampaignsComponent implements OnInit {
     private router: Router,
     private brandDashboard: BrandDashboardComponent,
     private campService: CampaignService,
-    private ref: ChangeDetectorRef
+    private ref: ChangeDetectorRef,
+    private brandService: BrandService
   ) {}
 
   ngOnInit() {
-    this.brandName = this.brandDashboard.brandName;
-    this.getCampaigns(this.brandName);
+    this.brandEmail = this.authService.getUserEmail();
+    console.log("works " + this.brandEmail);
+    this.brandService.getLoggedUserData(this.brandEmail);
+    this.campaigns = this.brandService.myCampaigns;
+    console.log(this.campaigns);
 
     if (this.campaigns.length == 0) {
       this.noCampaigns = true;
     } else {
       this.noCampaigns = false;
     }
-  }
-
-  getCampaigns(brandName: string) {
-    this.http
-      .get<{ [key: string]: Campaign }>(
-        "https://project-b7a57.firebaseio.com/campaigns.json"
-      )
-      .pipe(
-        map(responseData => {
-          const campaignsArray: Campaign[] = [];
-          for (const key in responseData) {
-            if (responseData.hasOwnProperty(key)) {
-              campaignsArray.push({ ...responseData[key], id: key });
-            }
-          }
-          return campaignsArray;
-        })
-      )
-      .subscribe(campaignsArray => {
-        var j = 0;
-        for (const i in campaignsArray) {
-          if (campaignsArray[i].brandName == brandName) {
-            this.campaigns[j] = campaignsArray[i];
-            j++;
-          }
-        }
-      });
   }
 
   onDelete(id: string, i: number) {

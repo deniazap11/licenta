@@ -1,1 +1,36 @@
-<p>view-submissions works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Campaign submissions</h1>
+      <div class="container single-campaign" *ngFor="let c of myCampaigns">
+        <div class="row">
+          <div class="col-12">
+            <h3>{{ c.name }}</h3>
+            <p>by {{ c.brandName }}</p>
+            <p>{{ c.description }}</p>
+            <span id="read-more-text" class="toggle-text">
+              <p class="font-weight-bold">Category:</p>
+              <p>{{ c.category }}</p>
+              <p class="font-weight-bold">Brief for creators:</p>
+              <p>{{ c.brief }}</p>
+              <p class="font-weight-bold">Do:</p>
+              <p>{{ c.todo }}</p>
+              <p class="font-weight-bold">Don't:</p>
+              <p>{{ c.dont }}</p>
+              <p class="font-weight-bold">Tags to include:</p>
+              <p>{{ c.tags }}</p>
+              <p class="font-weight-bold">
+                Looking for creators who fit these criteria:
+              </p>
+              <p class="font-weight-bold">Gender:</p>
+              <p>{{ c.gender }}</p>
+              <p class="font-weight-bold">Age range:</p>
+              <p>{{ c.age }}</p>
+            </span>
+            <button class="btn btn-info toggle-text-button">Read More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
