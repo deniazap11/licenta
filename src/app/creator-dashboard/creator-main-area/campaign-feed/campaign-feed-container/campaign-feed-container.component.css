@@ -1,13 +1,50 @@
-::ng-deep .mat-expansion-panel-header {
-  height: 230px !important;
+.feed-general {
+  color: #6b7a8f;
+  padding-top: 20px;
 }
+.heading {
+  font-weight: 700;
+}
+.brand {
+  color: #f7882f;
+  font-weight: 700;
+}
+h3 {
+  font-weight: 700;
+}
+.criteria-component {
+  display: flex;
+  justify-content: center;
+}
+.creator-criteria {
+  margin: 20px;
+  border: 2px solid;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.creator-criteria p {
+  margin-bottom: 0px;
+}
+.creator-criteria .criteria-title {
+  margin-bottom: 10px;
+}
 .single-campaign {
-  border: 2px solid #50a7c2;
+  /* border: 2px solid #6b7a8f; */
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 15px 0px;
   padding: 15px;
+}
+.single-tag {
+  margin-bottom: 5px;
+}
+.single-tag-text {
+  margin: 10px;
 }
 
 #read-button-down,
@@ -23,8 +60,40 @@
   display: block;
 }
 
+.read-more-button {
+  background-color: #6b7a8f;
+  color: #dcc7aa;
+  border: 0;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 15px 0px;
+  transition: 0.5s;
+  font-weight: 500;
+  outline: none;
+}
+
+.read-more-button:hover {
+  background-color: #dcc7aa;
+  color: #6b7a8f;
+  transition: 0.5s;
+}
+
 .apply-button {
   margin: 15px 0px;
-  background-color: #ffbd76;
-  color: #ffffff;
+  background-color: #f7882f;
+  color: #f8ead5;
+  border: 0;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 15px 0px;
+  transition: 0.5s;
+  font-weight: 500;
+
+  outline: none;
+}
+
+.apply-button:hover {
+  background-color: #f8ead5;
+  color: #f7882f;
+  transition: 0.5s;
 }

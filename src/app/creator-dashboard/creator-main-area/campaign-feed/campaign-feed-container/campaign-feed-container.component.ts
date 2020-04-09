@@ -3,7 +3,7 @@ import { Campaign } from "src/app/brand-dashboard/brand-main-area/new-campaign/c
 import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
-import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { faArrowUp, faTag } from "@fortawesome/free-solid-svg-icons";
 import * as $ from "jquery";
 import { CreatorService } from "src/app/creator-dashboard/creator.service";
 import { DatabaseUser } from "src/app/auth/DatabaseUser.model";
@@ -11,11 +11,12 @@ import { DatabaseUser } from "src/app/auth/DatabaseUser.model";
 @Component({
   selector: "app-campaign-feed-container",
   templateUrl: "./campaign-feed-container.component.html",
-  styleUrls: ["./campaign-feed-container.component.css"]
+  styleUrls: ["./campaign-feed-container.component.css"],
 })
 export class CampaignFeedContainerComponent implements OnInit {
   faArrowDown = faArrowDown;
   faArrowUp = faArrowUp;
+  faTag = faTag;
 
   campaigns: Campaign[] = [];
 
@@ -29,26 +30,20 @@ export class CampaignFeedContainerComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    $(document).on("click", ".toggle-text-button", function() {
+    $(document).on("click", ".toggle-text-button", function () {
       // Check if text is more or less
-      if ($(this).text() == "Read More") {
+      if ($(this).text() == "READ MORE") {
         // Change link text
-        $(this).text("Read Less");
+        $(this).text("READ LESS");
 
         // Travel up DOM tree to parent, then find any children with CLASS .toggle-text and slide down
-        $(this)
-          .parent()
-          .children(".toggle-text")
-          .slideDown();
+        $(this).parent().children(".toggle-text").slideDown();
       } else {
         // Change link text
-        $(this).text("Read More");
+        $(this).text("READ MORE");
 
         // Travel up DOM tree to parent, then find any children with CLASS .toggle-text and slide up
-        $(this)
-          .parent()
-          .children(".toggle-text")
-          .slideUp();
+        $(this).parent().children(".toggle-text").slideUp();
       }
     });
   }
@@ -59,7 +54,7 @@ export class CampaignFeedContainerComponent implements OnInit {
         "https://project-b7a57.firebaseio.com/campaigns.json"
       )
       .pipe(
-        map(responseData => {
+        map((responseData) => {
           const campaignsArray: Campaign[] = [];
           for (const key in responseData) {
             if (responseData.hasOwnProperty(key)) {
@@ -69,7 +64,7 @@ export class CampaignFeedContainerComponent implements OnInit {
           return campaignsArray;
         })
       )
-      .subscribe(campaignsArray => {
+      .subscribe((campaignsArray) => {
         var j = 0;
         for (const i in campaignsArray) {
           this.campaigns[j] = campaignsArray[i];
@@ -98,7 +93,7 @@ export class CampaignFeedContainerComponent implements OnInit {
         "https://project-b7a57.firebaseio.com/campaigns.json"
       )
       .pipe(
-        map(responseData => {
+        map((responseData) => {
           const campaignsArray: Campaign[] = [];
           for (const key in responseData) {
             if (responseData.hasOwnProperty(key)) {
@@ -108,7 +103,7 @@ export class CampaignFeedContainerComponent implements OnInit {
           return campaignsArray;
         })
       )
-      .subscribe(campaignsArray => {
+      .subscribe((campaignsArray) => {
         var j = 0;
         for (const i in campaignsArray) {
           if (campaignsArray[i].id == id) {
@@ -135,7 +130,7 @@ export class CampaignFeedContainerComponent implements OnInit {
           "/submissions.json"
       )
       .pipe(
-        map(responseData => {
+        map((responseData) => {
           const usersArray: DatabaseUser[] = [];
           for (const key in responseData) {
             if (responseData.hasOwnProperty(key)) {
@@ -145,7 +140,7 @@ export class CampaignFeedContainerComponent implements OnInit {
           return usersArray;
         })
       )
-      .subscribe(usersArray => {
+      .subscribe((usersArray) => {
         for (const i in usersArray) {
           if (usersArray[i].email == userEmail) {
             userApplied++;
@@ -179,7 +174,7 @@ export class CampaignFeedContainerComponent implements OnInit {
           "/submissions.json",
         loggedUser
       )
-      .subscribe(responseData => {
+      .subscribe((responseData) => {
         console.log(responseData);
       });
 
@@ -191,7 +186,7 @@ export class CampaignFeedContainerComponent implements OnInit {
           "/submissions.json",
         campaign
       )
-      .subscribe(responseData => {
+      .subscribe((responseData) => {
         console.log(responseData);
       });
   }
