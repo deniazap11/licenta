@@ -10,4 +10,5 @@ export interface Campaign {
   gender: string;
   age: string;
   id?: string;
+  submissions?;
 }

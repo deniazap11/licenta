@@ -1,0 +1,55 @@
+.social-container {
+  margin: 20px;
+}
+a.fill-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+}
+.social-media-card-add {
+  transition: 0.5s;
+}
+.social-media-card-add:hover {
+  border-color: #f7882f;
+  transition: 0.5s;
+}
+.social-media-card-add a {
+  color: #6b7a8f;
+  font-size: 2rem;
+  text-align: center;
+  transition: 0.5s;
+}
+.social-media-card-add a:hover {
+  color: #f7882f;
+  transition: 0.5s;
+}
+
+.social-media-card {
+  border: 2px solid #6b7a8f;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 20px;
+  margin: 15px;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #6b7a8f;
+}
+
+.trash {
+  font-size: 1.5rem;
+  color: #f7882f;
+  padding-bottom: 5px;
+  transition: 0.5s;
+}
+
+a.trash:hover {
+  color: #f7c331;
+  transition: 0.5s;
+}

@@ -47,7 +47,7 @@ export class AuthService {
         "https://project-b7a57.firebaseio.com/users.json",
         postData
       )
-      .subscribe(responseData => {
+      .subscribe((responseData) => {
         console.log(responseData);
       });
   }
@@ -60,7 +60,7 @@ export class AuthService {
       )
       .pipe(
         catchError(this.handleError),
-        tap(resData => {
+        tap((resData) => {
           this.handleAuthentication(
             resData.email,
             resData.localId,
@@ -79,7 +79,7 @@ export class AuthService {
       )
       .pipe(
         catchError(this.handleError),
-        tap(resData => {
+        tap((resData) => {
           this.handleAuthentication(
             resData.email,
             resData.localId,

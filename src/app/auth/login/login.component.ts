@@ -14,7 +14,7 @@ import { DatabaseUser } from "../DatabaseUser.model";
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.css"]
+  styleUrls: ["./login.component.css"],
 })
 export class LoginComponent implements OnInit {
   isLoading = false;
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
         "https://project-b7a57.firebaseio.com/users.json"
       )
       .pipe(
-        map(responseData => {
+        map((responseData) => {
           const usersArray: DatabaseUser[] = [];
           for (const key in responseData) {
             if (responseData.hasOwnProperty(key)) {
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
           return usersArray;
         })
       )
-      .subscribe(users => {
+      .subscribe((users) => {
         for (const i in users) {
           if (users[i].email == email) {
             if (users[i].userType == "brand") {
@@ -68,12 +68,12 @@ export class LoginComponent implements OnInit {
     this.isLoading = true;
 
     this.authService.login(email, password).subscribe(
-      resData => {
+      (resData) => {
         console.log(resData);
         this.isLoading = false;
         this.navigateByUserType(email);
       },
-      errorMessage => {
+      (errorMessage) => {
         console.log(errorMessage);
         this.error = errorMessage;
         this.isLoading = false;

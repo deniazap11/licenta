@@ -5,16 +5,19 @@ import * as firebase from "firebase/app";
 import { Router } from "@angular/router";
 import { CampaignService } from "../brand-dashboard/brand-main-area/campaign.service";
 import { MyCampaignsComponent } from "../brand-dashboard/brand-main-area/my-campaigns/my-campaigns.component";
+import { DatabaseUser } from "../auth/DatabaseUser.model";
 
 @Component({
   selector: "app-navbar",
   templateUrl: "./navbar.component.html",
-  styleUrls: ["./navbar.component.css"]
+  styleUrls: ["./navbar.component.css"],
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   navbarOpen = false;
   private userSub: Subscription;
   isAuthenticated = false;
+  loggedUser: DatabaseUser;
+  loggedUserEmail: string;
 
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
@@ -27,7 +30,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.userSub = this.authService.user.subscribe(user => {
+    this.userSub = this.authService.user.subscribe((user) => {
       this.isAuthenticated = !user ? false : true;
     });
   }

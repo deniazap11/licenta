@@ -40,10 +40,8 @@ export class MyCampaignsComponent implements OnInit {
 
   ngOnInit() {
     this.brandEmail = this.authService.getUserEmail();
-    console.log("works " + this.brandEmail);
     this.brandService.getLoggedUserData(this.brandEmail);
     this.campaigns = this.brandService.myCampaigns;
-    console.log(this.campaigns);
 
     if (this.campaigns.length == 0) {
       this.noCampaigns = true;
