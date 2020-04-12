@@ -10,12 +10,13 @@ import { MatTableModule } from "@angular/material/table";
 import { MatPaginator, MatPaginatorModule } from "@angular/material/paginator";
 import { MatSort, MatSortModule } from "@angular/material/sort";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { MatDialogModule, MatDialogConfig } from "@angular/material";
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
 
 import { environment } from "../environments/environment";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import * as firebase from "firebase/app";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
@@ -53,7 +54,8 @@ import { MySubmissionsComponent } from "./creator-dashboard/creator-main-area/my
 import { BrandsComponent } from "./creator-dashboard/creator-main-area/brands/brands.component";
 import { BrandTableComponent } from "./creator-dashboard/creator-main-area/brands/brand-table/brand-table.component";
 import { CampaignFeedContainerComponent } from "./creator-dashboard/creator-main-area/campaign-feed/campaign-feed-container/campaign-feed-container.component";
-import { DigitalMarketingBannerComponent } from './home/digital-marketing-banner/digital-marketing-banner.component';
+import { DigitalMarketingBannerComponent } from "./home/digital-marketing-banner/digital-marketing-banner.component";
+import { NewSocialDialogComponent } from "./creator-dashboard/creator-main-area/social-account/new-social-dialog/new-social-dialog.component";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
@@ -69,24 +71,24 @@ const appRoutes: Routes = [
       {
         path: "new-campaign",
         component: NewCampaignComponent,
-        outlet: "content"
+        outlet: "content",
       },
       {
         path: "my-campaigns",
         component: MyCampaignsComponent,
-        outlet: "content"
+        outlet: "content",
       },
       {
         path: "creators",
         component: ViewCreatorsComponent,
-        outlet: "content"
+        outlet: "content",
       },
       {
         path: "submissions",
         component: ViewSubmissionsComponent,
-        outlet: "content"
-      }
-    ]
+        outlet: "content",
+      },
+    ],
   },
   {
     path: "creator-dashboard",
@@ -96,25 +98,25 @@ const appRoutes: Routes = [
       {
         path: "campaign-feed",
         component: CampaignFeedComponent,
-        outlet: "content-c"
+        outlet: "content-c",
       },
       {
         path: "social-account",
         component: SocialAccountComponent,
-        outlet: "content-c"
+        outlet: "content-c",
       },
       {
         path: "my-submissions",
         component: MySubmissionsComponent,
-        outlet: "content-c"
+        outlet: "content-c",
       },
       {
         path: "brands",
         component: BrandsComponent,
-        outlet: "content-c"
-      }
-    ]
-  }
+        outlet: "content-c",
+      },
+    ],
+  },
 ];
 
 firebase.initializeApp(environment.firebase);
@@ -150,7 +152,8 @@ firebase.initializeApp(environment.firebase);
     BrandsComponent,
     BrandTableComponent,
     CampaignFeedContainerComponent,
-    DigitalMarketingBannerComponent
+    DigitalMarketingBannerComponent,
+    NewSocialDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -171,10 +174,13 @@ firebase.initializeApp(environment.firebase);
     MatPaginatorModule,
     MatSortModule,
     FontAwesomeModule,
-    NgbModule
+    NgbModule,
+    MatDialogModule,
+    ReactiveFormsModule,
   ],
   exports: [MatExpansionModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [NewSocialDialogComponent],
 })
 export class AppModule {}

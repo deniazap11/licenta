@@ -35,15 +35,15 @@ export class MySubmissionsComponent implements OnInit {
   ngAfterViewInit() {
     $(document).on("click", ".toggle-text-button", function () {
       // Check if text is more or less
-      if ($(this).text() == "Read More") {
+      if ($(this).text() == "READ MORE") {
         // Change link text
-        $(this).text("Read Less");
+        $(this).text("READ LESS");
 
         // Travel up DOM tree to parent, then find any children with CLASS .toggle-text and slide down
         $(this).parent().children(".toggle-text").slideDown();
       } else {
         // Change link text
-        $(this).text("Read More");
+        $(this).text("READ MORE");
 
         // Travel up DOM tree to parent, then find any children with CLASS .toggle-text and slide up
         $(this).parent().children(".toggle-text").slideUp();

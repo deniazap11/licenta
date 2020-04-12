@@ -2,6 +2,11 @@ import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import * as $ from "jquery";
 import { faPlus, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { MatDialog, MatDialogConfig } from "@angular/material";
+import { NewSocialDialogComponent } from "./new-social-dialog/new-social-dialog.component";
+import { DatabaseUser } from "src/app/auth/DatabaseUser.model";
+import { AuthService } from "src/app/auth/auth.service";
+import { map } from "rxjs/operators";
 
 @Component({
   selector: "app-social-account",
@@ -11,9 +16,16 @@ import { faPlus, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 export class SocialAccountComponent implements OnInit {
   faPlus = faPlus;
   faTrashAlt = faTrashAlt;
-  constructor(private http: HttpClient) {}
+  loggedUser: DatabaseUser;
+  loggedUserEmail: string;
+  constructor(
+    private http: HttpClient,
+    private dialog: MatDialog,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
+    this.loggedUserEmail = this.authService.getUserEmail();
     this.getSocialMedia();
   }
 
@@ -47,5 +59,68 @@ export class SocialAccountComponent implements OnInit {
         );
       },
     });
+  }
+
+  openDialog() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = {
+      id: 1,
+      title: "Angular For Beginners",
+    };
+
+    dialogConfig.minHeight = 250;
+    dialogConfig.minWidth = 300;
+
+    this.dialog.open(NewSocialDialogComponent, dialogConfig);
+
+    const dialogRef = this.dialog.open(NewSocialDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe((data) => {
+      if (data.username != null) {
+        this.addSocialToDatabase(this.loggedUserEmail, data.username);
+      } else {
+        console.log("No username");
+      }
+    });
+  }
+
+  addSocialToDatabase(email: string, username: string) {
+    this.http
+      .get<{ [key: string]: DatabaseUser }>(
+        "https://project-b7a57.firebaseio.com/users.json"
+      )
+      .pipe(
+        map((responseData) => {
+          const usersArray: DatabaseUser[] = [];
+          for (const key in responseData) {
+            if (responseData.hasOwnProperty(key)) {
+              usersArray.push({ ...responseData[key], id: key });
+            }
+          }
+          return usersArray;
+        })
+      )
+      .subscribe((users) => {
+        for (const i in users) {
+          if (users[i].email == email) {
+            this.addSocialToThisUser(users[i].id, username);
+          }
+        }
+      });
+  }
+
+  addSocialToThisUser(userId: string, username: string) {
+    this.http
+      .post<{ name: string }>(
+        "https://project-b7a57.firebaseio.com/users/" + userId + "/social.json",
+        JSON.stringify(username)
+      )
+      .subscribe((responseData) => {
+        console.log(responseData);
+      });
   }
 }

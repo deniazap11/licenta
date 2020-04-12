@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>{{ username }}</h2>
+
+<mat-dialog-content [formGroup]="form">
+  <mat-form-field>
+    <input matInput placeholder="Instagram handle" formControlName="username" />
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button mat-primary dialog-button" (click)="save()">
+    Save
+  </button>
+  <button class="mat-raised-button dialog-button" (click)="close()">
+    Close
+  </button>
+</mat-dialog-actions>

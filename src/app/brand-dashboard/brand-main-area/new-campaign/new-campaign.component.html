@@ -1,6 +1,6 @@
-<div class="page-wrapper bg-gra-01 p-t-130 p-b-100 font-poppins">
+<div class="page-wrapper background p-t-130 p-b-100 font-poppins">
   <div class="wrapper form-wrapper">
-    <div class="card card-4">
+    <div class="card card-4 form-card">
       <div class="card-body">
         <h2 class="title form-columns">
           Fill in the fields bellow about the desired campaign
@@ -97,7 +97,7 @@
             <div class="col-12 form-columns">
               <div class="input-group">
                 <label class="label">Tags to include:</label>
-                <mat-form-field style="width: 100%">
+                <mat-form-field style="width: 100%;">
                   <mat-chip-list #chipList aria-label="Tag selection">
                     <mat-chip
                       *ngFor="let tag of tags"
@@ -125,9 +125,7 @@
             <div class="col-12 form-columns">
               <h4
                 class="title"
-                style="font-size: 20px;
-              margin-bottom: 10px;
-              margin-top: 10px;"
+                style="font-size: 20px; margin-bottom: 10px; margin-top: 10px;"
               >
                 Who are you looking for?
               </h4>
@@ -174,11 +172,11 @@
                 requirements.
               </p>
               <button
-                class="btn btn--radius-2 btn--blue"
+                class="submit-button"
                 type="submit"
                 [disabled]="!newCampaignForm.valid"
               >
-                Submit
+                SUBMIT
               </button>
             </div>
           </div>

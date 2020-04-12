@@ -1,7 +1,7 @@
 .social-container {
   margin: 20px;
 }
-a.fill-div {
+button.fill-div {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,13 +17,16 @@ a.fill-div {
   border-color: #f7882f;
   transition: 0.5s;
 }
-.social-media-card-add a {
+.social-media-card-add button {
   color: #6b7a8f;
   font-size: 2rem;
   text-align: center;
   transition: 0.5s;
+  border: none;
+  background-color: transparent;
+  outline: none;
 }
-.social-media-card-add a:hover {
+.social-media-card-add button:hover {
   color: #f7882f;
   transition: 0.5s;
 }

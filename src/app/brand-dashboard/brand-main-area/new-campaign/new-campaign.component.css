@@ -178,40 +178,19 @@ h6 {
 /* ==========================================================================
      #BACKGROUND
      ========================================================================== */
-.bg-blue {
-  background: #2c6ed5;
-}
-
-.bg-red {
-  background: #fa4251;
-}
 
 .bg-gra-01 {
   background: -webkit-gradient(
     linear,
     left bottom,
     left top,
-    from(#b7f8db),
-    to(#50a7c2)
+    from(#f7882f),
+    to(#f7c331)
   );
-  background: -webkit-linear-gradient(bottom, #b7f8db 0%, #50a7c2 100%);
-  background: -moz-linear-gradient(bottom, #b7f8db 0%, #50a7c2 100%);
-  background: -o-linear-gradient(bottom, #b7f8db 0%, #50a7c2 100%);
-  background: linear-gradient(to top, #b7f8db 0%, #50a7c2 100%);
-}
-
-.bg-gra-02 {
-  background: -webkit-gradient(
-    linear,
-    left bottom,
-    right top,
-    from(#fc2c77),
-    to(#6c4079)
-  );
-  background: -webkit-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
-  background: -moz-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
-  background: -o-linear-gradient(bottom left, #fc2c77 0%, #6c4079 100%);
-  background: linear-gradient(to top right, #fc2c77 0%, #6c4079 100%);
+  background: -webkit-linear-gradient(bottom, #f7882f 0%, #f7c331 100%);
+  background: -moz-linear-gradient(bottom, #f7882f 0%, #f7c331 100%);
+  background: -o-linear-gradient(bottom, #f7882f 0%, #f7c331 100%);
+  background: linear-gradient(to top, #f7882f 0%, #f7c331 100%);
 }
 
 /* ==========================================================================
@@ -703,18 +682,25 @@ input {
 }
 
 ::ng-deep .mat-slider-track-fill {
-  background-color: #50a7c2 !important;
+  background-color: #6b7a8f !important;
 }
 ::ng-deep .mat-slider-thumb-label-text {
-  background-color: #50a7c2 !important;
+  background-color: #6b7a8f !important;
 }
 ::ng-deep .mat-slider-thumb-label {
-  background-color: #50a7c2 !important;
+  background-color: #6b7a8f !important;
 }
 ::ng-deep .mat-slider-thumb {
-  background-color: #50a7c2 !important;
+  background-color: #6b7a8f !important;
 }
-
+.background {
+  /* background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://freedesignfile.com/upload/2017/01/White-geometric-shapes-backgrounds-vector-set-08.jpg"); */
+  background-color: #f5d058;
+}
 .form-wrapper {
   width: 80%;
 }
@@ -722,4 +708,30 @@ input {
 .form-columns {
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.form-card {
+  font-family: Montserrat;
+  border: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.submit-button {
+  font-family: Montserrat;
+  background-color: #6b7a8f;
+  color: #dcc7aa;
+  border: 0;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 15px 0px;
+  transition: 0.5s;
+  font-weight: 500;
+  outline: none;
+  font-weight: 600;
+}
+
+.submit-button:hover {
+  background-color: #dcc7aa;
+  color: #6b7a8f;
+  transition: 0.5s;
 }

@@ -70,6 +70,7 @@ h3 {
   transition: 0.5s;
   font-weight: 500;
   outline: none;
+  font-family: Montserrat;
 }
 
 .read-more-button:hover {

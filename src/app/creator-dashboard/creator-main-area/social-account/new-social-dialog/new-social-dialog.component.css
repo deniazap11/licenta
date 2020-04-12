@@ -1,0 +1,45 @@
+.dialog-button {
+  border: none;
+  margin-right: 10px;
+  background-color: #6b7a8f;
+  color: #dcc7aa;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 15px 0px;
+  transition: 0.5s;
+  font-weight: 500;
+  outline: none;
+  text-transform: uppercase;
+  font-family: Montserrat;
+}
+
+.dialog-button:hover {
+  background-color: #dcc7aa;
+  color: #6b7a8f;
+  transition: 0.5s;
+}
+
+::ng-deep.mat-dialog-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7a8f;
+}
+
+::ng-deep.mat-dialog-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+::ng-deep label.mat-form-field-label {
+  color: #6b7a8f !important;
+}
+
+::ng-deep .mat-form-field-underline .mat-form-field-ripple {
+  background-color: #6b7a8f !important;
+}
+
+::ng-deep .mat-form-field-underline {
+  background-color: #6b7a8f !important;
+}
