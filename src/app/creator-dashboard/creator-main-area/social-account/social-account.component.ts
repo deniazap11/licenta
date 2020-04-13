@@ -7,6 +7,9 @@ import { NewSocialDialogComponent } from "./new-social-dialog/new-social-dialog.
 import { DatabaseUser } from "src/app/auth/DatabaseUser.model";
 import { AuthService } from "src/app/auth/auth.service";
 import { map } from "rxjs/operators";
+import { CreatorService } from "../../creator.service";
+import { socialAccountInfo } from "./socialAccountInfo.model";
+import { SocialUsername } from "./socialUsername.model";
 
 @Component({
   selector: "app-social-account",
@@ -18,18 +21,23 @@ export class SocialAccountComponent implements OnInit {
   faTrashAlt = faTrashAlt;
   loggedUser: DatabaseUser;
   loggedUserEmail: string;
+  mySocials: string[] = [];
+  mySocialAccountInfo = [];
   constructor(
     private http: HttpClient,
     private dialog: MatDialog,
-    private authService: AuthService
+    private authService: AuthService,
+    private creatorService: CreatorService
   ) {}
 
   ngOnInit() {
     this.loggedUserEmail = this.authService.getUserEmail();
-    this.getSocialMedia();
+    this.creatorService.getSocialUsernames(this.loggedUserEmail);
+    this.mySocials = this.creatorService.mySocials;
+    console.log(this.mySocials);
   }
 
-  getSocialMedia() {
+  getSocialMedia(userId: string, socialUsername: string) {
     function nFormatter(num) {
       if (num >= 1000000000) {
         return (num / 1000000000).toFixed(1).replace(/\.0$/, "") + "G";
@@ -43,20 +51,32 @@ export class SocialAccountComponent implements OnInit {
       return num;
     }
 
+    let mySocials = this.mySocials;
+    let newProfilePicUrl, newName, newUsername, newNumberOfPosts, newFollowers;
+    let newSocialAccountInfo: socialAccountInfo;
+    const component = this;
+
     $.ajax({
-      url: "https://www.instagram.com/zoesugg?__a=1",
+      url: "https://www.instagram.com/" + socialUsername + "?__a=1",
       type: "get",
       success: function (response) {
-        $(".profile-pic").attr("src", response.graphql.user.profile_pic_url);
-        $(".name").html(response.graphql.user.full_name);
-        $(".biography").html(response.graphql.user.biography);
-        $(".username").html(response.graphql.user.username);
-        $(".number-of-posts").html(
-          response.graphql.user.edge_owner_to_timeline_media.count
-        );
-        $(".followers").html(
-          nFormatter(response.graphql.user.edge_followed_by.count)
-        );
+        newProfilePicUrl = response.graphql.user.profile_pic_url;
+        newName = response.graphql.user.full_name;
+        newUsername = response.graphql.user.username;
+        newNumberOfPosts =
+          response.graphql.user.edge_owner_to_timeline_media.count;
+        newFollowers = nFormatter(response.graphql.user.edge_followed_by.count);
+
+        newSocialAccountInfo = {
+          profilePicUrl: newProfilePicUrl,
+          name: newName,
+          username: newUsername,
+          numberOfPosts: newNumberOfPosts,
+          followers: newFollowers,
+        };
+        console.log(newSocialAccountInfo);
+
+        component.addSocialToThisUser(userId, newSocialAccountInfo);
       },
     });
   }
@@ -107,20 +127,24 @@ export class SocialAccountComponent implements OnInit {
       .subscribe((users) => {
         for (const i in users) {
           if (users[i].email == email) {
-            this.addSocialToThisUser(users[i].id, username);
+            this.getSocialMedia(users[i].id, username);
+            // this.addSocialToThisUser(users[i].id, username);
           }
         }
       });
   }
 
-  addSocialToThisUser(userId: string, username: string) {
+  addSocialToThisUser(userId: string, newSocialAccountInfo: socialAccountInfo) {
     this.http
       .post<{ name: string }>(
         "https://project-b7a57.firebaseio.com/users/" + userId + "/social.json",
-        JSON.stringify(username)
+        newSocialAccountInfo
       )
       .subscribe((responseData) => {
         console.log(responseData);
       });
+    window.location.reload();
   }
+
+  onDeleteSocialMedia() {}
 }

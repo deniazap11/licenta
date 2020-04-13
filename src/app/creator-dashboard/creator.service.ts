@@ -8,6 +8,7 @@ import { Campaign } from "../brand-dashboard/brand-main-area/new-campaign/campai
 export class CreatorService {
   loggedUser: DatabaseUser;
   myCampaigns: Campaign[] = [];
+  mySocials: string[] = [];
   constructor(private http: HttpClient) {}
 
   getLoggedUserData(email: string) {
@@ -16,7 +17,7 @@ export class CreatorService {
         "https://project-b7a57.firebaseio.com/users.json"
       )
       .pipe(
-        map(responseData => {
+        map((responseData) => {
           const usersArray: DatabaseUser[] = [];
           for (const key in responseData) {
             if (responseData.hasOwnProperty(key)) {
@@ -26,7 +27,7 @@ export class CreatorService {
           return usersArray;
         })
       )
-      .subscribe(users => {
+      .subscribe((users) => {
         for (const i in users) {
           if (users[i].email == email) {
             this.loggedUser = users[i];
@@ -44,7 +45,7 @@ export class CreatorService {
           "/submissions.json"
       )
       .pipe(
-        map(responseData => {
+        map((responseData) => {
           const campaignsArray: Campaign[] = [];
           for (const key in responseData) {
             if (responseData.hasOwnProperty(key)) {
@@ -54,11 +55,41 @@ export class CreatorService {
           return campaignsArray;
         })
       )
-      .subscribe(campaignsArray => {
+      .subscribe((campaignsArray) => {
         var j = 0;
         for (const i in campaignsArray) {
           this.myCampaigns[j] = campaignsArray[i];
           j++;
+        }
+      });
+  }
+
+  getSocialUsernames(email: string) {
+    this.http
+      .get<{ [key: string]: DatabaseUser }>(
+        "https://project-b7a57.firebaseio.com/users.json"
+      )
+      .pipe(
+        map((responseData) => {
+          const usersArray: DatabaseUser[] = [];
+          for (const key in responseData) {
+            if (responseData.hasOwnProperty(key)) {
+              usersArray.push({ ...responseData[key], id: key });
+            }
+          }
+          return usersArray;
+        })
+      )
+      .subscribe((users) => {
+        for (const i in users) {
+          if (users[i].email == email) {
+            let social = users[i].social;
+            var k = 0;
+            for (const j in social) {
+              this.mySocials[k] = social[j];
+              k++;
+            }
+          }
         }
       });
   }

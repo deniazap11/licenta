@@ -3,5 +3,5 @@ export interface DatabaseUser {
   name: string;
   email: string;
   id?: string;
-  socialUsername?: string;
+  social?;
 }

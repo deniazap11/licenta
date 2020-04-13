@@ -46,6 +46,9 @@ button.fill-div {
 }
 
 .trash {
+  outline: none;
+  background: transparent;
+  border: none;
   font-size: 1.5rem;
   color: #f7882f;
   padding-bottom: 5px;
