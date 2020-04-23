@@ -55,7 +55,9 @@
                   <button
                     class="accept-button"
                     type="button"
-                    (click)="onAcceptCreator(s.value.id, c.id, s.key)"
+                    (click)="
+                      onAcceptCreator(s.value.id, c.id, s.key, s.value.email, c)
+                    "
                   >
                     <fa-icon [icon]="faPlusSquare" class="card-icon"></fa-icon>
                     accept

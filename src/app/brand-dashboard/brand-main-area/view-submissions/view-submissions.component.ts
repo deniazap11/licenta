@@ -8,6 +8,8 @@ import {
   faCheckSquare,
   faPlusSquare,
 } from "@fortawesome/free-solid-svg-icons";
+import "src/assets/js/smtp.js";
+declare let Email: any;
 
 @Component({
   selector: "app-view-submissions",
@@ -32,9 +34,14 @@ export class ViewSubmissionsComponent implements OnInit {
     this.campaigns = this.brandService.myCampaigns;
   }
 
-  onAcceptCreator(userId: string, campaignId: string, submissionId: string) {
-    console.log("works" + userId + " and " + campaignId);
-    console.log(submissionId);
+  onAcceptCreator(
+    userId: string,
+    campaignId: string,
+    submissionId: string,
+    userEmail: string,
+    campaign: Campaign
+  ) {
+    console.log(campaign);
     const status = { status: "accepted" };
     //add status to campaigns db
     this.http
@@ -61,6 +68,19 @@ export class ViewSubmissionsComponent implements OnInit {
     //   .subscribe((responseData) => {
     //     console.log(responseData);
     //   });
+
+    Email.send({
+      Host: "smtp.elasticemail.com",
+      Username: "deni.azap11@gmail.com",
+      Password: "1F605CF1AE0BDD8AF31AD43A8964039AD084",
+      To: userEmail,
+      From: "deni.azap11@gmail.com",
+      Subject: "Congrats! Your submission was accepted!",
+      Body: `
+      <p>You have been accepted to a campaign!</p><p>Please check your dashboard on Marketings to find out everything about it.</p>`,
+    }).then((message) => {
+      alert(message);
+    });
 
     window.location.reload();
   }
