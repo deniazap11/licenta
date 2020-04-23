@@ -9,7 +9,7 @@ import { map } from "rxjs/operators";
 @Component({
   selector: "app-brands",
   templateUrl: "./brands.component.html",
-  styleUrls: ["./brands.component.css"]
+  styleUrls: ["./brands.component.css"],
 })
 export class BrandsComponent implements OnInit {
   brands: DatabaseUser[] = [];
@@ -36,7 +36,7 @@ export class BrandsComponent implements OnInit {
         "https://project-b7a57.firebaseio.com/users.json"
       )
       .pipe(
-        map(responseData => {
+        map((responseData) => {
           const usersArray: DatabaseUser[] = [];
           for (const key in responseData) {
             if (responseData.hasOwnProperty(key)) {
@@ -46,7 +46,7 @@ export class BrandsComponent implements OnInit {
           return usersArray;
         })
       )
-      .subscribe(users => {
+      .subscribe((users) => {
         var j = 0;
         for (const i in users) {
           if (users[i].userType == "brand") {

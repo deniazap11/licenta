@@ -16,7 +16,7 @@ export class BrandService {
         "https://project-b7a57.firebaseio.com/users.json"
       )
       .pipe(
-        map(responseData => {
+        map((responseData) => {
           const usersArray: DatabaseUser[] = [];
           for (const key in responseData) {
             if (responseData.hasOwnProperty(key)) {
@@ -26,7 +26,7 @@ export class BrandService {
           return usersArray;
         })
       )
-      .subscribe(users => {
+      .subscribe((users) => {
         for (const i in users) {
           if (users[i].email == email) {
             this.loggedUser = users[i];
@@ -42,7 +42,7 @@ export class BrandService {
         "https://project-b7a57.firebaseio.com/campaigns.json"
       )
       .pipe(
-        map(responseData => {
+        map((responseData) => {
           const campaignsArray: Campaign[] = [];
           for (const key in responseData) {
             if (responseData.hasOwnProperty(key)) {
@@ -52,7 +52,7 @@ export class BrandService {
           return campaignsArray;
         })
       )
-      .subscribe(campaignsArray => {
+      .subscribe((campaignsArray) => {
         var j = 0;
         for (const i in campaignsArray) {
           if (campaignsArray[i].brandName == name) {

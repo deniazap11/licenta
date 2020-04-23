@@ -1,5 +1,7 @@
 .social-container {
-  margin: 20px;
+}
+.social-cards-row {
+  justify-content: center;
 }
 button.fill-div {
   display: flex;
@@ -55,7 +57,7 @@ button.fill-div {
   transition: 0.5s;
 }
 
-a.trash:hover {
+.trash:hover {
   color: #f7c331;
   transition: 0.5s;
 }

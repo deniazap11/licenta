@@ -3,7 +3,7 @@ import {
   OnInit,
   ChangeDetectorRef,
   OnChanges,
-  SimpleChange
+  SimpleChange,
 } from "@angular/core";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { Campaign } from "../new-campaign/campaign.model";
@@ -20,7 +20,7 @@ import { BrandService } from "../../brand.service";
 @Component({
   selector: "app-my-campaigns",
   templateUrl: "./my-campaigns.component.html",
-  styleUrls: ["./my-campaigns.component.css"]
+  styleUrls: ["./my-campaigns.component.css"],
 })
 export class MyCampaignsComponent implements OnInit {
   campaigns: Campaign[] = [];
@@ -42,6 +42,7 @@ export class MyCampaignsComponent implements OnInit {
     this.brandEmail = this.authService.getUserEmail();
     this.brandService.getLoggedUserData(this.brandEmail);
     this.campaigns = this.brandService.myCampaigns;
+    console.log(this.campaigns);
 
     if (this.campaigns.length == 0) {
       this.noCampaigns = true;

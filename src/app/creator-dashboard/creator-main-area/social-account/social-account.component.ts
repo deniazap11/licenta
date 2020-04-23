@@ -9,7 +9,6 @@ import { AuthService } from "src/app/auth/auth.service";
 import { map } from "rxjs/operators";
 import { CreatorService } from "../../creator.service";
 import { socialAccountInfo } from "./socialAccountInfo.model";
-import { SocialUsername } from "./socialUsername.model";
 
 @Component({
   selector: "app-social-account",
@@ -21,8 +20,8 @@ export class SocialAccountComponent implements OnInit {
   faTrashAlt = faTrashAlt;
   loggedUser: DatabaseUser;
   loggedUserEmail: string;
+  loggedUserId: string;
   mySocials: string[] = [];
-  mySocialAccountInfo = [];
   constructor(
     private http: HttpClient,
     private dialog: MatDialog,
@@ -89,7 +88,7 @@ export class SocialAccountComponent implements OnInit {
 
     dialogConfig.data = {
       id: 1,
-      title: "Angular For Beginners",
+      title: "New Social Media Account",
     };
 
     dialogConfig.minHeight = 250;
@@ -128,7 +127,6 @@ export class SocialAccountComponent implements OnInit {
         for (const i in users) {
           if (users[i].email == email) {
             this.getSocialMedia(users[i].id, username);
-            // this.addSocialToThisUser(users[i].id, username);
           }
         }
       });
@@ -146,5 +144,18 @@ export class SocialAccountComponent implements OnInit {
     window.location.reload();
   }
 
-  onDeleteSocialMedia() {}
+  onDeleteSocialMedia(i: number, username: string) {
+    this.loggedUserId = this.creatorService.loggedUserId;
+    console.log("works " + this.loggedUserId);
+
+    // let linkArray =
+    //   "https://project-b7a57.firebaseio.com/users/" +
+    //   this.loggedUserId +
+    //   "social/" +
+    //   "/.json";
+
+    this.creatorService.deleteSocialFromDatabase(this.loggedUserId, username);
+
+    this.mySocials.splice(i, 1);
+  }
 }

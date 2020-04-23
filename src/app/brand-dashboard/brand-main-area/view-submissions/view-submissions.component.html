@@ -11,22 +11,62 @@
               </mat-panel-title>
               <mat-panel-description> {{ c.category }}</mat-panel-description>
             </mat-expansion-panel-header>
+            <div class="row table-header">
+              <div class="col-md-3">
+                Name
+              </div>
+              <div class="col-md-3">
+                Instagram
+              </div>
+              <div class="col-md-3">
+                Email
+              </div>
+              <div class="col-md-3">
+                Status
+              </div>
+            </div>
             <div
               class="row creator-list"
               *ngFor="let s of c.submissions | keyvalue"
             >
-              <div class="col-md-4">
-                <p>
-                  {{ s.value.name }}
-                </p>
+              <div class="col-md-3">
+                <p>{{ s.value.name }}</p>
               </div>
-              <div class="col-md-4">
-                {{ s.value.email }}
+              <div class="col-md-3">
+                <div
+                  class="social-usernames"
+                  *ngFor="let social of s.value.social | keyvalue"
+                >
+                  <a
+                    href="https://www.instagram.com/{{ social.value.username }}"
+                    target="blank"
+                    >{{ social.value.username }}</a
+                  >
+                </div>
               </div>
-              <div class="col-md-4">
-                <button class="btn btn-info" type="button">
-                  Accept creator
-                </button>
+              <div class="col-md-3 email-col">
+                <a href="mailto:{{ s.value.email }}">
+                  <fa-icon [icon]="faEnvelope" class="card-icon"></fa-icon>
+                </a>
+              </div>
+
+              <div class="col-md-3">
+                <div *ngIf="!(s.value.status | keyvalue)?.length">
+                  <button
+                    class="accept-button"
+                    type="button"
+                    (click)="onAcceptCreator(s.value.id, c.id, s.key)"
+                  >
+                    <fa-icon [icon]="faPlusSquare" class="card-icon"></fa-icon>
+                    accept
+                  </button>
+                </div>
+                <div
+                  class="accepted"
+                  *ngIf="(s.value.status | keyvalue)?.length"
+                >
+                  <fa-icon [icon]="faCheckSquare" class="card-icon"></fa-icon>
+                </div>
               </div>
             </div>
           </mat-expansion-panel>

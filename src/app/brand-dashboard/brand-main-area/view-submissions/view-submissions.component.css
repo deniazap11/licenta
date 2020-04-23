@@ -1,3 +1,7 @@
+div {
+  font-family: Montserrat;
+  color: #6b7a8f;
+}
 .creator-list {
   padding: 15px 0px;
 }
@@ -5,4 +9,55 @@
 ::ng-deep .mat-expansion-panel-header-title,
 .mat-expansion-panel-header-description {
   max-width: 50%;
+  font-family: Montserrat;
+}
+
+.table-header {
+  font-size: 1rem;
+  font-weight: 600;
+  border-bottom: 1px solid #6b7a8f;
+  border-top: 1px solid #6b7a8f;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.social-usernames a {
+  color: #f7882f;
+  font-weight: 600;
+}
+
+.email-col {
+  font-size: 1.5rem;
+}
+
+.email-col a {
+  color: #f7882f;
+}
+
+.accepted {
+  color: green;
+  font-size: 1.5rem;
+}
+
+.accept-button {
+  background-color: #f7882f;
+  color: #f8ead5;
+  border: 0;
+  padding: 5px 10px;
+  font-weight: 700;
+  outline: none;
+}
+
+.accept-button:hover {
+  background-color: #f8ead5;
+  color: #f7882f;
+  transition: 0.3s;
+}
+
+#after-accept-icon {
+  display: none;
+}
+
+.after-accept-button {
+  display: none;
 }

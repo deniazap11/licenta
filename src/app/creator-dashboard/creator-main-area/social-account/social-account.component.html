@@ -1,24 +1,17 @@
 <div class="container social-container">
-  <div class="row">
-    <div class="col-3 social-media-card social-media-card-add">
+  <div class="row social-cards-row">
+    <div class="col-md-3 social-media-card social-media-card-add">
       <button (click)="openDialog()" class="fill-div">
         <fa-icon [icon]="faPlus" class="card-icon"></fa-icon>
         <p>Add an account</p>
       </button>
     </div>
-    <!-- <div class="col-3 social-media-card">
-      <a href="" class="trash">
-        <fa-icon [icon]="faTrashAlt" class="card-icon"></fa-icon>
-      </a>
-      <img src="" class="profile-pic" style="border-radius: 50%;" />
-      <h2 class="username"></h2>
-      <h4 class="name"></h4>
-      <div><span class="number-of-posts"></span> posts</div>
-      <div><span class="followers"></span> followers</div>
-    </div> -->
 
-    <div class="col-3 social-media-card" *ngFor="let s of mySocials">
-      <button class="trash" (click)="deleteSocialMedia()">
+    <div
+      class="col-md-3 social-media-card"
+      *ngFor="let s of mySocials; let i = index"
+    >
+      <button class="trash" (click)="onDeleteSocialMedia(i, s.username)">
         <fa-icon [icon]="faTrashAlt" class="card-icon"></fa-icon>
       </button>
       <img

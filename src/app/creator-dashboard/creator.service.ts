@@ -3,10 +3,12 @@ import { HttpClient } from "@angular/common/http";
 import { DatabaseUser } from "src/app/auth/DatabaseUser.model";
 import { map } from "rxjs/operators";
 import { Campaign } from "../brand-dashboard/brand-main-area/new-campaign/campaign.model";
+import { socialAccountInfo } from "./creator-main-area/social-account/socialAccountInfo.model";
 
 @Injectable({ providedIn: "root" })
 export class CreatorService {
   loggedUser: DatabaseUser;
+  loggedUserId: string;
   myCampaigns: Campaign[] = [];
   mySocials: string[] = [];
   constructor(private http: HttpClient) {}
@@ -83,7 +85,8 @@ export class CreatorService {
       .subscribe((users) => {
         for (const i in users) {
           if (users[i].email == email) {
-            let social = users[i].social;
+            this.loggedUserId = users[i].id;
+            let social: socialAccountInfo = users[i].social;
             var k = 0;
             for (const j in social) {
               this.mySocials[k] = social[j];
@@ -92,5 +95,33 @@ export class CreatorService {
           }
         }
       });
+  }
+
+  deleteSocialFromDatabase(loggedUserId: string, username: string) {
+    // this.http
+    //   .get<{ [key: string]: DatabaseUser }>(
+    //     "https://project-b7a57.firebaseio.com/users.json"
+    //   )
+    //   .pipe(
+    //     map((responseData) => {
+    //       const usersArray: DatabaseUser[] = [];
+    //       for (const key in responseData) {
+    //         if (responseData.hasOwnProperty(key)) {
+    //           usersArray.push({ ...responseData[key], id: key });
+    //         }
+    //       }
+    //       return usersArray;
+    //     })
+    //   )
+    //   .subscribe((users) => {
+    //     for (const i in users) {
+    //       if (users[i].id == loggedUserId) {
+    //         let social = users[i].social;
+    //         for (const j in social) {
+    //           if (social[j].username == username) console.log(social[j].id);
+    //         }
+    //       }
+    //     }
+    //   });
   }
 }

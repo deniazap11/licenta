@@ -4,4 +4,5 @@ export interface socialAccountInfo {
   username: string;
   numberOfPosts;
   followers;
+  id?: string;
 }
