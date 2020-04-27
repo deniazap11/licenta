@@ -6,7 +6,7 @@ import { HttpClient } from "@angular/common/http";
 import {
   faEnvelope,
   faCheckSquare,
-  faPlusSquare,
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import "src/assets/js/smtp.js";
 declare let Email: any;
@@ -21,7 +21,7 @@ export class ViewSubmissionsComponent implements OnInit {
   campaigns: Campaign[] = [];
   faEnvelope = faEnvelope;
   faCheckSquare = faCheckSquare;
-  faPlusSquare = faPlusSquare;
+  faPlus = faPlus;
   constructor(
     private authService: AuthService,
     private brandService: BrandService,
@@ -41,7 +41,6 @@ export class ViewSubmissionsComponent implements OnInit {
     userEmail: string,
     campaign: Campaign
   ) {
-    console.log(campaign);
     const status = { status: "accepted" };
     //add status to campaigns db
     this.http

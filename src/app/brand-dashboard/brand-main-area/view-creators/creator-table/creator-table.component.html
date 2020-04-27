@@ -46,12 +46,30 @@
           <tr>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
+            <th scope="col">Instagram</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let c of creators">
             <td>{{ c.name }}</td>
-            <td>{{ c.email }}</td>
+            <td class="email-col">
+              <a href="mailto:{{ c.email }}">
+                <fa-icon [icon]="faEnvelope" class="card-icon"></fa-icon>
+                {{ c.email }}
+              </a>
+            </td>
+            <td>
+              <div
+                class="social-usernames"
+                *ngFor="let social of c.social | keyvalue"
+              >
+                <a
+                  href="https://www.instagram.com/{{ social.value.username }}"
+                  target="blank"
+                  >{{ social.value.username }}</a
+                >
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>

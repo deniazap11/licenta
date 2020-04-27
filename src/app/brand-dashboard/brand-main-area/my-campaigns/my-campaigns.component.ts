@@ -16,6 +16,7 @@ import { Router, RouterEvent, NavigationEnd } from "@angular/router";
 import { CampaignService } from "../campaign.service";
 import { BrandDashboardComponent } from "../../brand-dashboard.component";
 import { BrandService } from "../../brand.service";
+import { faPlus, faTag } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-my-campaigns",
@@ -27,6 +28,8 @@ export class MyCampaignsComponent implements OnInit {
   private brandName: string;
   brandEmail: string;
   noCampaigns: boolean;
+  faPlus = faPlus;
+  faTag = faTag;
 
   constructor(
     private http: HttpClient,
@@ -42,7 +45,6 @@ export class MyCampaignsComponent implements OnInit {
     this.brandEmail = this.authService.getUserEmail();
     this.brandService.getLoggedUserData(this.brandEmail);
     this.campaigns = this.brandService.myCampaigns;
-    console.log(this.campaigns);
 
     if (this.campaigns.length == 0) {
       this.noCampaigns = true;

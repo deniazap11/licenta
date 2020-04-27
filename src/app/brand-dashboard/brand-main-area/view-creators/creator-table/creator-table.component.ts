@@ -5,13 +5,15 @@ import { MatTableDataSource } from "@angular/material/table";
 import { HttpClient } from "@angular/common/http";
 import { DatabaseUser } from "src/app/auth/DatabaseUser.model";
 import { map } from "rxjs/operators";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-creator-table",
   templateUrl: "./creator-table.component.html",
-  styleUrls: ["./creator-table.component.css"]
+  styleUrls: ["./creator-table.component.css"],
 })
 export class CreatorTableComponent implements OnInit {
+  faEnvelope = faEnvelope;
   creators: DatabaseUser[] = [];
 
   displayedColumns: string[] = ["name", "email"];
@@ -38,7 +40,7 @@ export class CreatorTableComponent implements OnInit {
         "https://project-b7a57.firebaseio.com/users.json"
       )
       .pipe(
-        map(responseData => {
+        map((responseData) => {
           const usersArray: DatabaseUser[] = [];
           for (const key in responseData) {
             if (responseData.hasOwnProperty(key)) {
@@ -48,7 +50,7 @@ export class CreatorTableComponent implements OnInit {
           return usersArray;
         })
       )
-      .subscribe(users => {
+      .subscribe((users) => {
         var j = 0;
         for (const i in users) {
           if (users[i].userType == "creator") {

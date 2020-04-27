@@ -1,5 +1,7 @@
 .my-campaigns-container {
   padding: 50px;
+  font-family: Montserrat;
+  color: #6b7a8f;
 }
 
 .campaign-container {
@@ -9,4 +11,83 @@
 
 .hideContainer {
   display: none;
+}
+
+::ng-deep .mat-expansion-panel,
+.mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description {
+  font-family: Montserrat;
+  color: #6b7a8f;
+}
+::ng-deep .mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description {
+  max-width: 50%;
+}
+
+.new-campaign-button {
+  background-color: #f7882f;
+  color: #f8ead5;
+  border: 0;
+  padding: 10px 20px;
+  font-weight: 600;
+  outline: none;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.new-campaign-button:hover {
+  background-color: #f8ead5;
+  color: #f7882f;
+  transition: 0.3s;
+}
+
+.plus-icon {
+  padding-right: 3px;
+}
+
+.delete-button {
+  background-color: #f7572f;
+  color: #ffd8cc;
+  border: 0;
+  padding: 5px 15px;
+  font-weight: 500;
+  outline: none;
+  text-transform: uppercase;
+  transition: 0.3s;
+  margin: 15px 0;
+}
+
+.delete-button:hover {
+  background-color: #ffd8cc;
+  color: #f7572f;
+  transition: 0.3s;
+}
+
+.criteria-component {
+  display: flex;
+  justify-content: center;
+}
+.creator-criteria {
+  margin: 20px;
+  border: 2px solid;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.creator-criteria p {
+  margin-bottom: 0px;
+}
+.creator-criteria .criteria-title {
+  margin-bottom: 10px;
+}
+
+.single-tag {
+  margin-bottom: 5px;
+}
+.single-tag-text {
+  margin: 10px;
 }

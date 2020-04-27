@@ -1,3 +1,10 @@
+.my-campaigns-container {
+  padding: 50px;
+}
+.campaign-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 div {
   font-family: Montserrat;
   color: #6b7a8f;
@@ -24,6 +31,13 @@ div {
 .social-usernames a {
   color: #f7882f;
   font-weight: 600;
+  transition: 0.3s;
+}
+
+.social-usernames a:hover {
+  color: #f7c331;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
 .email-col {
@@ -32,6 +46,12 @@ div {
 
 .email-col a {
   color: #f7882f;
+  transition: 0.3s;
+}
+
+.email-col a:hover {
+  color: #f7c331;
+  transition: 0.3s;
 }
 
 .accepted {
@@ -60,4 +80,8 @@ div {
 
 .after-accept-button {
   display: none;
+}
+
+.plus-icon {
+  padding-right: 3px;
 }

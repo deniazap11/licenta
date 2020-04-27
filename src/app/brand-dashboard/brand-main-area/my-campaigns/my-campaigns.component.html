@@ -13,7 +13,12 @@
               You currently have no campaigns. Click the button bellow to create
               one!
             </p> -->
-            <button class="btn btn-primary" [routerLink]="['../new-campaign']">
+            <button
+              class="new-campaign-button"
+              [routerLink]="['../new-campaign']"
+            >
+              <fa-icon [icon]="faPlus" class="card-icon plus-icon"></fa-icon>
+
               Add campaign
             </button>
           </div>
@@ -30,45 +35,49 @@
                 by {{ c.brandName }}
               </mat-panel-description>
             </mat-expansion-panel-header>
-            <div class="row">
-              <div class="col-sm-6">
-                <h5>About the campaign:</h5>
 
-                <p class="font-weight-bold">Description:</p>
-                <p>
-                  {{ c.description }}
-                </p>
+            <div class="row">
+              <div class="col-6">
                 <p class="font-weight-bold">Category:</p>
                 <p>{{ c.category }}</p>
-                <p class="font-weight-bold">Briefing</p>
-                <p>
-                  {{ c.brief }}
-                </p>
-                <p class="font-weight-bold">Do:</p>
-                <p>
-                  {{ c.todo }}
-                </p>
-                <p class="font-weight-bold">Don't:</p>
-                <p>
-                  {{ c.dont }}
-                </p>
-                <p class="font-weight-bold">Tags to include:</p>
-                <p>
-                  {{ c.tags }}
-                </p>
+                <p class="font-weight-bold">Brief for creators:</p>
+                <p>{{ c.brief }}</p>
               </div>
-              <div class="col-sm-5">
-                <h5>Must fit these criterias:</h5>
-                <p class="font-weight-bold">Gender:</p>
-                <p>{{ c.gender }}</p>
-                <p class="font-weight-bold">Age range:</p>
-                <p>{{ c.age }}</p>
+              <div class="col-6 criteria-component">
+                <div class="creator-criteria">
+                  <p class="font-weight-bold criteria-title">
+                    Looking for creators who fit these criteria:
+                  </p>
+                  <p class="font-weight-bold">Gender:</p>
+                  <p>{{ c.gender }}</p>
+                  <p class="font-weight-bold">Age range:</p>
+                  <p>{{ c.age }}</p>
+                </div>
               </div>
             </div>
+
+            <div class="row">
+              <div class="col-6">
+                <p class="font-weight-bold">Do:</p>
+                <p>{{ c.todo }}</p>
+              </div>
+              <div class="col-6">
+                <p class="font-weight-bold">Don't:</p>
+                <p>{{ c.dont }}</p>
+              </div>
+            </div>
+
+            <p class="font-weight-bold">Tags to include:</p>
+
+            <p *ngFor="let t of c.tags | keyvalue" class="single-tag">
+              <fa-icon [icon]="faTag" class="card-icon"></fa-icon
+              ><span class="single-tag-text">{{ t.value }}</span>
+            </p>
+
             <div class="row">
               <div class="col-sm-1">
                 <button
-                  class="btn btn-danger"
+                  class="delete-button"
                   (click)="onDelete(c.id, i)"
                   type="button"
                 >

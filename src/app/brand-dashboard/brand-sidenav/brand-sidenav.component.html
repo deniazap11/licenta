@@ -3,23 +3,24 @@
   <div class="list-group list-group-flush">
     <a
       class="list-group-item list-group-item-action bg-light"
-      [routerLink]="[{ outlets: { content: ['my-campaigns'] } }]"
-      >Manage campaigns</a
-    >
-    <a
-      class="list-group-item list-group-item-action bg-light"
       [routerLink]="[{ outlets: { content: ['new-campaign'] } }]"
       >New campaign</a
     >
     <a
       class="list-group-item list-group-item-action bg-light"
-      [routerLink]="[{ outlets: { content: ['creators'] } }]"
-      >Creators</a
+      [routerLink]="[{ outlets: { content: ['my-campaigns'] } }]"
+      >Manage campaigns</a
     >
     <a
       class="list-group-item list-group-item-action bg-light"
       [routerLink]="[{ outlets: { content: ['submissions'] } }]"
-      >Submissions</a
+      >Manage submissions</a
+    >
+
+    <a
+      class="list-group-item list-group-item-action bg-light"
+      [routerLink]="[{ outlets: { content: ['creators'] } }]"
+      >Creators</a
     >
   </div>
 </div>
