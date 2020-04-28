@@ -56,6 +56,7 @@ import { BrandTableComponent } from "./creator-dashboard/creator-main-area/brand
 import { CampaignFeedContainerComponent } from "./creator-dashboard/creator-main-area/campaign-feed/campaign-feed-container/campaign-feed-container.component";
 import { DigitalMarketingBannerComponent } from "./home/digital-marketing-banner/digital-marketing-banner.component";
 import { NewSocialDialogComponent } from "./creator-dashboard/creator-main-area/social-account/new-social-dialog/new-social-dialog.component";
+import { LoggedNavbarComponent } from './logged-navbar/logged-navbar.component';
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
@@ -154,6 +155,7 @@ firebase.initializeApp(environment.firebase);
     CampaignFeedContainerComponent,
     DigitalMarketingBannerComponent,
     NewSocialDialogComponent,
+    LoggedNavbarComponent,
   ],
   imports: [
     BrowserModule,
