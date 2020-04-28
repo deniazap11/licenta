@@ -1,7 +1,13 @@
 .feed-general {
+  font-family: Montserrat;
   color: #6b7a8f;
   padding: 20px;
 }
+.campaign-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 .heading {
   font-weight: 700;
 }
@@ -11,6 +17,29 @@
 }
 h3 {
   font-weight: 700;
+}
+
+.half {
+  width: 50%;
+}
+
+.accepted {
+  color: green;
+}
+
+.pending {
+  color: #f7882f;
+}
+::ng-deep .mat-expansion-panel,
+.mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description {
+  font-family: Montserrat;
+  color: #6b7a8f;
+}
+
+::ng-deep .mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description {
+  max-width: 50%;
 }
 .criteria-component {
   display: flex;
@@ -33,68 +62,10 @@ h3 {
 .creator-criteria .criteria-title {
   margin-bottom: 10px;
 }
-.single-campaign {
-  /* border: 2px solid #6b7a8f; */
-  border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin: 15px 0px;
-  padding: 15px;
-}
+
 .single-tag {
   margin-bottom: 5px;
 }
 .single-tag-text {
   margin: 10px;
-}
-
-#read-button-down,
-#read-button-up {
-  cursor: pointer;
-}
-
-.toggle-text {
-  display: none;
-}
-
-.toggle-text-button {
-  display: block;
-}
-
-.read-more-button {
-  background-color: #6b7a8f;
-  color: #dcc7aa;
-  border: 0;
-  border-radius: 5px;
-  padding: 10px 20px;
-  margin: 15px 0px;
-  transition: 0.5s;
-  font-weight: 500;
-  outline: none;
-  font-family: Montserrat;
-}
-
-.read-more-button:hover {
-  background-color: #dcc7aa;
-  color: #6b7a8f;
-  transition: 0.5s;
-}
-
-.apply-button {
-  margin: 15px 0px;
-  background-color: #f7882f;
-  color: #f8ead5;
-  border: 0;
-  border-radius: 5px;
-  padding: 10px 20px;
-  margin: 15px 0px;
-  transition: 0.5s;
-  font-weight: 500;
-
-  outline: none;
-}
-
-.apply-button:hover {
-  background-color: #f8ead5;
-  color: #f7882f;
-  transition: 0.5s;
 }

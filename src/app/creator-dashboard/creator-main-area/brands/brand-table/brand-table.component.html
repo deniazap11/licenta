@@ -21,7 +21,12 @@
         <tbody>
           <tr *ngFor="let b of brands">
             <td>{{ b.name }}</td>
-            <td>{{ b.email }}</td>
+            <td class="email-col">
+              <a href="mailto:{{ b.email }}">
+                <fa-icon [icon]="faEnvelope" class="card-icon"></fa-icon>
+                {{ b.email }}
+              </a>
+            </td>
           </tr>
         </tbody>
       </table>

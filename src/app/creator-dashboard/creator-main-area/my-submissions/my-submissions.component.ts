@@ -4,7 +4,12 @@ import { CreatorService } from "../../creator.service";
 import { HttpClient } from "@angular/common/http";
 import { AuthService } from "src/app/auth/auth.service";
 import { DatabaseUser } from "src/app/auth/DatabaseUser.model";
-import { faTag } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTag,
+  faCheckCircle,
+  faPauseCircle,
+} from "@fortawesome/free-solid-svg-icons";
+import { MatExpansionModule } from "@angular/material/expansion";
 
 import * as $ from "jquery";
 
@@ -15,6 +20,8 @@ import * as $ from "jquery";
 })
 export class MySubmissionsComponent implements OnInit {
   faTag = faTag;
+  faCheckCircle = faCheckCircle;
+  faPauseCircle = faPauseCircle;
   myCampaigns: Campaign[] = [];
   creatorEmail: string;
   loggedUser: DatabaseUser;
@@ -28,26 +35,7 @@ export class MySubmissionsComponent implements OnInit {
 
   ngOnInit() {
     this.creatorEmail = this.authService.getUserEmail();
-    console.log("x" + this.creatorEmail);
     this.creatorService.getLoggedUserData(this.creatorEmail);
     this.myCampaigns = this.creatorService.myCampaigns;
-  }
-  ngAfterViewInit() {
-    $(document).on("click", ".toggle-text-button", function () {
-      // Check if text is more or less
-      if ($(this).text() == "READ MORE") {
-        // Change link text
-        $(this).text("READ LESS");
-
-        // Travel up DOM tree to parent, then find any children with CLASS .toggle-text and slide down
-        $(this).parent().children(".toggle-text").slideDown();
-      } else {
-        // Change link text
-        $(this).text("READ MORE");
-
-        // Travel up DOM tree to parent, then find any children with CLASS .toggle-text and slide up
-        $(this).parent().children(".toggle-text").slideUp();
-      }
-    });
   }
 }

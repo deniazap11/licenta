@@ -56,18 +56,6 @@ export class ViewSubmissionsComponent implements OnInit {
         console.log(responseData);
       });
 
-    //   //add status to users db
-    //   this.http
-    //   .post<{ name: string }>(
-    //     "https://project-b7a57.firebaseio.com/users/" +
-    //       userId +
-    //       "/submissions.json",
-    //     campaign
-    //   )
-    //   .subscribe((responseData) => {
-    //     console.log(responseData);
-    //   });
-
     Email.send({
       Host: "smtp.elasticemail.com",
       Username: "deni.azap11@gmail.com",

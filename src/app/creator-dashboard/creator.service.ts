@@ -33,7 +33,7 @@ export class CreatorService {
         for (const i in users) {
           if (users[i].email == email) {
             this.loggedUser = users[i];
-            this.getCampaignsForUser(this.loggedUser.id);
+            this.getUserSubmissionsFromCampaignsDb(this.loggedUser.id);
           }
         }
       });
@@ -62,6 +62,36 @@ export class CreatorService {
         for (const i in campaignsArray) {
           this.myCampaigns[j] = campaignsArray[i];
           j++;
+        }
+      });
+  }
+
+  getUserSubmissionsFromCampaignsDb(userId: string) {
+    this.http
+      .get<{ [key: string]: Campaign }>(
+        "https://project-b7a57.firebaseio.com/campaigns.json"
+      )
+      .pipe(
+        map((responseData) => {
+          const campaignsArray: Campaign[] = [];
+          for (const key in responseData) {
+            if (responseData.hasOwnProperty(key)) {
+              campaignsArray.push({ ...responseData[key], id: key });
+            }
+          }
+          return campaignsArray;
+        })
+      )
+      .subscribe((campaignsArray) => {
+        var k = 0;
+        for (const i in campaignsArray) {
+          for (const j in campaignsArray[i].submissions) {
+            if (campaignsArray[i].submissions[j].id == userId) {
+              this.myCampaigns[k] = campaignsArray[i];
+
+              k++;
+            }
+          }
         }
       });
   }

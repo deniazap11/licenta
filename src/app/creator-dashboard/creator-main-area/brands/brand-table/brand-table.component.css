@@ -11,3 +11,52 @@ td,
 th {
   width: 25%;
 }
+
+#brand-table {
+  font-family: Montserrat;
+  color: #6b7a8f;
+}
+
+::ng-deep mat-label {
+  color: #6b7a8f !important;
+}
+
+::ng-deep .mat-form-field-infix {
+  font-family: Montserrat !important;
+  color: #6b7a8f !important;
+}
+
+::ng-deep .mat-input-element {
+  caret-color: #6b7a8f !important;
+}
+
+::ng-deep .mat-form-field-placeholder {
+  color: #6b7a8f !important;
+}
+
+::ng-deep .mat-focused .mat-form-field-placeholder {
+  color: #6b7a8f !important;
+}
+
+::ng-deep .mat-form-field-underline .mat-form-field-ripple {
+  background-color: #6b7a8f !important;
+}
+
+::ng-deep .mat-form-field-underline {
+  background-color: #6b7a8f !important;
+}
+
+.email-col {
+  font-size: 1rem;
+}
+
+.email-col a {
+  color: #f7882f;
+  transition: 0.3s;
+}
+
+.email-col a:hover {
+  color: #f7c331;
+  transition: 0.3s;
+  text-decoration: none;
+}
