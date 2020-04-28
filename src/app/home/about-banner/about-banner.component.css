@@ -1,0 +1,64 @@
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #f7882f;
+}
+
+.about h2 {
+  margin: auto;
+  font-weight: 700;
+  font-size: 6vh;
+}
+
+.about p {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.person-card {
+  max-width: 400px;
+}
+
+.person1 {
+  background-image: url("src/assets/images/person1.jpg");
+  background-size: cover;
+}
+
+.person2 {
+  background-image: url("src/assets/images/person2.jpg");
+  background-size: cover;
+}
+
+.person3 {
+  background-image: url("src/assets/images/person3.jpg");
+  background-size: cover;
+}
+
+.people-row {
+  margin-top: 40px;
+}
+
+::ng-deep mat-card-title {
+  color: #6b7a8f !important;
+  font-family: Montserrat;
+  font-weight: 700 !important;
+  margin-bottom: 5px !important;
+  text-align: left;
+}
+
+::ng-deep mat-card-subtitle {
+  color: #f7882f !important;
+  font-family: Montserrat;
+  font-weight: 600 !important;
+}
+
+::ng-deep mat-card-content {
+  color: #6b7a8f !important;
+  font-family: Montserrat;
+  font-weight: 500 !important;
+}
+::ng-deep mat-card-content p {
+  margin-top: 0 !important;
+}

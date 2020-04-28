@@ -22,11 +22,21 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" routerLink="/login">Login</a>
+        <a class="nav-link" *ngIf="isAuthenticated" (click)="onDashboardClick()"
+          >Dashboard</a
+        >
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" routerLink="/signup">Sign Up</a>
+        <a class="nav-link" routerLink="/login" *ngIf="!isAuthenticated"
+          >Login</a
+        >
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/signup" *ngIf="!isAuthenticated"
+          >Sign Up</a
+        >
       </li>
 
       <li class="nav-item">

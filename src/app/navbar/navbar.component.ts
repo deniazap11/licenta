@@ -6,6 +6,8 @@ import { Router } from "@angular/router";
 import { CampaignService } from "../brand-dashboard/brand-main-area/campaign.service";
 import { MyCampaignsComponent } from "../brand-dashboard/brand-main-area/my-campaigns/my-campaigns.component";
 import { DatabaseUser } from "../auth/DatabaseUser.model";
+import { map } from "rxjs/operators";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: "app-navbar",
@@ -23,12 +25,50 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.navbarOpen = !this.navbarOpen;
   }
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private http: HttpClient
+  ) {}
 
   onLogout() {
     this.authService.logout();
   }
 
+  onDashboardClick() {
+    let email = this.authService.getUserEmail();
+    console.log(email);
+    this.navigateByUserType(email);
+  }
+
+  navigateByUserType(email: string) {
+    this.http
+      .get<{ [key: string]: DatabaseUser }>(
+        "https://project-b7a57.firebaseio.com/users.json"
+      )
+      .pipe(
+        map((responseData) => {
+          const usersArray: DatabaseUser[] = [];
+          for (const key in responseData) {
+            if (responseData.hasOwnProperty(key)) {
+              usersArray.push({ ...responseData[key], id: key });
+            }
+          }
+          return usersArray;
+        })
+      )
+      .subscribe((users) => {
+        for (const i in users) {
+          if (users[i].email == email) {
+            if (users[i].userType == "brand") {
+              this.router.navigate(["/brand-dashboard"]);
+            } else {
+              this.router.navigate(["/creator-dashboard"]);
+            }
+          }
+        }
+      });
+  }
   ngOnInit() {
     this.userSub = this.authService.user.subscribe((user) => {
       this.isAuthenticated = !user ? false : true;

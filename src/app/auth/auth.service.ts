@@ -25,6 +25,7 @@ export class AuthService {
   user = new BehaviorSubject<User>(null);
   private tokenExpirationTimer: any;
   private userName: string;
+  loggedUserEmail: string;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -61,6 +62,7 @@ export class AuthService {
       .pipe(
         catchError(this.handleError),
         tap((resData) => {
+          this.loggedUserEmail = email;
           this.handleAuthentication(
             resData.email,
             resData.localId,
@@ -80,6 +82,7 @@ export class AuthService {
       .pipe(
         catchError(this.handleError),
         tap((resData) => {
+          this.loggedUserEmail = email;
           this.handleAuthentication(
             resData.email,
             resData.localId,
@@ -141,7 +144,6 @@ export class AuthService {
   ) {
     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
     const user = new User(email, userId, token, expirationDate);
-    console.log(userId);
     this.user.next(user);
     this.autoLogout(expiresIn * 1000);
     localStorage.setItem("userData", JSON.stringify(user));
