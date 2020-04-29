@@ -1,0 +1,24 @@
+.footer-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.footer-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.footer {
+  padding: 20px;
+  color: #dcc7aa;
+  font-family: Montserrat;
+}
+.social-icons {
+  margin-right: 10px;
+}
+
+.footer p {
+  margin-bottom: 5px;
+}

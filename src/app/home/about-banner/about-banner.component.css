@@ -62,3 +62,7 @@
 ::ng-deep mat-card-content p {
   margin-top: 0 !important;
 }
+::ng-deep mat-card {
+  border-radius: 0 !important;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}

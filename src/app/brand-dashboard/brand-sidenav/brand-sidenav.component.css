@@ -30,6 +30,11 @@ body {
   margin-left: 0;
 }
 
+.logo {
+  width: 200px;
+  display: block;
+}
+
 @media (min-width: 768px) {
   #sidebar-wrapper {
     margin-left: 0;

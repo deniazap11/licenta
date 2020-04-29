@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-style">
   <a class="navbar-brand" routerLink="/">
-    Logo
+    <img class="logo" src="../../assets/images/logo3.png" />
   </a>
 
   <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
@@ -34,13 +34,20 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" routerLink="/signup" *ngIf="!isAuthenticated"
+        <a
+          class="nav-link last-link"
+          routerLink="/signup"
+          *ngIf="!isAuthenticated"
           >Sign Up</a
         >
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" style="cursor: pointer;" (click)="onLogout()"
+        <a
+          class="nav-link"
+          style="cursor: pointer;"
+          *ngIf="isAuthenticated"
+          (click)="onLogout()"
           >Logout</a
         >
       </li>

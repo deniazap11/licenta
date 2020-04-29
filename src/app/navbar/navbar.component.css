@@ -77,7 +77,9 @@ nav li a {
 
   border-right: 1px solid #dcc7aa;
 }
-
+nav li a.last-link {
+  border: none;
+}
 /**remove from last item**/
 
 nav li:last-child a {
@@ -91,5 +93,10 @@ nav:after {
 
   clear: left;
 
+  display: block;
+}
+
+.logo {
+  width: 100px;
   display: block;
 }

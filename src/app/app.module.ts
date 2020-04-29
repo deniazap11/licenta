@@ -30,7 +30,7 @@ import { BrandBannerComponent } from "./home/brand-banner/brand-banner.component
 import { CreatorBannerComponent } from "./home/creator-banner/creator-banner.component";
 import { AboutBannerComponent } from "./home/about-banner/about-banner.component";
 import { JoinBannerComponent } from "./home/join-banner/join-banner.component";
-import { FooterComponent } from "./footer/footer.component";
+import { FooterComponent } from "./home/footer/footer.component";
 import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./auth/login/login.component";
