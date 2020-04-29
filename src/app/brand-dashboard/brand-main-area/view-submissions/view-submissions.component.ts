@@ -168,7 +168,7 @@ export class ViewSubmissionsComponent implements OnInit {
                         <tbody>
                           <tr>
                             <td class="edimg" valign="top" style="padding: 0px; box-sizing: border-box; text-align: center;">
-                              <img style="border-width: 0px; border-style: none; max-width: 596px; width: 100%;" width="596" alt="Image" src="../../../../assets/images/email.png">
+                              <img style="border-width: 0px; border-style: none; max-width: 596px; width: 100%;" width="596" alt="Image" src="https://api.elasticemail.com/userfile/276847c6-5e9a-4c5a-aeed-a33a84944239/email.png">
                             </td>
                           </tr>
                         </tbody>
@@ -325,7 +325,7 @@ export class ViewSubmissionsComponent implements OnInit {
                         <tbody>
                           <tr>
                             <td valign="top" class="edimg" style="padding: 20px; box-sizing: border-box; text-align: center;">
-                              <img src="../../../../assets/images/person1.jpg" alt="Image" width="256" style="border-width: 0px; border-style: none; max-width: 256px; width: 100%;">
+                              <img src="https://api.elasticemail.com/userfile/276847c6-5e9a-4c5a-aeed-a33a84944239/person1.jpg" alt="Image" width="256" style="border-width: 0px; border-style: none; max-width: 256px; width: 100%;">
                             </td>
                           </tr>
                           <tr>
@@ -363,7 +363,7 @@ export class ViewSubmissionsComponent implements OnInit {
                         <tbody>
                           <tr>
                             <td valign="top" class="edimg" style="padding: 20px; box-sizing: border-box; text-align: center;">
-                              <img src="../../../../assets/images/person2.jpg" alt="Image" width="256" style="border-width: 0px; border-style: none; max-width: 256px; width: 100%;">
+                              <img src="https://api.elasticemail.com/userfile/276847c6-5e9a-4c5a-aeed-a33a84944239/person2.jpg" alt="Image" width="256" style="border-width: 0px; border-style: none; max-width: 256px; width: 100%;">
                             </td>
                           </tr>
                           <tr>
@@ -422,7 +422,7 @@ export class ViewSubmissionsComponent implements OnInit {
                         <tbody>
                           <tr>
                             <td valign="top" class="edimg" style="padding: 0px; box-sizing: border-box; text-align: center;">
-                              <img src="../../../../assets/images/3.jpg" alt="Image" width="596" style="border-width: 0px; border-style: none; max-width: 596px; width: 100%;">
+                              <img src="https://api.elasticemail.com/userfile/276847c6-5e9a-4c5a-aeed-a33a84944239/3.jpg" alt="Image" width="596" style="border-width: 0px; border-style: none; max-width: 596px; width: 100%;">
                             </td>
                           </tr>
                         </tbody>

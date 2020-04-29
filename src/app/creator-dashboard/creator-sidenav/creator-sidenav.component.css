@@ -11,6 +11,12 @@ body {
   transition: margin 0.25s ease-out;
   position: sticky;
   top: 0;
+  font-family: Montserrat;
+  color: #6b7a8f;
+  font-weight: 600;
+}
+#sidebar-wrapper a {
+  color: #6b7a8f;
 }
 
 #sidebar-wrapper .sidebar-heading {
@@ -33,6 +39,21 @@ body {
 .logo {
   width: 200px;
   display: block;
+}
+.list-group-flush .list-group-item {
+  border: none;
+  padding: 1rem 1.25rem;
+  transition: 0.3s;
+}
+.list-group-flush .list-group-item:first-child {
+  margin-top: 1.25rem;
+}
+.list-group-flush .list-group-item:hover {
+  transition: 0.3s;
+}
+#sidebar-wrapper a.active {
+  color: #dcc7aa;
+  background-color: #6b7a8f !important;
 }
 
 @media (min-width: 768px) {
