@@ -51,17 +51,17 @@
                 <fa-icon [icon]="faTag" class="card-icon"></fa-icon
                 ><span class="single-tag-text">{{ t.value }}</span>
               </p>
-              <div class="not-applied" *ngIf="userApplied">
+              <div class="not-applied" *ngIf="userApplied && active === i">
                 <p>
                   You already applied to this campaign.
                 </p>
               </div>
-              <!-- <div class="applied" *ngIf="!userApplied">
+              <div class="applied" *ngIf="userApplied == false && active === i">
                 <p>
                   Thank you for the submission!
                 </p>
-              </div> -->
-              <button class="apply-button" (click)="applyForCampaign(c)">
+              </div>
+              <button class="apply-button" (click)="applyForCampaign(c, i)">
                 APPLY
               </button>
             </span>

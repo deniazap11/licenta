@@ -18,6 +18,7 @@ export class CampaignFeedContainerComponent implements OnInit {
   faArrowUp = faArrowUp;
   faTag = faTag;
   userApplied: boolean;
+  active: any = "";
 
   campaigns: Campaign[] = [];
 
@@ -33,7 +34,7 @@ export class CampaignFeedContainerComponent implements OnInit {
   ngAfterViewInit() {
     $(document).on("click", ".toggle-text-button", function () {
       // Check if text is more or less
-      if ($(this).text() == "READ MORE") {
+      if ($(this).text() != "READ LESS") {
         // Change link text
         $(this).text("READ LESS");
 
@@ -121,9 +122,12 @@ export class CampaignFeedContainerComponent implements OnInit {
     userEmail: string,
     loggedUser: DatabaseUser,
     userId: string,
-    campaign: Campaign
+    campaign: Campaign,
+    i: any
   ) {
     let userApplied: number = 0;
+    this.active = i;
+
     this.http
       .get<{ [key: string]: DatabaseUser }>(
         "https://project-b7a57.firebaseio.com/campaigns/" +
@@ -156,8 +160,10 @@ export class CampaignFeedContainerComponent implements OnInit {
             userId,
             campaign
           );
+          console.log("nu a aplicat");
         } else {
           this.userApplied = true;
+          console.log("a aplicat");
         }
       });
   }
@@ -195,14 +201,21 @@ export class CampaignFeedContainerComponent implements OnInit {
       });
   }
 
-  applyForCampaign(campaign) {
+  applyForCampaign(campaign, index) {
     const loggedUser: DatabaseUser = this.creatorService.loggedUser; //get logged in user data
     const userId = loggedUser.id;
     const userEmail = loggedUser.email;
     const campaignId = campaign.id;
 
     //check if user already applied
-    this.checkUserApplied(campaignId, userEmail, loggedUser, userId, campaign);
+    this.checkUserApplied(
+      campaignId,
+      userEmail,
+      loggedUser,
+      userId,
+      campaign,
+      index
+    );
 
     // this.checkUserApplied(campaignId, userEmail).then(userApplied =>
     //   console.log(userApplied)
