@@ -1,0 +1,27 @@
+.not-allowed {
+  font-family: Montserrat;
+  color: #6b7a8f;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.not-allowed .container {
+  font-family: Montserrat;
+  color: #6b7a8f;
+  border: 2px solid #f7882f;
+  margin: 60px 10px;
+  padding: 40px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.not-allowed p {
+  margin: 0;
+}
+
+.not-allowed img {
+  max-width: 400px;
+  margin: 40px;
+}

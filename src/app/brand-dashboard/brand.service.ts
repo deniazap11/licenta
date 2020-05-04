@@ -3,12 +3,13 @@ import { HttpClient } from "@angular/common/http";
 import { DatabaseUser } from "src/app/auth/DatabaseUser.model";
 import { map } from "rxjs/operators";
 import { Campaign } from "../brand-dashboard/brand-main-area/new-campaign/campaign.model";
+import { Router } from "@angular/router";
 
 @Injectable({ providedIn: "root" })
 export class BrandService {
   loggedUser: DatabaseUser;
   myCampaigns: Campaign[] = [];
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   getLoggedUserData(email: string) {
     this.http
@@ -30,10 +31,17 @@ export class BrandService {
         for (const i in users) {
           if (users[i].email == email) {
             this.loggedUser = users[i];
+            this.checkUserType(users[i].userType);
             this.getCampaignsForUser(this.loggedUser.name);
           }
         }
       });
+  }
+
+  checkUserType(userType: string) {
+    if (userType == "creator") {
+      this.router.navigate(["/not-allowed"]);
+    }
   }
 
   getCampaignsForUser(name: string) {

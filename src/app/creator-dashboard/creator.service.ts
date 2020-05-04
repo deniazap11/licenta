@@ -4,6 +4,7 @@ import { DatabaseUser } from "src/app/auth/DatabaseUser.model";
 import { map } from "rxjs/operators";
 import { Campaign } from "../brand-dashboard/brand-main-area/new-campaign/campaign.model";
 import { socialAccountInfo } from "./creator-main-area/social-account/socialAccountInfo.model";
+import { Router } from "@angular/router";
 
 @Injectable({ providedIn: "root" })
 export class CreatorService {
@@ -11,7 +12,7 @@ export class CreatorService {
   loggedUserId: string;
   myCampaigns: Campaign[] = [];
   mySocials: string[] = [];
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   getLoggedUserData(email: string) {
     this.http
@@ -33,10 +34,17 @@ export class CreatorService {
         for (const i in users) {
           if (users[i].email == email) {
             this.loggedUser = users[i];
+            this.checkUserType(users[i].userType);
             this.getUserSubmissionsFromCampaignsDb(this.loggedUser.id);
           }
         }
       });
+  }
+
+  checkUserType(userType: string) {
+    if (userType == "brand") {
+      this.router.navigate(["/not-allowed"]);
+    }
   }
 
   getCampaignsForUser(userId: string) {

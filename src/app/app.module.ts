@@ -58,12 +58,14 @@ import { CampaignFeedContainerComponent } from "./creator-dashboard/creator-main
 import { DigitalMarketingBannerComponent } from "./home/digital-marketing-banner/digital-marketing-banner.component";
 import { NewSocialDialogComponent } from "./creator-dashboard/creator-main-area/social-account/new-social-dialog/new-social-dialog.component";
 import { LoggedNavbarComponent } from "./logged-navbar/logged-navbar.component";
+import { PathNotAllowedComponent } from "./path-not-allowed/path-not-allowed.component";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
   { path: "home", component: HomeComponent },
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignupComponent },
+  { path: "not-allowed", component: PathNotAllowedComponent },
   {
     path: "brand-dashboard",
 
@@ -167,6 +169,7 @@ firebase.initializeApp(environment.firebase);
     DigitalMarketingBannerComponent,
     NewSocialDialogComponent,
     LoggedNavbarComponent,
+    PathNotAllowedComponent,
   ],
   imports: [
     BrowserModule,
