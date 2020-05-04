@@ -1,13 +1,13 @@
 <app-navbar></app-navbar>
 
-<div class="container">
+<div class="container signup-container">
   <div class="row">
     <div class="col-xs-12 auth-form">
       <h2>Sign up</h2>
       <div class="alert alert-danger" *ngIf="error">
         <p>{{ error }}</p>
       </div>
-      <div *ngIf="isLoading" style="text-align: center">
+      <div *ngIf="isLoading" style="text-align: center;">
         <app-loading-spinner></app-loading-spinner>
       </div>
       <form
@@ -78,13 +78,13 @@
 
         <div class="form-group">
           <button
-            class="btn btn-primary"
+            class="signup-button"
             type="submit"
             [disabled]="!authForm.valid"
           >
             Signup
           </button>
-          <a routerLink="/login" class="btn btn-link" type="button">Login</a>
+          <a routerLink="/login" class="login-redirect" type="button">Login</a>
         </div>
       </form>
     </div>

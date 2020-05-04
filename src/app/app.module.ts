@@ -71,6 +71,11 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
+        path: "",
+        redirectTo: "/brand-dashboard/(content:my-campaigns)",
+        pathMatch: "full",
+      },
+      {
         path: "new-campaign",
         component: NewCampaignComponent,
         outlet: "content",
@@ -97,6 +102,11 @@ const appRoutes: Routes = [
     component: CreatorDashboardComponent,
     canActivate: [AuthGuard],
     children: [
+      {
+        path: "",
+        redirectTo: "/creator-dashboard/(content-c:social-account)",
+        pathMatch: "full",
+      },
       {
         path: "campaign-feed",
         component: CampaignFeedComponent,

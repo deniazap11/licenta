@@ -2,7 +2,10 @@
   <div class="row">
     <div class="col-12">
       <h2 class="heading">Campaign feed</h2>
-      <div class="container single-campaign" *ngFor="let c of campaigns">
+      <div
+        class="container single-campaign"
+        *ngFor="let c of campaigns; let i = index"
+      >
         <div class="row">
           <div class="col-12">
             <h3>{{ c.name }}</h3>
@@ -48,7 +51,16 @@
                 <fa-icon [icon]="faTag" class="card-icon"></fa-icon
                 ><span class="single-tag-text">{{ t.value }}</span>
               </p>
-
+              <div class="not-applied" *ngIf="userApplied">
+                <p>
+                  You already applied to this campaign.
+                </p>
+              </div>
+              <!-- <div class="applied" *ngIf="!userApplied">
+                <p>
+                  Thank you for the submission!
+                </p>
+              </div> -->
               <button class="apply-button" (click)="applyForCampaign(c)">
                 APPLY
               </button>

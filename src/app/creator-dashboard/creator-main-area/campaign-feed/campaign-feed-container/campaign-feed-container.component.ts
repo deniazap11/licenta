@@ -17,6 +17,7 @@ export class CampaignFeedContainerComponent implements OnInit {
   faArrowDown = faArrowDown;
   faArrowUp = faArrowUp;
   faTag = faTag;
+  userApplied: boolean;
 
   campaigns: Campaign[] = [];
 
@@ -147,6 +148,7 @@ export class CampaignFeedContainerComponent implements OnInit {
           }
         }
         if (userApplied == 0) {
+          this.userApplied = false;
           this.addSubmissionToDatabase(
             true,
             campaignId,
@@ -154,7 +156,9 @@ export class CampaignFeedContainerComponent implements OnInit {
             userId,
             campaign
           );
-        } else alert("You already applied to this campaign. ");
+        } else {
+          this.userApplied = true;
+        }
       });
   }
 

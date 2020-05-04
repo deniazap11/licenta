@@ -1,0 +1,88 @@
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.auth-form {
+  font-family: Montserrat;
+  color: #6b7a8f;
+  border: 2px solid #f7882f;
+  margin: 60px 10px;
+  padding: 20px 40px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.auth-form h2 {
+  font-weight: 700;
+}
+
+.auth-form h5 {
+  font-weight: 600;
+}
+
+label {
+  font-weight: 600;
+}
+
+.signup-button {
+  background-color: #f7882f;
+  color: #f8ead5;
+  border: 0;
+  padding: 10px 20px;
+  margin: 15px 0px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: Montserrat;
+  outline: none;
+  transition: 0.3s;
+}
+
+.signup-button:hover {
+  background-color: #f8ead5;
+  color: #f7882f;
+  transition: 0.3s;
+}
+
+button:disabled,
+button[disabled] {
+  background-color: #cccccc;
+  color: #666666;
+}
+
+button[disabled]:hover {
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.form-control:focus {
+  background-color: #fcf0e0 !important;
+  border-color: #f7c331;
+  box-shadow: 0 0 0 0.2rem #f7882f;
+}
+
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill:focus {
+  border-color: 1px solid #f7c331;
+  -webkit-text-fill-color: #6b7a8f;
+  -webkit-box-shadow: 0 0 0 0.2rem #f7882f;
+  transition: background-color 5000s ease-in-out 0s;
+  outline: none;
+}
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s;
+}
+.login-redirect {
+  margin-left: 20px;
+  margin-right: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #f7882f;
+  transition: 0.3s;
+}
+.login-redirect:hover {
+  color: #f7c331;
+}
