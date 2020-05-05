@@ -109,6 +109,13 @@ h3 {
   margin: 20px 0 0 0;
   border: 2px solid green;
 }
+.need-socials {
+  color: #f7c331;
+  padding: 15px;
+  margin: 20px 0 0 0;
+  border: 2px solid #f7c331;
+}
+
 .error,
 .success {
   display: block;
@@ -119,5 +126,9 @@ h3 {
 }
 
 .not-applied p {
+  margin: 0;
+}
+
+.need-socials p {
   margin: 0;
 }

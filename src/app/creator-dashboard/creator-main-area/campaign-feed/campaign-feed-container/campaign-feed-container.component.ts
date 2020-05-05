@@ -7,6 +7,7 @@ import { faArrowUp, faTag } from "@fortawesome/free-solid-svg-icons";
 import * as $ from "jquery";
 import { CreatorService } from "src/app/creator-dashboard/creator.service";
 import { DatabaseUser } from "src/app/auth/DatabaseUser.model";
+import { Data } from "@angular/router";
 
 @Component({
   selector: "app-campaign-feed-container",
@@ -19,6 +20,7 @@ export class CampaignFeedContainerComponent implements OnInit {
   faTag = faTag;
   userApplied: boolean;
   active: any = "";
+  userSocialMedia: boolean;
 
   campaigns: Campaign[] = [];
 
@@ -122,11 +124,9 @@ export class CampaignFeedContainerComponent implements OnInit {
     userEmail: string,
     loggedUser: DatabaseUser,
     userId: string,
-    campaign: Campaign,
-    i: any
+    campaign: Campaign
   ) {
     let userApplied: number = 0;
-    this.active = i;
 
     this.http
       .get<{ [key: string]: DatabaseUser }>(
@@ -153,17 +153,60 @@ export class CampaignFeedContainerComponent implements OnInit {
         }
         if (userApplied == 0) {
           this.userApplied = false;
-          this.addSubmissionToDatabase(
-            true,
-            campaignId,
-            loggedUser,
-            userId,
-            campaign
-          );
+          // this.addSubmissionToDatabase(
+          //   true,
+          //   campaignId,
+          //   loggedUser,
+          //   userId,
+          //   campaign
+          // );
           console.log("nu a aplicat");
         } else {
           this.userApplied = true;
           console.log("a aplicat");
+        }
+      });
+  }
+
+  async checkSocialMedia(
+    userEmail: string,
+    i: any,
+    campaign: Campaign,
+    loggedUser: DatabaseUser
+  ) {
+    this.active = i;
+
+    this.http
+      .get<{ [key: string]: DatabaseUser }>(
+        "https://project-b7a57.firebaseio.com/users.json"
+      )
+      .pipe(
+        map((responseData) => {
+          const usersArray: DatabaseUser[] = [];
+          for (const key in responseData) {
+            if (responseData.hasOwnProperty(key)) {
+              usersArray.push({ ...responseData[key], id: key });
+            }
+          }
+          return usersArray;
+        })
+      )
+      .subscribe((usersArray) => {
+        for (const i in usersArray) {
+          if (usersArray[i].email == userEmail) {
+            if (usersArray[i].social) {
+              this.userSocialMedia = true;
+              this.checkUserApplied(
+                campaign.id,
+                loggedUser.email,
+                loggedUser,
+                loggedUser.id,
+                campaign
+              );
+            } else {
+              this.userSocialMedia = false;
+            }
+          }
         }
       });
   }
@@ -201,41 +244,26 @@ export class CampaignFeedContainerComponent implements OnInit {
       });
   }
 
-  applyForCampaign(campaign, index) {
+  applyForCampaign(campaign, i) {
     const loggedUser: DatabaseUser = this.creatorService.loggedUser; //get logged in user data
     const userId = loggedUser.id;
     const userEmail = loggedUser.email;
     const campaignId = campaign.id;
 
+    //check if user added social media
+    this.checkSocialMedia(userEmail, i, campaign, loggedUser);
+
     //check if user already applied
-    this.checkUserApplied(
-      campaignId,
-      userEmail,
-      loggedUser,
-      userId,
-      campaign,
-      index
-    );
-
-    // this.checkUserApplied(campaignId, userEmail).then(userApplied =>
-    //   console.log(userApplied)
-    // );
-
-    // this.checkUserApplied(campaignId, userEmail).then(result =>
-    //   console.log(result)
-    // );
-
-    //add submissions to database
-    // this.addSubmissionToDatabase(
-    //   userApplied,
-    // campaignId,
-    // loggedUser,
-    // userId,
-    // campaign
-    // );
-  }
-
-  async funct() {
-    return "func return";
+    // if (this.userSocialMedia == true) {
+    //   this.checkUserApplied(
+    //     campaignId,
+    //     userEmail,
+    //     loggedUser,
+    //     userId,
+    //     campaign
+    //   );
+    // } else {
+    //   console.log("no social media");
+    // }
   }
 }

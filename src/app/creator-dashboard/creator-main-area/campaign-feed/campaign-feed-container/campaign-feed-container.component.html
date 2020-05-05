@@ -51,6 +51,15 @@
                 <fa-icon [icon]="faTag" class="card-icon"></fa-icon
                 ><span class="single-tag-text">{{ t.value }}</span>
               </p>
+              <div
+                class="need-socials"
+                *ngIf="userSocialMedia == false && active === i"
+              >
+                <p>
+                  We're sorry, you need to add your social media account(s) to
+                  be able to apply to campaigns.
+                </p>
+              </div>
               <div class="not-applied" *ngIf="userApplied && active === i">
                 <p>
                   You already applied to this campaign.
