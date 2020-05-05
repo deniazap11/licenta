@@ -153,13 +153,13 @@ export class CampaignFeedContainerComponent implements OnInit {
         }
         if (userApplied == 0) {
           this.userApplied = false;
-          // this.addSubmissionToDatabase(
-          //   true,
-          //   campaignId,
-          //   loggedUser,
-          //   userId,
-          //   campaign
-          // );
+          this.addSubmissionToDatabase(
+            true,
+            campaignId,
+            loggedUser,
+            userId,
+            campaign
+          );
           console.log("nu a aplicat");
         } else {
           this.userApplied = true;
