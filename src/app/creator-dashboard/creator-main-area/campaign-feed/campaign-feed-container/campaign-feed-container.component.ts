@@ -160,10 +160,8 @@ export class CampaignFeedContainerComponent implements OnInit {
             userId,
             campaign
           );
-          console.log("nu a aplicat");
         } else {
           this.userApplied = true;
-          console.log("a aplicat");
         }
       });
   }
@@ -219,7 +217,6 @@ export class CampaignFeedContainerComponent implements OnInit {
     campaign: Campaign
   ) {
     //add user to campaign table
-    console.log("if userapplied " + userApplied);
     this.http
       .post<{ name: string }>(
         "https://project-b7a57.firebaseio.com/campaigns/" +
@@ -252,18 +249,5 @@ export class CampaignFeedContainerComponent implements OnInit {
 
     //check if user added social media
     this.checkSocialMedia(userEmail, i, campaign, loggedUser);
-
-    //check if user already applied
-    // if (this.userSocialMedia == true) {
-    //   this.checkUserApplied(
-    //     campaignId,
-    //     userEmail,
-    //     loggedUser,
-    //     userId,
-    //     campaign
-    //   );
-    // } else {
-    //   console.log("no social media");
-    // }
   }
 }
