@@ -7,7 +7,6 @@ import { faArrowUp, faTag } from "@fortawesome/free-solid-svg-icons";
 import * as $ from "jquery";
 import { CreatorService } from "src/app/creator-dashboard/creator.service";
 import { DatabaseUser } from "src/app/auth/DatabaseUser.model";
-import { Data } from "@angular/router";
 
 @Component({
   selector: "app-campaign-feed-container",
@@ -21,8 +20,25 @@ export class CampaignFeedContainerComponent implements OnInit {
   userApplied: boolean;
   active: any = "";
   userSocialMedia: boolean;
+  search = "";
+  brandNames: string[] = [];
+  selectedBrand = "";
+  selectedCategory = "";
 
   campaigns: Campaign[] = [];
+
+  categories: string[] = [
+    "Art",
+    "Beauty",
+    "Health ",
+    "Food & Beverages",
+    "Lifestyle",
+    "Entertainment",
+    "Pets",
+    "Fitness",
+    "Travel",
+    "Hobbies",
+  ];
 
   constructor(
     private http: HttpClient,
@@ -31,6 +47,7 @@ export class CampaignFeedContainerComponent implements OnInit {
 
   ngOnInit() {
     this.getCampaigns();
+    this.getBrandNames();
   }
 
   ngAfterViewInit() {
@@ -249,5 +266,32 @@ export class CampaignFeedContainerComponent implements OnInit {
 
     //check if user added social media
     this.checkSocialMedia(userEmail, i, campaign, loggedUser);
+  }
+
+  getBrandNames() {
+    this.http
+      .get<{ [key: string]: DatabaseUser }>(
+        "https://project-b7a57.firebaseio.com/users.json"
+      )
+      .pipe(
+        map((responseData) => {
+          const usersArray: DatabaseUser[] = [];
+          for (const key in responseData) {
+            if (responseData.hasOwnProperty(key)) {
+              usersArray.push({ ...responseData[key], id: key });
+            }
+          }
+          return usersArray;
+        })
+      )
+      .subscribe((usersArray) => {
+        let j = 0;
+        for (const i in usersArray) {
+          if (usersArray[i].userType == "brand") {
+            this.brandNames[j] = usersArray[i].name;
+            j++;
+          }
+        }
+      });
   }
 }

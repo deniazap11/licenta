@@ -1,6 +1,7 @@
 .feed-general {
   color: #6b7a8f;
   padding-top: 20px;
+  font-family: Montserrat;
 }
 .heading {
   font-weight: 700;
@@ -102,6 +103,7 @@ h3 {
   padding: 15px;
   margin: 20px 0 0 0;
   border: 2px solid #f7882f;
+  transition: 0.3s;
 }
 .applied {
   color: green;
@@ -131,4 +133,63 @@ h3 {
 
 .need-socials p {
   margin: 0;
+}
+
+.brand-filter,
+.category-filter {
+  margin: 0 10px 0 10;
+}
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+}
+.filter-col {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.search-col {
+  display: flex;
+  justify-content: flex-end;
+}
+
+::ng-deep mat-form-field,
+mat-option {
+  font-family: Montserrat !important;
+}
+::ng-deep .mat-form-field .mat-input-element {
+  color: #6b7a8f !important;
+}
+::ng-deep .mat-form-field .mat-form-field-label {
+  color: #6b7a8f !important;
+}
+::ng-deep .mat-form-field .mat-form-field-underline {
+  background-color: #6b7a8f !important;
+}
+::ng-deep .mat-form-field .mat-form-field-ripple {
+  background-color: #6b7a8f !important;
+}
+::ng-deep .mat-form-field .mat-form-field-required-marker {
+  color: #6b7a8f !important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #f7882f !important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #f7882f !important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-required-marker {
+  color: #f7882f !important;
+}
+::ng-deep .mat-form-field.mat-focused .mat-input-element {
+  color: #f7882f !important;
+}
+
+::ng-deep .mat-focused .mat-select-arrow-wrapper .mat-select-arrow {
+  color: #f7882f !important;
+}
+::ng-deep .mat-select-value-text {
+  font-family: Montserrat !important;
 }
