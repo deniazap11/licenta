@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { MessagingService } from "src/app/push-notification/messaging.service";
 
 @Component({
   selector: "app-creator-sidenav",
@@ -7,7 +8,14 @@ import { Router } from "@angular/router";
   styleUrls: ["./creator-sidenav.component.css"],
 })
 export class CreatorSidenavComponent implements OnInit {
-  constructor(private router: Router) {}
+  message;
+  title = "push-notification";
 
-  ngOnInit() {}
+  constructor(private router: Router, private msgService: MessagingService) {}
+
+  ngOnInit() {
+    this.msgService.requestPermission();
+    this.msgService.receiveMessage();
+    this.message = this.msgService.currentMessage;
+  }
 }

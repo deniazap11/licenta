@@ -59,6 +59,10 @@ import { DigitalMarketingBannerComponent } from "./home/digital-marketing-banner
 import { NewSocialDialogComponent } from "./creator-dashboard/creator-main-area/social-account/new-social-dialog/new-social-dialog.component";
 import { LoggedNavbarComponent } from "./logged-navbar/logged-navbar.component";
 import { PathNotAllowedComponent } from "./path-not-allowed/path-not-allowed.component";
+import { SearchPipe } from "./creator-dashboard/creator-main-area/campaign-feed/campaign-feed-container/search.pipe";
+import { AngularFireAuthModule } from "angularfire2/auth";
+import { AngularFireMessagingModule } from "@angular/fire/messaging";
+import { MessagingService } from "./push-notification/messaging.service";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
@@ -170,13 +174,17 @@ firebase.initializeApp(environment.firebase);
     NewSocialDialogComponent,
     LoggedNavbarComponent,
     PathNotAllowedComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
     AngularFireModule,
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFireMessagingModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -196,7 +204,7 @@ firebase.initializeApp(environment.firebase);
     MatCardModule,
   ],
   exports: [MatExpansionModule],
-  providers: [],
+  providers: [MessagingService],
   bootstrap: [AppComponent],
   entryComponents: [NewSocialDialogComponent],
 })

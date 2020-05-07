@@ -7,6 +7,7 @@ import { faArrowUp, faTag } from "@fortawesome/free-solid-svg-icons";
 import * as $ from "jquery";
 import { CreatorService } from "src/app/creator-dashboard/creator.service";
 import { DatabaseUser } from "src/app/auth/DatabaseUser.model";
+import { SearchPipe } from "./search.pipe";
 
 @Component({
   selector: "app-campaign-feed-container",

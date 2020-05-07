@@ -30,5 +30,11 @@
       [routerLink]="[{ outlets: { 'content-c': ['brands'] } }]"
       >Brands</a
     >
+    <div>
+      Update:
+      <h1>{{ (message | async)?.notification.title }}</h1>
+      <p>{{ (message | async)?.notification.body }}</p>
+      {{ message | async | json }}
+    </div>
   </div>
 </div>
