@@ -9,6 +9,9 @@ import {
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import "src/assets/js/smtp.js";
+import { MessagingService } from "src/app/push-notification/messaging.service";
+import { DatabaseUser } from "src/app/auth/DatabaseUser.model";
+import { map } from "rxjs/operators";
 declare let Email: any;
 
 @Component({
@@ -22,10 +25,12 @@ export class ViewSubmissionsComponent implements OnInit {
   faEnvelope = faEnvelope;
   faCheckSquare = faCheckSquare;
   faPlus = faPlus;
+  buttonText = "accept";
   constructor(
     private authService: AuthService,
     private brandService: BrandService,
-    private http: HttpClient
+    private http: HttpClient,
+    private msgService: MessagingService
   ) {}
 
   ngOnInit() {
@@ -42,7 +47,7 @@ export class ViewSubmissionsComponent implements OnInit {
     campaign: Campaign
   ) {
     const status = { status: "accepted" };
-    //add status to campaigns db
+    // add status to campaigns db
     this.http
       .post<{ name: string }>(
         "https://project-b7a57.firebaseio.com/campaigns/" +
@@ -55,6 +60,8 @@ export class ViewSubmissionsComponent implements OnInit {
       .subscribe((responseData) => {
         console.log(responseData);
       });
+
+    this.getTokenForAcceptedUser(userId);
 
     Email.send({
       Host: "smtp.elasticemail.com",
@@ -478,9 +485,38 @@ export class ViewSubmissionsComponent implements OnInit {
   </body>
 </html>`,
     }).then((message) => {
-      alert(message);
+      // alert(message);
     });
 
-    window.location.reload();
+    // window.location.reload();
+  }
+
+  getTokenForAcceptedUser(userId) {
+    this.http
+      .get<{ [key: string]: any }>(
+        "https://project-b7a57.firebaseio.com/push-notifications.json"
+      )
+      .pipe(
+        map((responseData) => {
+          const entryArray: any[] = [];
+          for (const key in responseData) {
+            if (responseData.hasOwnProperty(key)) {
+              entryArray.push({ ...responseData[key], id: key });
+            }
+          }
+          return entryArray;
+        })
+      )
+      .subscribe((entries) => {
+        for (const i in entries) {
+          let user = entries[i].user;
+          console.log(user.id);
+          if (user.id == userId) {
+            console.log(entries[i].token);
+            this.msgService.sendPushNotification(entries[i].token);
+            break;
+          }
+        }
+      });
   }
 }

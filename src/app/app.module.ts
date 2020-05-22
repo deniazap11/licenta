@@ -15,6 +15,9 @@ import { MatCardModule } from "@angular/material/card";
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
+import { AngularFireMessagingModule } from "@angular/fire/messaging";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { MessagingService } from "./push-notification/messaging.service";
 
 import { environment } from "../environments/environment";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -60,9 +63,7 @@ import { NewSocialDialogComponent } from "./creator-dashboard/creator-main-area/
 import { LoggedNavbarComponent } from "./logged-navbar/logged-navbar.component";
 import { PathNotAllowedComponent } from "./path-not-allowed/path-not-allowed.component";
 import { SearchPipe } from "./creator-dashboard/creator-main-area/campaign-feed/campaign-feed-container/search.pipe";
-import { AngularFireAuthModule } from "angularfire2/auth";
-import { AngularFireMessagingModule } from "@angular/fire/messaging";
-import { MessagingService } from "./push-notification/messaging.service";
+import { AsyncPipe } from "@angular/common";
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
@@ -180,10 +181,9 @@ firebase.initializeApp(environment.firebase);
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
-    AngularFireModule,
+    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AngularFireAuthModule,
     AngularFireMessagingModule,
     FormsModule,
     HttpClientModule,
@@ -204,7 +204,7 @@ firebase.initializeApp(environment.firebase);
     MatCardModule,
   ],
   exports: [MatExpansionModule],
-  providers: [MessagingService],
+  providers: [MessagingService, AsyncPipe],
   bootstrap: [AppComponent],
   entryComponents: [NewSocialDialogComponent],
 })

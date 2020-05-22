@@ -30,11 +30,14 @@
       [routerLink]="[{ outlets: { 'content-c': ['brands'] } }]"
       >Brands</a
     >
-    <div>
+    <a
+      (click)="onClickUpdate()"
+      class="list-group-item list-group-item-action bg-light"
+    >
       Update:
       <h1>{{ (message | async)?.notification.title }}</h1>
       <p>{{ (message | async)?.notification.body }}</p>
-      {{ message | async | json }}
-    </div>
+      <!-- {{ message | async | json }} -->
+    </a>
   </div>
 </div>

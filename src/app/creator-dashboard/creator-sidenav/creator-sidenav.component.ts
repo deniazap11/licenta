@@ -18,4 +18,8 @@ export class CreatorSidenavComponent implements OnInit {
     this.msgService.receiveMessage();
     this.message = this.msgService.currentMessage;
   }
+
+  onClickUpdate() {
+    // this.msgService.sendPushNotification();
+  }
 }
