@@ -85,3 +85,13 @@ div {
 .plus-icon {
   padding-right: 3px;
 }
+
+.btn-done {
+  background-color: green;
+  color: white;
+  transition: 0.5s;
+}
+.btn-done:hover {
+  background-color: green;
+  color: white;
+}

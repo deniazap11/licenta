@@ -27,7 +27,7 @@
             </div>
             <div
               class="row creator-list"
-              *ngFor="let s of c.submissions | keyvalue"
+              *ngFor="let s of c.submissions | keyvalue; let i = index"
             >
               <div class="col-md-3">
                 <p>{{ s.value.name }}</p>
@@ -53,26 +53,46 @@
               <div class="col-md-3">
                 <div *ngIf="!(s.value.status | keyvalue)?.length">
                   <button
-                    id="accept-button-id"
+                    name="accept-btn-name"
                     class="accept-button"
                     type="button"
                     (click)="
-                      onAcceptCreator(s.value.id, c.id, s.key, s.value.email, c)
+                      onAcceptCreator(
+                        s.value.id,
+                        c.id,
+                        s.key,
+                        s.value.email,
+                        c,
+                        i
+                      )
                     "
+                    [ngClass]="{
+                      'btn-accept': !clicked && clickedIndex == i,
+                      'btn-done': clicked && clickedIndex == i
+                    }"
                   >
                     <fa-icon
+                      *ngIf="
+                        (!clicked && clickedIndex == i) ||
+                        (clicked && clickedIndex != i) ||
+                        !clicked
+                      "
                       [icon]="faPlus"
                       class="card-icon plus-icon"
                     ></fa-icon>
-                    accept
+                    <fa-icon
+                      *ngIf="clicked && clickedIndex == i"
+                      [icon]="faCheck"
+                      class="card-icon"
+                    ></fa-icon>
+                    {{ clicked && clickedIndex == i ? "done" : "accept" }}
                   </button>
                 </div>
 
-                <div
-                  class="accepted"
-                  *ngIf="(s.value.status | keyvalue)?.length"
-                >
-                  <fa-icon [icon]="faCheckSquare" class="card-icon"></fa-icon>
+                <div *ngIf="(s.value.status | keyvalue)?.length">
+                  <button class="accept-button btn-done" type="button" disabled>
+                    <fa-icon [icon]="faCheck" class="card-icon"></fa-icon>
+                  </button>
                 </div>
               </div>
             </div>

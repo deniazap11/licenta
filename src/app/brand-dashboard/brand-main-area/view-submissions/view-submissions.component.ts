@@ -7,6 +7,7 @@ import {
   faEnvelope,
   faCheckSquare,
   faPlus,
+  faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import "src/assets/js/smtp.js";
 import { MessagingService } from "src/app/push-notification/messaging.service";
@@ -25,7 +26,10 @@ export class ViewSubmissionsComponent implements OnInit {
   faEnvelope = faEnvelope;
   faCheckSquare = faCheckSquare;
   faPlus = faPlus;
+  faCheck = faCheck;
   buttonText = "accept";
+  clicked = false;
+  clickedIndex;
   constructor(
     private authService: AuthService,
     private brandService: BrandService,
@@ -44,8 +48,12 @@ export class ViewSubmissionsComponent implements OnInit {
     campaignId: string,
     submissionId: string,
     userEmail: string,
-    campaign: Campaign
+    campaign: Campaign,
+    i
   ) {
+    this.clickedIndex = i;
+    this.clicked = true;
+
     const status = { status: "accepted" };
     // add status to campaigns db
     this.http
