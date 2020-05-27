@@ -1,0 +1,78 @@
+{
+  "NAVBAR": {
+    "OPT1": "Brands",
+    "OPT2": "Creators",
+    "OPT3": "About Us",
+    "OPT4": "Dashboard",
+    "OPT5": "Login",
+    "OPT6": "Sign up",
+    "OPT7": "Logout"
+  },
+  "LOGGED-NAVBAR": {
+    "OPT7": "Logout"
+  },
+  "HOME": {
+    "HEADER-TITLE": "Welcome to Marketings!",
+    "HEADER-TEXT": "We strive to create the perfect middle ground for brands and creators.",
+    "DIGITAL-MARKETING-TITLE": "Digital Marketing",
+    "DIGITAL-MARKETING-TEXT": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+    "DIGITAL-MARKETING-CARD1-TITLE": "Cost effective",
+    "DIGITAL-MARKETING-CARD1-TEXT": "Using digital marketing tactics is the most cost-effective way to market your business.",
+    "DIGITAL-MARKETING-CARD2-TITLE": "Powerful",
+    "DIGITAL-MARKETING-CARD2-TEXT": "Digital marketing is the most powerful form of marketing.",
+    "DIGITAL-MARKETING-CARD3-TITLE": "Adaptable",
+    "DIGITAL-MARKETING-CARD3-TEXT": "You can easily and quickly adapt your strategy and tactics for best results.",
+    "BRANDS-TITLE": "For Brands",
+    "BRANDS-TEXT": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+    "BRANDS-CREATORS-BTN": "JOIN US",
+    "CREATORS-TITLE": "For Creators",
+    "CREATORS-TEXT": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining unchanged.",
+    "TEAM-TITLE": "Meet The Team",
+    "TEAM-CARD1-NAME": "Alexa",
+    "TEAM-CARD1-FUNCTION": "co-founder",
+    "TEAM-CARD1-DESCRIPTION": "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.",
+    "TEAM-CARD2-NAME": "Ezra",
+    "TEAM-CARD2-FUNCTION": "co-founder",
+    "TEAM-CARD2-DESCRIPTION": "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.",
+    "TEAM-CARD3-NAME": "Joan",
+    "TEAM-CARD3-FUNCTION": "co-founder",
+    "TEAM-CARD3-DESCRIPTION": "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.",
+    "JOIN-TITLE": "Join Us",
+    "JOIN-TEXT": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    "JOIN-BTN1": "SIGN UP",
+    "JOIN-BTN2": "LOG IN",
+    "FOOTER-LEFT": "Find Us Here:"
+  },
+  "CREATOR-DASH": {
+    "SOCIAL-MEDIA": "Social Media Accounts",
+    "CAMPAIGN-FEED": "Campaign Feed",
+    "MY-SUBMISSIONS": "My Subsmissions",
+    "BRANDS": "Brands"
+  },
+  "BRAND-DASH": {
+    "MANAGE-CAMPAIGNS": "Manage Campaigns",
+    "NEW-CAMPAIGN": "New Campaign",
+    "MANAGE-SUBMISSIONS": "Manage Submissions",
+    "CREATORS": "Creators"
+  },
+  "SOCIAL-MEDIA-VIEW": {
+    "ADD-ACCOUNT": "Add an account",
+    "POSTS": "posts",
+    "FOLLOWERS": "followers"
+  },
+  "CAMPAIGN-FEED-VIEW": {
+    "FILTER-TEXT": "Filter by:",
+    "FILTER-OPT1": "Brand",
+    "FILTER-OPT2": "Category",
+    "TITLE": "Campaign feed",
+    "CAMP-CATEGORY": "Category:",
+    "CAMP-BRIEF": "Brief for creators:",
+    "CAMP-DO": "Do:",
+    "CAMP-DONT": "Don't:",
+    "CAMP-TAGS": "Tags to include:",
+    "CAMP-CRITERIA": "Looking for creators who fit these criteria:",
+    "CAMP-GENDER": "Gender:",
+    "CAMP-AGE": "Age range:",
+    "CAMP-APPLY-BTN": "APPLY"
+  }
+}

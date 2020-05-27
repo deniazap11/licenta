@@ -9,27 +9,28 @@
       class="list-group-item list-group-item-action bg-light"
       routerLinkActive="active"
       [routerLink]="[{ outlets: { content: ['my-campaigns'] } }]"
-      >Manage campaigns</a
     >
+      {{ "BRAND-DASH.MANAGE-CAMPAIGNS" | translate }}
+    </a>
     <a
       class="list-group-item list-group-item-action bg-light"
       routerLinkActive="active"
       [routerLink]="[{ outlets: { content: ['new-campaign'] } }]"
-      >New campaign</a
+      >{{ "BRAND-DASH.NEW-CAMPAIGN" | translate }}</a
     >
 
     <a
       class="list-group-item list-group-item-action bg-light"
       routerLinkActive="active"
       [routerLink]="[{ outlets: { content: ['submissions'] } }]"
-      >Manage submissions</a
+      >{{ "BRAND-DASH.MANAGE-SUBMISSIONS" | translate }}</a
     >
 
     <a
       class="list-group-item list-group-item-action bg-light"
       routerLinkActive="active"
       [routerLink]="[{ outlets: { content: ['creators'] } }]"
-      >Creators</a
+      >{{ "BRAND-DASH.CREATORS" | translate }}</a
     >
   </div>
 </div>

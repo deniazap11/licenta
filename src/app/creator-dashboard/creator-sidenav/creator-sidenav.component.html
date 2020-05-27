@@ -10,34 +10,34 @@
       class="list-group-item list-group-item-action bg-light"
       routerLinkActive="active"
       [routerLink]="[{ outlets: { 'content-c': ['social-account'] } }]"
-      >Social Media Account</a
+      >{{ "CREATOR-DASH.SOCIAL-MEDIA" | translate }}</a
     >
     <a
       class="list-group-item list-group-item-action bg-light"
       routerLinkActive="active"
       [routerLink]="[{ outlets: { 'content-c': ['campaign-feed'] } }]"
-      >Campaign feed</a
+      >{{ "CREATOR-DASH.CAMPAIGN-FEED" | translate }}</a
     >
     <a
       class="list-group-item list-group-item-action bg-light"
       routerLinkActive="active"
       [routerLink]="[{ outlets: { 'content-c': ['my-submissions'] } }]"
-      >My submissions</a
+      >{{ "CREATOR-DASH.MY-SUBMISSIONS" | translate }}</a
     >
     <a
       class="list-group-item list-group-item-action bg-light"
       routerLinkActive="active"
       [routerLink]="[{ outlets: { 'content-c': ['brands'] } }]"
-      >Brands</a
+      >{{ "CREATOR-DASH.BRANDS" | translate }}</a
     >
-    <a
+    <!-- <a
       (click)="onClickUpdate()"
       class="list-group-item list-group-item-action bg-light"
     >
       Update:
       <h2>{{ (message | async)?.notification.title }}</h2>
       <p>{{ (message | async)?.notification.body }}</p>
-      <!-- {{ message | async | json }} -->
-    </a>
+      {{ message | async | json }}
+    </a> -->
   </div>
 </div>

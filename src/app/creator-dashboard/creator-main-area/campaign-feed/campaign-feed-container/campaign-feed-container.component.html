@@ -1,12 +1,14 @@
 <div class="container feed-general">
   <div class="row filter-row">
     <div class="col-7 filter-col">
-      Filter by:
+      {{ "CAMPAIGN-FEED-VIEW.FILTER-TEXT" | translate }}
       <div class="brand-filter">
         <mat-form-field>
-          <mat-label>Brand</mat-label>
+          <mat-label>{{
+            "CAMPAIGN-FEED-VIEW.FILTER-OPT1" | translate
+          }}</mat-label>
           <mat-select [(value)]="selectedBrand">
-            <mat-option value="">None</mat-option>
+            <mat-option value=""></mat-option>
             <mat-option *ngFor="let brand of brandNames" value="{{ brand }}">{{
               brand
             }}</mat-option>
@@ -15,9 +17,11 @@
       </div>
       <div class="category-filter">
         <mat-form-field>
-          <mat-label>Category</mat-label>
+          <mat-label>{{
+            "CAMPAIGN-FEED-VIEW.FILTER-OPT2" | translate
+          }}</mat-label>
           <mat-select [(value)]="selectedCategory">
-            <mat-option value="">None</mat-option>
+            <mat-option value=""></mat-option>
             <mat-option
               *ngFor="let category of categories"
               value="{{ category }}"
@@ -49,7 +53,7 @@
 
   <div class="row">
     <div class="col-12">
-      <h2 class="heading">Campaign feed</h2>
+      <h2 class="heading">{{ "CAMPAIGN-FEED-VIEW.TITLE" | translate }}</h2>
       <div
         class="container"
         *ngFor="let c of campaigns.slice().reverse(); let i = index"
@@ -72,19 +76,27 @@
             <span id="read-more-text" class="toggle-text">
               <div class="row">
                 <div class="col-6">
-                  <p class="font-weight-bold">Category:</p>
+                  <p class="font-weight-bold">
+                    {{ "CAMPAIGN-FEED-VIEW.CAMP-CATEGORY" | translate }}
+                  </p>
                   <p>{{ c.category }}</p>
-                  <p class="font-weight-bold">Brief for creators:</p>
+                  <p class="font-weight-bold">
+                    {{ "CAMPAIGN-FEED-VIEW.CAMP-BRIEF" | translate }}
+                  </p>
                   <p>{{ c.brief }}</p>
                 </div>
                 <div class="col-6 criteria-component">
                   <div class="creator-criteria">
                     <p class="font-weight-bold criteria-title">
-                      Looking for creators who fit these criteria:
+                      {{ "CAMPAIGN-FEED-VIEW.CAMP-CRITERIA" | translate }}
                     </p>
-                    <p class="font-weight-bold">Gender:</p>
+                    <p class="font-weight-bold">
+                      {{ "CAMPAIGN-FEED-VIEW.CAMP-GENDER" | translate }}
+                    </p>
                     <p>{{ c.gender }}</p>
-                    <p class="font-weight-bold">Age range:</p>
+                    <p class="font-weight-bold">
+                      {{ "CAMPAIGN-FEED-VIEW.CAMP-AGE" | translate }}
+                    </p>
                     <p>{{ c.age }}</p>
                   </div>
                 </div>
@@ -92,16 +104,22 @@
 
               <div class="row">
                 <div class="col-6">
-                  <p class="font-weight-bold">Do:</p>
+                  <p class="font-weight-bold">
+                    {{ "CAMPAIGN-FEED-VIEW.CAMP-DO" | translate }}
+                  </p>
                   <p>{{ c.todo }}</p>
                 </div>
                 <div class="col-6">
-                  <p class="font-weight-bold">Don't:</p>
+                  <p class="font-weight-bold">
+                    {{ "CAMPAIGN-FEED-VIEW.CAMP-DONT" | translate }}
+                  </p>
                   <p>{{ c.dont }}</p>
                 </div>
               </div>
 
-              <p class="font-weight-bold">Tags to include:</p>
+              <p class="font-weight-bold">
+                {{ "CAMPAIGN-FEED-VIEW.CAMP-TAGS" | translate }}
+              </p>
 
               <p *ngFor="let t of c.tags | keyvalue" class="single-tag">
                 <fa-icon [icon]="faTag" class="card-icon"></fa-icon
@@ -127,7 +145,7 @@
                 </p>
               </div>
               <button class="apply-button" (click)="applyForCampaign(c, i)">
-                APPLY
+                {{ "CAMPAIGN-FEED-VIEW.CAMP-APPLY-BTN" | translate }}
               </button>
             </span>
             <button class="toggle-text-button read-more-button">

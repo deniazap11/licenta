@@ -3,12 +3,9 @@
     <div class="row content-row first-row">
       <div class="col-2"></div>
       <div class="col-8 join-col">
-        <h2 style="margin: auto;">Join Us</h2>
+        <h2 style="margin: auto;">{{ "HOME.JOIN-TITLE" | translate }}</h2>
         <p style="text-align: center; margin-top: 20px;">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
+          {{ "HOME.JOIN-TEXT" | translate }}
         </p>
       </div>
     </div>
@@ -16,10 +13,14 @@
     <div class="row content-row second-row">
       <div class="col-2"></div>
       <div class="col-4">
-        <button class="join-button" routerLink="/signup">Sign up</button>
+        <button class="join-button" routerLink="/signup">
+          {{ "HOME.JOIN-BTN1" | translate }}
+        </button>
       </div>
       <div class="col-4">
-        <button class="join-button" routerLink="/login">Log in</button>
+        <button class="join-button" routerLink="/login">
+          {{ "HOME.JOIN-BTN2" | translate }}
+        </button>
       </div>
       <div class="col-2"></div>
     </div>

@@ -21,9 +21,12 @@ import { MessagingService } from "./push-notification/messaging.service";
 
 import { environment } from "../environments/environment";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HttpClient } from "@angular/common/http";
 import * as firebase from "firebase/app";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+
+import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -64,6 +67,10 @@ import { LoggedNavbarComponent } from "./logged-navbar/logged-navbar.component";
 import { PathNotAllowedComponent } from "./path-not-allowed/path-not-allowed.component";
 import { SearchPipe } from "./creator-dashboard/creator-main-area/campaign-feed/campaign-feed-container/search.pipe";
 import { AsyncPipe } from "@angular/common";
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 const appRoutes: Routes = [
   { path: "", component: HomeComponent },
@@ -202,6 +209,13 @@ firebase.initializeApp(environment.firebase);
     MatDialogModule,
     ReactiveFormsModule,
     MatCardModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
   exports: [MatExpansionModule],
   providers: [MessagingService, AsyncPipe],

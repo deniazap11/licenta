@@ -8,6 +8,7 @@ import { MyCampaignsComponent } from "../brand-dashboard/brand-main-area/my-camp
 import { DatabaseUser } from "../auth/DatabaseUser.model";
 import { map } from "rxjs/operators";
 import { HttpClient } from "@angular/common/http";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-navbar",
@@ -28,8 +29,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private http: HttpClient
-  ) {}
+    private http: HttpClient,
+    private translate: TranslateService
+  ) {
+    translate.addLangs(["en", "ro"]);
+    translate.setDefaultLang("en");
+    // const browserLang = translate.getBrowserLang();
+    // translate.use(browserLang.match(/en|ro/) ? browserLang : "en");
+  }
 
   onLogout() {
     this.authService.logout();

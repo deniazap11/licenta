@@ -100,3 +100,49 @@ nav:after {
   width: 100px;
   display: block;
 }
+
+.form-control.lang-select:focus {
+  color: #495057;
+  border-color: #dcc7aa;
+  outline: 0;
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+  color: #dcc7aa;
+}
+
+.lang-item {
+  align-self: center;
+}
+
+.form-control.lang-select {
+  padding: 3px;
+  font-size: 1.2em;
+  background-color: transparent;
+  color: #dcc7aa;
+  font-family: Montserrat;
+  transition: 0.5s;
+  border-color: #dcc7aa;
+}
+
+.lang-label {
+  margin: 0;
+}
+
+.form-control.lang-select option {
+  background-color: #6b7a8f;
+  color: #dcc7aa;
+  transition: 0.5s;
+}
+
+.form-control.lang-select:hover {
+  color: #6b7a8f;
+  background-color: #dcc7aa;
+  transition: 0.5s;
+}
+
+.form-control.lang-select option:hover {
+  color: #6b7a8f;
+  background-color: #dcc7aa;
+  transition: 0.5s;
+}

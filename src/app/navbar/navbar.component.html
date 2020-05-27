@@ -10,27 +10,30 @@
   <div class="collapse navbar-collapse" we [ngClass]="{ show: navbarOpen }">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a href="#brand" class="nav-link">Brands</a>
+        <a href="#brand" class="nav-link">{{ "NAVBAR.OPT1" | translate }}</a>
       </li>
 
       <li class="nav-item">
-        <a href="#creators" class="nav-link">Creators</a>
+        <a href="#creators" class="nav-link">{{ "NAVBAR.OPT2" | translate }}</a>
       </li>
 
       <li class="nav-item">
-        <a href="#about" class="nav-link">About</a>
+        <a href="#about" class="nav-link">{{ "NAVBAR.OPT3" | translate }}</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" *ngIf="isAuthenticated" (click)="onDashboardClick()"
-          >Dashboard</a
+        <a
+          class="nav-link"
+          *ngIf="isAuthenticated"
+          (click)="onDashboardClick()"
+          >{{ "NAVBAR.OPT4" | translate }}</a
         >
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" routerLink="/login" *ngIf="!isAuthenticated"
-          >Login</a
-        >
+        <a class="nav-link" routerLink="/login" *ngIf="!isAuthenticated">{{
+          "NAVBAR.OPT5" | translate
+        }}</a>
       </li>
 
       <li class="nav-item">
@@ -38,18 +41,32 @@
           class="nav-link last-link"
           routerLink="/signup"
           *ngIf="!isAuthenticated"
-          >Sign Up</a
+          >{{ "NAVBAR.OPT6" | translate }}</a
         >
       </li>
 
       <li class="nav-item">
         <a
-          class="nav-link"
+          class="nav-link last-link"
           style="cursor: pointer;"
           *ngIf="isAuthenticated"
           (click)="onLogout()"
-          >Logout</a
+          >{{ "NAVBAR.OPT7" | translate }}</a
         >
+      </li>
+
+      <li class="nav-item lang-item">
+        <label class="lang-label">
+          <select
+            class="form-control lang-select"
+            #langselect
+            (change)="translate.use(langselect.value)"
+          >
+            <option *ngFor="let lang of translate.getLangs()" [value]="lang">{{
+              lang
+            }}</option>
+          </select>
+        </label>
       </li>
     </ul>
   </div>

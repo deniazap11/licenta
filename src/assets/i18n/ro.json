@@ -1,0 +1,78 @@
+{
+  "NAVBAR": {
+    "OPT1": "Companii",
+    "OPT2": "Creatori de continut",
+    "OPT3": "Despre noi",
+    "OPT4": "Panou de control",
+    "OPT5": "Autentificare",
+    "OPT6": "Inregistrare",
+    "OPT7": "Deconectare"
+  },
+  "LOGGED-NAVBAR": {
+    "OPT7": "Deconectare"
+  },
+  "HOME": {
+    "HEADER-TITLE": "Bine ai venit la Marketings!",
+    "HEADER-TEXT": "Scopul nostru este sa oferim servicii perfecte pentru companii si creatori.",
+    "DIGITAL-MARKETING-TITLE": "Marketing Digital",
+    "DIGITAL-MARKETING-TEXT": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+    "DIGITAL-MARKETING-CARD1-TITLE": "Rentabil",
+    "DIGITAL-MARKETING-CARD1-TEXT": "Using digital marketing tactics is the most cost-effective way to market your business.",
+    "DIGITAL-MARKETING-CARD2-TITLE": "Puternic",
+    "DIGITAL-MARKETING-CARD2-TEXT": "Digital marketing is the most powerful form of marketing.",
+    "DIGITAL-MARKETING-CARD3-TITLE": "Adaptabil",
+    "DIGITAL-MARKETING-CARD3-TEXT": "You can easily and quickly adapt your strategy and tactics for best results.",
+    "BRANDS-TITLE": "Pentru Companii",
+    "BRANDS-TEXT": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+    "BRANDS-CREATORS-BTN": "ALATURA-TE",
+    "CREATORS-TITLE": "Pentru Creatori",
+    "CREATORS-TEXT": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining unchanged.",
+    "TEAM-TITLE": "Echipa Marketings",
+    "TEAM-CARD1-NAME": "Alexa",
+    "TEAM-CARD1-FUNCTION": "co-fondator",
+    "TEAM-CARD1-DESCRIPTION": "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.",
+    "TEAM-CARD2-NAME": "Ezra",
+    "TEAM-CARD2-FUNCTION": "co-fondator",
+    "TEAM-CARD2-DESCRIPTION": "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.",
+    "TEAM-CARD3-NAME": "Joan",
+    "TEAM-CARD3-FUNCTION": "co-fondator",
+    "TEAM-CARD3-DESCRIPTION": "It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.",
+    "JOIN-TITLE": "ALATURA-TE COMUNITATII MARKETINGS",
+    "JOIN-TEXT": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    "JOIN-BTN1": "INREGISTRARE",
+    "JOIN-BTN2": "AUTENTIFICARE",
+    "FOOTER-LEFT": "Ne poti gasi aici:"
+  },
+  "CREATOR-DASH": {
+    "SOCIAL-MEDIA": "Conturi Social Media",
+    "CAMPAIGN-FEED": "Campanii",
+    "MY-SUBMISSIONS": "Cererile mele",
+    "BRANDS": "Companii"
+  },
+  "BRAND-DASH": {
+    "MANAGE-CAMPAIGNS": "Administrare campanii",
+    "NEW-CAMPAIGN": "Campanie noua",
+    "MANAGE-SUBMISSIONS": "Administrare inscrieri",
+    "CREATORS": "Creatori de continut"
+  },
+  "SOCIAL-MEDIA-VIEW": {
+    "ADD-ACCOUNT": "Adaugare cont nou",
+    "POSTS": "postari",
+    "FOLLOWERS": "urmaritori"
+  },
+  "CAMPAIGN-FEED-VIEW": {
+    "FILTER-TEXT": "Filtru:",
+    "FILTER-OPT1": "Companie",
+    "FILTER-OPT2": "Categorie",
+    "TITLE": "Campanii",
+    "CAMP-CATEGORY": "Categorie:",
+    "CAMP-BRIEF": "Rezumat pentru creatori:",
+    "CAMP-DO": "Sunt permise urmatoarele:",
+    "CAMP-DONT": "Nu sunt permise urmatoarele:",
+    "CAMP-TAGS": "Etichete de inclus:",
+    "CAMP-CRITERIA": "Cautam creatori de continut care se potrivesc acestor criterii:",
+    "CAMP-GENDER": "Gen:",
+    "CAMP-AGE": "Interval de varsta:",
+    "CAMP-APPLY-BTN": "APLICA"
+  }
+}
