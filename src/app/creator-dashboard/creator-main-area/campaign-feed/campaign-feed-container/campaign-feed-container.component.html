@@ -55,7 +55,7 @@
     <div class="col-12">
       <h2 class="heading">{{ "CAMPAIGN-FEED-VIEW.TITLE" | translate }}</h2>
       <div
-        class="container"
+        class="container p-0"
         *ngFor="let c of campaigns.slice().reverse(); let i = index"
       >
         <div
@@ -70,7 +70,8 @@
           <div class="col-12">
             <h3>{{ c.name }}</h3>
             <p>
-              by <span class="brand">{{ c.brandName }}</span>
+              {{ "CAMPAIGN-FEED-VIEW.CAMP-CREATED-BY" | translate }}
+              <span class="brand">{{ c.brandName }}</span>
             </p>
             <p>{{ c.description }}</p>
             <span id="read-more-text" class="toggle-text">
@@ -149,6 +150,7 @@
               </button>
             </span>
             <button class="toggle-text-button read-more-button">
+              <!-- {{ "CAMPAIGN-FEED-VIEW.CAMP-READ-BTN" | translate }} -->
               READ MORE
             </button>
           </div>

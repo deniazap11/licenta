@@ -58,13 +58,17 @@
   "SOCIAL-MEDIA-VIEW": {
     "ADD-ACCOUNT": "Add an account",
     "POSTS": "posts",
-    "FOLLOWERS": "followers"
+    "FOLLOWERS": "followers",
+    "NEW-DIALOG-SAVE-BTN": "SAVE",
+    "NEW-DIALOG-CLOSE-BTN": "CLOSE"
   },
   "CAMPAIGN-FEED-VIEW": {
     "FILTER-TEXT": "Filter by:",
     "FILTER-OPT1": "Brand",
     "FILTER-OPT2": "Category",
     "TITLE": "Campaign feed",
+    "CAMP-CREATED-BY": "by",
+    "CAMP-DESCRIPTION": "Description:",
     "CAMP-CATEGORY": "Category:",
     "CAMP-BRIEF": "Brief for creators:",
     "CAMP-DO": "Do:",
@@ -73,6 +77,44 @@
     "CAMP-CRITERIA": "Looking for creators who fit these criteria:",
     "CAMP-GENDER": "Gender:",
     "CAMP-AGE": "Age range:",
-    "CAMP-APPLY-BTN": "APPLY"
+    "CAMP-APPLY-BTN": "APPLY",
+    "CAMP-READ-BTN": "READ MORE"
+  },
+  "MY-SUBMISSIONS": {
+    "TITLE": "My submissions",
+    "STATUS-ACCEPTED": "accepted",
+    "STATUS-PENDING": "pending"
+  },
+  "BRAND-LIST": {
+    "NAME": "Name",
+    "FILTER-TEXT": "Filter:"
+  },
+  "MANAGE-CAMP": {
+    "TITLE": "Manage campaigns",
+    "ADD-CAMP-BTN": "ADD CAMPAIGN",
+    "DELETE-CAMP-BTN": "DELETE"
+  },
+  "NEW-CAMPAIGN-VIEW": {
+    "TITLE": "Fill in the fields bellow about the desired campaign.",
+    "NAME": "Campaign Name:",
+    "CATEGORY": "Category:",
+    "DESCRIPTION": "Product Or Service Description:",
+    "BRIEF": "Brief For Creators:",
+    "DO": "Do:",
+    "DONT": "Don't:",
+    "TAGS": "Hashtags To Include:",
+    "CRITERIA-SUBTITLE": "Who are you looking for?",
+    "GENDER": "Gender:",
+    "AGE": "Age range:",
+    "DISCLAIMER": "Please note that the campaign can only be deleted after submission. You will not be able to modify the details and requirements.",
+    "SUBMIT-BTN": "SUBMIT"
+  },
+  "MANAGE-SUBM": {
+    "TITLE": "Manage submissions",
+    "NAME": "Name"
+  },
+  "CREATOR-LIST": {
+    "NAME": "Name",
+    "FILTER-TEXT": "Filter:"
   }
 }

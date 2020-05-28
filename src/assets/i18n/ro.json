@@ -58,21 +58,63 @@
   "SOCIAL-MEDIA-VIEW": {
     "ADD-ACCOUNT": "Adaugare cont nou",
     "POSTS": "postari",
-    "FOLLOWERS": "urmaritori"
+    "FOLLOWERS": "urmaritori",
+    "NEW-DIALOG-SAVE-BTN": "SALVARE",
+    "NEW-DIALOG-CLOSE-BTN": "INCHIDE"
   },
   "CAMPAIGN-FEED-VIEW": {
     "FILTER-TEXT": "Filtru:",
     "FILTER-OPT1": "Companie",
     "FILTER-OPT2": "Categorie",
     "TITLE": "Campanii",
+    "CAMP-CREATED-BY": "creat de",
+    "CAMP-DESCRIPTION": "Descriere:",
     "CAMP-CATEGORY": "Categorie:",
     "CAMP-BRIEF": "Rezumat pentru creatori:",
     "CAMP-DO": "Sunt permise urmatoarele:",
     "CAMP-DONT": "Nu sunt permise urmatoarele:",
     "CAMP-TAGS": "Etichete de inclus:",
     "CAMP-CRITERIA": "Cautam creatori de continut care se potrivesc acestor criterii:",
-    "CAMP-GENDER": "Gen:",
+    "CAMP-GENDER": "Sex:",
     "CAMP-AGE": "Interval de varsta:",
-    "CAMP-APPLY-BTN": "APLICA"
+    "CAMP-APPLY-BTN": "APLICA",
+    "CAMP-READ-BTN": "MAI MULT"
+  },
+  "MY-SUBMISSIONS": {
+    "TITLE": "Cererile mele",
+    "STATUS-ACCEPTED": "acceptat",
+    "STATUS-PENDING": "in asteptare"
+  },
+  "BRAND-LIST": {
+    "NAME": "Nume",
+    "FILTER-TEXT": "Filtru:"
+  },
+  "MANAGE-CAMP": {
+    "TITLE": "Administrare campanii",
+    "ADD-CAMP-BTN": "CREARE CAMPANIE",
+    "DELETE-CAMP-BTN": "STERGE"
+  },
+  "NEW-CAMPAIGN-VIEW": {
+    "TITLE": "Completati campurile cu detalii corespunzatoare despre noua campanie.",
+    "NAME": "Denumirea campaniei:",
+    "CATEGORY": "Categorie:",
+    "DESCRIPTION": "Descrierea produsului sau serviciului:",
+    "BRIEF": "Rezumat pentru creatori:",
+    "DO": "Sunt permise urmatoarele:",
+    "DONT": "Nu sunt permise urmatoarele:",
+    "TAGS": "Etichete de inclus:",
+    "CRITERIA-SUBTITLE": "Caror persoane va adresati?",
+    "GENDER": "Gen:",
+    "AGE": "Interval de varsta",
+    "DISCLAIMER": "Mentionam ca odata creata campania, ea poate fi doar stearsa, nu se pot modifica aceste detalii ulterior.",
+    "SUBMIT-BTN": "ADAUGA"
+  },
+  "MANAGE-SUBM": {
+    "TITLE": "Administrare cereri",
+    "NAME": "Nume"
+  },
+  "CREATOR-LIST": {
+    "NAME": "Nume",
+    "FILTER-TEXT": "Filtru:"
   }
 }

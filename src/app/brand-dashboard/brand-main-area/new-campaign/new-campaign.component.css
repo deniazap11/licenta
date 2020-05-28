@@ -632,7 +632,7 @@ input {
 .title {
   font-size: 24px;
   color: #525252;
-  font-weight: 400;
+  font-weight: 600;
   margin-bottom: 40px;
 }
 
@@ -721,7 +721,7 @@ input {
   background-color: #6b7a8f;
   color: #dcc7aa;
   border: 0;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   padding: 10px 20px;
   margin: 15px 0px;
   transition: 0.5s;
@@ -734,4 +734,10 @@ input {
   background-color: #dcc7aa;
   color: #6b7a8f;
   transition: 0.5s;
+}
+
+.input-group .label,
+.label {
+  text-transform: uppercase;
+  font-weight: 500;
 }

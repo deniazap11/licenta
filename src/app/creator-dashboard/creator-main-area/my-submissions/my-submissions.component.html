@@ -1,7 +1,7 @@
 <div class="container feed-general">
   <div class="row">
     <div class="col-12">
-      <h2 class="heading">My submissions</h2>
+      <h2 class="heading">{{ "MY-SUBMISSIONS.TITLE" | translate }}</h2>
       <div class="container campaign-container">
         <mat-accordion>
           <mat-expansion-panel *ngFor="let c of myCampaigns">
@@ -10,7 +10,10 @@
                 {{ c.name }}
               </mat-panel-title>
               <mat-panel-description>
-                <div class="half">by {{ c.brandName }}</div>
+                <div class="half">
+                  {{ "CAMPAIGN-FEED-VIEW.CAMP-CREATED-BY" | translate }}
+                  <span class="brand-name">{{ c.brandName }}</span>
+                </div>
 
                 <div class="half">
                   <div *ngFor="let sub of c.submissions | keyvalue">
@@ -25,7 +28,7 @@
                         [icon]="faCheckCircle"
                         class="card-icon"
                       ></fa-icon>
-                      accepted
+                      {{ "MY-SUBMISSIONS.STATUS-ACCEPTED" | translate }}
                     </div>
                     <div
                       class="pending"
@@ -38,7 +41,7 @@
                         [icon]="faPauseCircle"
                         class="card-icon"
                       ></fa-icon>
-                      pending
+                      {{ "MY-SUBMISSIONS.STATUS-PENDING" | translate }}
                     </div>
                   </div>
                 </div>
@@ -46,7 +49,9 @@
             </mat-expansion-panel-header>
             <div class="row">
               <div class="col-12">
-                <p class="font-weight-bold">Description:</p>
+                <p class="font-weight-bold">
+                  {{ "CAMPAIGN-FEED-VIEW.CAMP-DESCRIPTION" | translate }}
+                </p>
                 <p>
                   {{ c.description }}
                 </p>
@@ -54,19 +59,27 @@
             </div>
             <div class="row">
               <div class="col-6">
-                <p class="font-weight-bold">Category:</p>
+                <p class="font-weight-bold">
+                  {{ "CAMPAIGN-FEED-VIEW.CAMP-CATEGORY" | translate }}
+                </p>
                 <p>{{ c.category }}</p>
-                <p class="font-weight-bold">Brief for creators:</p>
+                <p class="font-weight-bold">
+                  {{ "CAMPAIGN-FEED-VIEW.CAMP-BRIEF" | translate }}
+                </p>
                 <p>{{ c.brief }}</p>
               </div>
               <div class="col-6 criteria-component">
                 <div class="creator-criteria">
                   <p class="font-weight-bold criteria-title">
-                    Looking for creators who fit these criteria:
+                    {{ "CAMPAIGN-FEED-VIEW.CAMP-CRITERIA" | translate }}
                   </p>
-                  <p class="font-weight-bold">Gender:</p>
+                  <p class="font-weight-bold">
+                    {{ "CAMPAIGN-FEED-VIEW.CAMP-GENDER" | translate }}
+                  </p>
                   <p>{{ c.gender }}</p>
-                  <p class="font-weight-bold">Age range:</p>
+                  <p class="font-weight-bold">
+                    {{ "CAMPAIGN-FEED-VIEW.CAMP-AGE" | translate }}
+                  </p>
                   <p>{{ c.age }}</p>
                 </div>
               </div>
@@ -74,16 +87,22 @@
 
             <div class="row">
               <div class="col-6">
-                <p class="font-weight-bold">Do:</p>
+                <p class="font-weight-bold">
+                  {{ "CAMPAIGN-FEED-VIEW.CAMP-DO" | translate }}
+                </p>
                 <p>{{ c.todo }}</p>
               </div>
               <div class="col-6">
-                <p class="font-weight-bold">Don't:</p>
+                <p class="font-weight-bold">
+                  {{ "CAMPAIGN-FEED-VIEW.CAMP-DONT" | translate }}
+                </p>
                 <p>{{ c.dont }}</p>
               </div>
             </div>
 
-            <p class="font-weight-bold">Tags to include:</p>
+            <p class="font-weight-bold">
+              {{ "CAMPAIGN-FEED-VIEW.CAMP-TAGS" | translate }}
+            </p>
 
             <p *ngFor="let t of c.tags | keyvalue" class="single-tag">
               <fa-icon [icon]="faTag" class="card-icon"></fa-icon

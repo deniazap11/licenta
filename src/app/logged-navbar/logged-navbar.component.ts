@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "../auth/auth.service";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-logged-navbar",
@@ -7,7 +8,13 @@ import { AuthService } from "../auth/auth.service";
   styleUrls: ["./logged-navbar.component.css"],
 })
 export class LoggedNavbarComponent implements OnInit {
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private translate: TranslateService
+  ) {
+    translate.addLangs(["en", "ro"]);
+    translate.setDefaultLang("en");
+  }
 
   ngOnInit() {}
 

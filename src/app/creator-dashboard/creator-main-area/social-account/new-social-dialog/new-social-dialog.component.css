@@ -1,11 +1,10 @@
 .dialog-button {
   border: none;
-  margin-right: 10px;
   background-color: #6b7a8f;
   color: #dcc7aa;
   border-radius: 5px;
   padding: 10px 20px;
-  margin: 15px 0px;
+  margin: 15px 10px;
   transition: 0.5s;
   font-weight: 500;
   outline: none;

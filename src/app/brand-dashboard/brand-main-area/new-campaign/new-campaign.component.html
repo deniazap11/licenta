@@ -3,7 +3,7 @@
     <div class="card card-4 form-card">
       <div class="card-body">
         <h2 class="title form-columns">
-          Fill in the fields bellow about the desired campaign
+          {{ "NEW-CAMPAIGN-VIEW.TITLE" | translate }}
         </h2>
         <form
           #newCampaignForm="ngForm"
@@ -12,7 +12,9 @@
           <div class="row row-space">
             <div class="col-6 form-columns">
               <div class="input-group">
-                <label class="label">Product or service name:</label>
+                <label class="label">{{
+                  "NEW-CAMPAIGN-VIEW.NAME" | translate
+                }}</label>
                 <input
                   class="input--style-4"
                   type="text"
@@ -24,7 +26,9 @@
             </div>
             <div class="col-6 form-columns">
               <div class="input-group select-field">
-                <label class="label">Category:</label>
+                <label class="label">{{
+                  "NEW-CAMPAIGN-VIEW.CATEGORY" | translate
+                }}</label>
                 <mat-select class="input--style-4" name="category" ngModel>
                   <mat-option
                     *ngFor="let category of categories"
@@ -38,7 +42,9 @@
           <div class="row row-space">
             <div class="col-6 form-columns">
               <div class="input-group">
-                <label class="label">Product or service description:</label>
+                <label class="label">{{
+                  "NEW-CAMPAIGN-VIEW.DESCRIPTION" | translate
+                }}</label>
                 <textarea
                   class="input--style-4"
                   type="text"
@@ -51,7 +57,9 @@
             </div>
             <div class="col-6 form-columns">
               <div class="input-group">
-                <label class="label">Brief for creators:</label>
+                <label class="label">{{
+                  "NEW-CAMPAIGN-VIEW.BRIEF" | translate
+                }}</label>
                 <textarea
                   class="input--style-4"
                   type="text"
@@ -66,7 +74,9 @@
           <div class="row row-space">
             <div class="col-6 form-columns">
               <div class="input-group">
-                <label class="label">Do:</label>
+                <label class="label">{{
+                  "NEW-CAMPAIGN-VIEW.DO" | translate
+                }}</label>
                 <textarea
                   class="input--style-4"
                   type="text"
@@ -79,7 +89,9 @@
             </div>
             <div class="col-6 form-columns">
               <div class="input-group">
-                <label class="label">Don't:</label>
+                <label class="label">{{
+                  "NEW-CAMPAIGN-VIEW.DONT" | translate
+                }}</label>
                 <textarea
                   class="input--style-4"
                   type="text"
@@ -96,7 +108,9 @@
           <div class="row row-space">
             <div class="col-12 form-columns">
               <div class="input-group">
-                <label class="label">Tags to include:</label>
+                <label class="label">{{
+                  "NEW-CAMPAIGN-VIEW.TAGS" | translate
+                }}</label>
                 <mat-form-field style="width: 100%;">
                   <mat-chip-list #chipList aria-label="Tag selection">
                     <mat-chip
@@ -127,7 +141,7 @@
                 class="title"
                 style="font-size: 20px; margin-bottom: 10px; margin-top: 10px;"
               >
-                Who are you looking for?
+                {{ "NEW-CAMPAIGN-VIEW.CRITERIA-SUBTITLE" | translate }}
               </h4>
             </div>
           </div>
@@ -135,7 +149,9 @@
           <div class="row row-space">
             <div class="col-6 form-columns">
               <div class="input-group select-field">
-                <label class="label">Gender:</label>
+                <label class="label">{{
+                  "NEW-CAMPAIGN-VIEW.GENDER" | translate
+                }}</label>
 
                 <mat-select
                   class="input--style-4"
@@ -150,7 +166,9 @@
               </div>
             </div>
             <div class="col-6 form-columns">
-              <label class="label">Age:</label>
+              <label class="label">{{
+                "NEW-CAMPAIGN-VIEW.AGE" | translate
+              }}</label>
               <div class="slidecontainer">
                 <mat-slider
                   thumbLabel
@@ -167,16 +185,14 @@
           <div class="row row-space">
             <div class="p-t-15 form-columns">
               <p style="font-size: 10px; margin-bottom: 10px;">
-                Please note that the campaign can only be deleted after
-                submission. You will not be able to modify the details and
-                requirements.
+                {{ "NEW-CAMPAIGN-VIEW.DISCLAIMER" | translate }}
               </p>
               <button
                 class="submit-button"
                 type="submit"
                 [disabled]="!newCampaignForm.valid"
               >
-                SUBMIT
+                {{ "NEW-CAMPAIGN-VIEW.SUBMIT-BTN" | translate }}
               </button>
             </div>
           </div>
