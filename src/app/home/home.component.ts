@@ -4,6 +4,7 @@ import { DatabaseUser } from "../auth/DatabaseUser.model";
 import { Router } from "@angular/router";
 import { map } from "rxjs/operators";
 import { AuthService } from "../auth/auth.service";
+import * as $ from "jquery";
 
 @Component({
   selector: "app-home",
@@ -17,5 +18,13 @@ export class HomeComponent implements OnInit {
     private authService: AuthService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    $(window).scroll(function () {
+      if ($(document).scrollTop() > 50) {
+        $("nav").addClass("shrink");
+      } else {
+        $("nav").removeClass("shrink");
+      }
+    });
+  }
 }
