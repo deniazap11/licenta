@@ -19,6 +19,10 @@ div {
   font-family: Montserrat;
 }
 
+/* ::ng-deep .mat-expansion-panel-header {
+  max-width: 50%;
+  font-family: Montserrat;
+} */
 .table-header {
   font-size: 1rem;
   font-weight: 600;
@@ -39,10 +43,10 @@ div {
   text-decoration: none;
   transition: 0.3s;
 }
-
-.email-col {
+/* 
+.email-col .card-icon {
   font-size: 1.5rem;
-}
+} */
 
 .email-col a {
   color: #f7882f;
@@ -94,4 +98,49 @@ div {
 .btn-done:hover {
   background-color: green;
   color: white;
+}
+.campaign-title {
+  /* font-weight: 700; */
+  color: #6b7a8f;
+  font-size: 1.1rem;
+}
+.campaign-desc {
+  /* font-weight: 600; */
+}
+
+@media only screen and (min-width: 576px) {
+  .hide-fullscreen {
+    display: none;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .my-campaigns-container {
+    padding: 40px 20px;
+  }
+  ::ng-deep .mat-expansion-panel-header-title {
+    width: 70%;
+  }
+  ::ng-deep .mat-expansion-panel-header-description {
+    width: 30%;
+  }
+  .hide-mobile {
+    display: none;
+  }
+  .subtitle {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .creator-list {
+    border-top: 1px solid #6b7a8f;
+  }
+  .submission-entry {
+    padding-top: 10px;
+  }
+  .accept-button {
+    margin-top: 5px;
+  }
+  .submission-entry p {
+    margin-bottom: 0;
+    font-weight: 500;
+  }
 }

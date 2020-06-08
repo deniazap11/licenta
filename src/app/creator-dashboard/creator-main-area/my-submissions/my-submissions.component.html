@@ -10,12 +10,12 @@
                 {{ c.name }}
               </mat-panel-title>
               <mat-panel-description>
-                <div class="half">
+                <div class="first-half">
                   {{ "CAMPAIGN-FEED-VIEW.CAMP-CREATED-BY" | translate }}
                   <span class="brand-name">{{ c.brandName }}</span>
                 </div>
 
-                <div class="half">
+                <div class="second-half">
                   <div *ngFor="let sub of c.submissions | keyvalue">
                     <div
                       class="accepted"
@@ -28,7 +28,10 @@
                         [icon]="faCheckCircle"
                         class="card-icon"
                       ></fa-icon>
-                      {{ "MY-SUBMISSIONS.STATUS-ACCEPTED" | translate }}
+                      &nbsp;
+                      <span class="mobile-hide">{{
+                        "MY-SUBMISSIONS.STATUS-ACCEPTED" | translate
+                      }}</span>
                     </div>
                     <div
                       class="pending"
@@ -41,7 +44,10 @@
                         [icon]="faPauseCircle"
                         class="card-icon"
                       ></fa-icon>
-                      {{ "MY-SUBMISSIONS.STATUS-PENDING" | translate }}
+                      &nbsp;
+                      <span class="mobile-hide">{{
+                        "MY-SUBMISSIONS.STATUS-PENDING" | translate
+                      }}</span>
                     </div>
                   </div>
                 </div>
@@ -58,7 +64,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-6">
+              <div class="col-sm-12 col-md-6">
                 <p class="font-weight-bold">
                   {{ "CAMPAIGN-FEED-VIEW.CAMP-CATEGORY" | translate }}
                 </p>
@@ -68,7 +74,7 @@
                 </p>
                 <p>{{ c.brief }}</p>
               </div>
-              <div class="col-6 criteria-component">
+              <div class="col-sm-12 col-md-6 criteria-component">
                 <div class="creator-criteria">
                   <p class="font-weight-bold criteria-title">
                     {{ "CAMPAIGN-FEED-VIEW.CAMP-CRITERIA" | translate }}
@@ -86,13 +92,13 @@
             </div>
 
             <div class="row">
-              <div class="col-6">
+              <div class="col-sm-12 col-md-6">
                 <p class="font-weight-bold">
                   {{ "CAMPAIGN-FEED-VIEW.CAMP-DO" | translate }}
                 </p>
                 <p>{{ c.todo }}</p>
               </div>
-              <div class="col-6">
+              <div class="col-sm-12 col-md-6">
                 <p class="font-weight-bold">
                   {{ "CAMPAIGN-FEED-VIEW.CAMP-DONT" | translate }}
                 </p>

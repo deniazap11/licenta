@@ -699,7 +699,7 @@ input {
       rgba(255, 255, 255, 0.5)
     ),
     url("https://freedesignfile.com/upload/2017/01/White-geometric-shapes-backgrounds-vector-set-08.jpg"); */
-  background-color: #f5d058;
+  background-color: #ffeacc;
 }
 .form-wrapper {
   width: 80%;
@@ -740,4 +740,16 @@ input {
 .label {
   text-transform: uppercase;
   font-weight: 500;
+}
+
+@media only screen and (max-width: 576px) {
+  .form-wrapper {
+    width: 94%;
+  }
+  .wrapper-custom {
+    padding: 20px 0px;
+  }
+  .card-4 .card-body {
+    padding: 30px 20px;
+  }
 }

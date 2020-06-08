@@ -19,6 +19,9 @@ body {
   color: #6b7a8f;
 }
 
+#sidebar-wrapper.show-sidebar {
+  margin-left: 0;
+}
 #sidebar-wrapper .sidebar-heading {
   padding: 0.875rem 1.25rem;
   font-size: 1.2rem;

@@ -6,12 +6,14 @@
         <mat-accordion>
           <mat-expansion-panel *ngFor="let c of campaigns">
             <mat-expansion-panel-header>
-              <mat-panel-title>
+              <mat-panel-title class="campaign-title">
                 {{ c.name }}
               </mat-panel-title>
-              <mat-panel-description> {{ c.category }}</mat-panel-description>
+              <mat-panel-description class="campaign-desc">
+                {{ c.category }}</mat-panel-description
+              >
             </mat-expansion-panel-header>
-            <div class="row table-header">
+            <div class="row table-header hide-mobile">
               <div class="col-md-3">
                 {{ "MANAGE-SUBM.NAME" | translate }}
               </div>
@@ -29,10 +31,14 @@
               class="row creator-list"
               *ngFor="let s of c.submissions | keyvalue; let i = index"
             >
-              <div class="col-md-3">
+              <div class="col-md-3 submission-entry">
+                <span class="subtitle hide-fullscreen"
+                  >{{ "MANAGE-SUBM.NAME" | translate }}:</span
+                >
                 <p>{{ s.value.name }}</p>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-3 submission-entry">
+                <span class="subtitle hide-fullscreen">Instagram:</span>
                 <div
                   class="social-usernames"
                   *ngFor="let social of s.value.social | keyvalue"
@@ -44,13 +50,18 @@
                   >
                 </div>
               </div>
-              <div class="col-md-3 email-col">
-                <a href="mailto:{{ s.value.email }}">
-                  <fa-icon [icon]="faEnvelope" class="card-icon"></fa-icon>
-                </a>
+              <div class="col-md-3 submission-entry email-col social-usernames">
+                <span class="subtitle hide-fullscreen">Email:</span>
+                <div>
+                  <a href="mailto:{{ s.value.email }}">
+                    <fa-icon [icon]="faEnvelope" class="card-icon"></fa-icon>
+                    {{ s.value.email }}</a
+                  >
+                </div>
               </div>
 
-              <div class="col-md-3">
+              <div class="col-md-3 submission-entry">
+                <span class="subtitle hide-fullscreen">Status:</span>
                 <div *ngIf="!(s.value.status | keyvalue)?.length">
                   <button
                     name="accept-btn-name"

@@ -18,6 +18,12 @@ body {
 #sidebar-wrapper a {
   color: #6b7a8f;
 }
+#sidebar-wrapper.show-sidebar {
+  margin-left: 0;
+}
+#sidebar-wrapper.hide-sidebar {
+  margin-left: -15rem;
+}
 
 #sidebar-wrapper .sidebar-heading {
   padding: 0.875rem 1.25rem;

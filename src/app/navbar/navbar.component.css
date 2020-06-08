@@ -146,3 +146,21 @@ nav:after {
   background-color: #dcc7aa;
   transition: 0.5s;
 }
+
+.navbar-toggler-custom {
+  margin-left: auto;
+}
+
+.navbar-dark .navbar-toggler {
+  color: #dcc7aa;
+  border-color: #dcc7aa;
+}
+
+@media only screen and (max-width: 576px) {
+  nav li a {
+    border: none;
+  }
+  .extra-spacing {
+    padding-bottom: 20px;
+  }
+}

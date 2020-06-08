@@ -8,6 +8,9 @@ import { TranslateService } from "@ngx-translate/core";
   styleUrls: ["./logged-navbar.component.css"],
 })
 export class LoggedNavbarComponent implements OnInit {
+  navbarOpen = false;
+  sidenavOpen = false;
+
   constructor(
     private authService: AuthService,
     private translate: TranslateService
@@ -16,9 +19,26 @@ export class LoggedNavbarComponent implements OnInit {
     translate.setDefaultLang("en");
   }
 
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
+
   ngOnInit() {}
 
   onLogout() {
     this.authService.logout();
+  }
+
+  openSidenav() {
+    if (this.sidenavOpen == false) {
+      (<HTMLInputElement>(
+        document.getElementById("sidebar-wrapper")
+      )).classList.add("show-sidebar");
+    } else {
+      (<HTMLInputElement>(
+        document.getElementById("sidebar-wrapper")
+      )).classList.remove("show-sidebar");
+    }
+    this.sidenavOpen = !this.sidenavOpen;
   }
 }

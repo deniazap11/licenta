@@ -9,7 +9,8 @@
     "OPT7": "Logout"
   },
   "LOGGED-NAVBAR": {
-    "OPT7": "Logout"
+    "OPT7": "Logout",
+    "MENU": "MENU"
   },
   "HOME": {
     "HEADER-TITLE": "Welcome to Marketings!",
@@ -26,7 +27,7 @@
     "BRANDS-TEXT": "The Marketings platform is a useful tool for brands to reach out to content creators that suit their business. By creating campaigns where they brief the creators, they offer the possibility for them to engage and take part in promoting certain products or services. All campaigns and creator submissions are managed via an intuitive and easy-to-use dashboard, accesible only for the brand.",
     "BRANDS-CREATORS-BTN": "JOIN US",
     "CREATORS-TITLE": "For Creators",
-    "CREATORS-TEXT": "On the other side of the spectrum are the creators, which gain access to a series of userful features by signing up and using this platform. A designated dashboard is available for creators, where they can browse and enroll in the active campaigns that brands had created. Also, the status of each submission is available to check at any time, as well as information about the brands.",
+    "CREATORS-TEXT": "On the other side of the spectrum are the creators, which gain access to a series of userful features by signing up and using this platform. A designated dashboard is available for creators, where they can browse and enroll in the active campaigns that brands had created. Also, the status of each submission is available to check at any time, as well as contact information on the brands using our platform.",
     "TEAM-TITLE": "Meet The Team",
     "TEAM-CARD1-NAME": "Alexa",
     "TEAM-CARD1-FUNCTION": "co-founder",

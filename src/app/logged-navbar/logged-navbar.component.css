@@ -141,3 +141,44 @@ nav:after {
   background-color: #dcc7aa;
   transition: 0.5s;
 }
+
+.navbar-toggler-custom {
+  margin-left: auto;
+}
+
+.navbar-dark .navbar-toggler {
+  color: #dcc7aa;
+  border-color: #dcc7aa;
+}
+
+.show-sidebar {
+  margin-left: 0;
+}
+.sidenav-toggle-btn {
+  background-color: #f7882f;
+  color: #f8ead5;
+  border: 0;
+  padding: 10px 10px;
+  margin: 15px 0px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: Montserrat;
+}
+
+@media only screen and (min-width: 576px) {
+  .logo {
+    display: none;
+  }
+  .sidenav-toggle-btn {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .logo {
+    max-height: 60px;
+  }
+  .extra-spacing {
+    padding-bottom: 20px;
+  }
+}

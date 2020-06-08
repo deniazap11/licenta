@@ -1,5 +1,24 @@
-<nav class="navbar navbar-expand-lg navbar-style">
-  <div class="collapse navbar-collapse" we [ngClass]="{ show: navbarOpen }">
+<nav class="navbar navbar-expand-lg navbar-dark navbar-style">
+  <!-- <a class="navbar-brand" routerLink="/">
+    <img class="logo" src="../../assets/images/logo3.png" />
+  </a> -->
+  <button class="sidenav-toggle-btn" (click)="openSidenav()">
+    {{ "LOGGED-NAVBAR.MENU" | translate }}
+  </button>
+
+  <button
+    class="navbar-toggler navbar-toggler-custom"
+    type="button"
+    (click)="toggleNavbar()"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div
+    class="collapse navbar-collapse extra-spacing"
+    we
+    [ngClass]="{ show: navbarOpen }"
+  >
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <a

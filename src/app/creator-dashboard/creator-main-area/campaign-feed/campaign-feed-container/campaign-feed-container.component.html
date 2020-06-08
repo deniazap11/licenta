@@ -1,7 +1,9 @@
 <div class="container feed-general">
   <div class="row filter-row">
     <div class="col-7 filter-col">
-      {{ "CAMPAIGN-FEED-VIEW.FILTER-TEXT" | translate }}
+      <span class="filter-title">{{
+        "CAMPAIGN-FEED-VIEW.FILTER-TEXT" | translate
+      }}</span>
       <div class="brand-filter">
         <mat-form-field>
           <mat-label>{{
@@ -76,7 +78,7 @@
             <p>{{ c.description }}</p>
             <span id="read-more-text" class="toggle-text">
               <div class="row">
-                <div class="col-6">
+                <div class="col-sm-12 col-md-6">
                   <p class="font-weight-bold">
                     {{ "CAMPAIGN-FEED-VIEW.CAMP-CATEGORY" | translate }}
                   </p>
@@ -86,7 +88,7 @@
                   </p>
                   <p>{{ c.brief }}</p>
                 </div>
-                <div class="col-6 criteria-component">
+                <div class="col-sm-12 col-md-6 criteria-component">
                   <div class="creator-criteria">
                     <p class="font-weight-bold criteria-title">
                       {{ "CAMPAIGN-FEED-VIEW.CAMP-CRITERIA" | translate }}
@@ -104,13 +106,13 @@
               </div>
 
               <div class="row">
-                <div class="col-6">
+                <div class="col-sm-12 col-md-6">
                   <p class="font-weight-bold">
                     {{ "CAMPAIGN-FEED-VIEW.CAMP-DO" | translate }}
                   </p>
                   <p>{{ c.todo }}</p>
                 </div>
-                <div class="col-6">
+                <div class="col-sm-12 col-md-6">
                   <p class="font-weight-bold">
                     {{ "CAMPAIGN-FEED-VIEW.CAMP-DONT" | translate }}
                   </p>

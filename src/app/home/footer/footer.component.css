@@ -22,3 +22,10 @@
 .footer p {
   margin-bottom: 5px;
 }
+
+@media only screen and (max-width: 576px) {
+  .footer-left,
+  .footer-right {
+    justify-content: center;
+  }
+}
